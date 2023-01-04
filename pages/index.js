@@ -1,12 +1,20 @@
+import Head from "next/head";
 import React from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/navbar";
+import About from "../components/About";
+import ProductList from "../components/ProductList";
+import ScrollToTop from "../components/ScrollToTop";
+import Service from "../components/Service";
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <Footer />
+      <Head>
+        <title>Encrease - Home</title>
+      </Head>
+      <Service />
+      <About />
+      <ProductList />
+      <ScrollToTop />
     </div>
   );
 };
