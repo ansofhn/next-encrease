@@ -37,7 +37,7 @@ const Contact = () => {
             <div className="mb-4 text-base font-light tracking-widest text-gray-500 uppercase">
               contact
             </div>
-            Get in touch, Have a Question?
+            Love to hear from you, Get in touch
           </div>
           <div className="md:col-start-1">
             <label className="text-background" forInput="name">
