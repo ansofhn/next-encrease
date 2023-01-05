@@ -22,8 +22,8 @@ const about = () => {
             <div className="container">
               <div className="grid grid-cols-1 space-y-6 md:gap-10 lg:mx-10 xl:mx-16 md:grid-cols-2">
                 <div className="text-2xl font-bold text-center uppercase md:col-span-2 lg:mx-10 xl:mx-44 2xl:mx-80 text-background/80">
-                  LOREM IPSUM DOLOR SEMPER AMET, CONSECTETUR ELIT. INTEGER
-                  SEMPER ELIT NEC JUSTO AUCTOR
+                  Supporting information system for this entrepreneurial
+                  pioneering school is a web-based application
                 </div>
                 <div className="text-gray-500">
                   Aliquam vulputate turpis quis nibh tempus finibus. In
