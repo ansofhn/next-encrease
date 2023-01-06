@@ -17,7 +17,7 @@ const Register = () => {
             type="text"
             placeholder="Username"
             required
-            className="w-full p-2 text-sm"
+            className="w-full p-2 text-sm bg-softWhite focus:outline-none"
           />
         </div>
         <div className="py-4">
@@ -25,7 +25,7 @@ const Register = () => {
             type="number"
             placeholder="Phone Number"
             required
-            className="w-full p-2 text-sm"
+            className="w-full p-2 text-sm bg-softWhite focus:outline-none"
           />
         </div>
         <div className="py-4">
@@ -33,7 +33,7 @@ const Register = () => {
             type="password"
             placeholder="Password"
             required
-            className="w-full p-2 text-sm"
+            className="w-full p-2 text-sm bg-softWhite focus:outline-none"
           />
         </div>
         <div className="py-2 text-softWhite">
@@ -47,7 +47,7 @@ const Register = () => {
       <p className="text-sm text-softWhite">
         Already have an account?{" "}
         <Link
-          className="duration-300 text-softBlue hover:text-softWhite"
+          className="duration-300 text-softBlue hover:text-softWhite hover:underline hover:decoration-softWhite"
           href={"/auth/login"}
         >
           Sign In here

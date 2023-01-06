@@ -17,7 +17,7 @@ const Login = () => {
             type="text"
             placeholder="Username"
             required
-            className="w-full p-2 text-sm"
+            className="w-full p-2 text-sm bg-softWhite focus:outline-none"
           />
         </div>
         <div className="py-4">
@@ -25,21 +25,21 @@ const Login = () => {
             type="password"
             placeholder="Password"
             required
-            className="w-full p-2 text-sm"
+            className="w-full p-2 text-sm bg-softWhite focus:outline-none"
           />
         </div>
         <div className="py-2 text-softWhite">
           <input
             type="submit"
             value="Submit"
-            className="w-full p-2 font-medium duration-300 cursor-pointer bg-background hover:bg-softWhite hover:text-black"
+            className="w-full p-2 font-medium duration-300 cursor-pointer bg-background hover:bg-softWhite/60 hover:text-background"
           />
         </div>
       </form>
       <p className="text-sm text-background">
         Don't have an account?{" "}
         <Link
-          className="duration-300 text-softBlue hover:text-softWhite"
+          className="duration-300 text-softBlue hover:text-background hover:underline hover:decoration-background"
           href={"/auth/register"}
         >
           Sign Up here
