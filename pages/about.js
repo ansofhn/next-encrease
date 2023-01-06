@@ -1,13 +1,9 @@
-import Head from "next/head";
 import React from "react";
-import ScrollToTop from "../components/ScrollToTop";
+import LandingPageLayout from "../layouts/LandingPageLayout";
 
 const about = () => {
   return (
     <div>
-      <Head>
-        <title>Encrease - About Us</title>
-      </Head>
       <div className="py-40">
         <div className="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
           <div className="flex flex-col justify-center gap-y-20 md:gap-y-32">
@@ -68,9 +64,12 @@ const about = () => {
           </div>
         </div>
       </div>
-      <ScrollToTop />
     </div>
   );
 };
 
 export default about;
+
+about.getLayout = (page) => (
+  <LandingPageLayout title="Encrease - About Us" children={page} />
+);

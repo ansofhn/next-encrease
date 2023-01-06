@@ -1,17 +1,13 @@
-import Head from "next/head";
 import React from "react";
 import Filter from "../components/Filter";
 import ProductCard from "../components/ProductCard";
-import ScrollToTop from "../components/ScrollToTop";
 import SearchBar from "../components/SearchBar";
 import SortBar from "../components/SortBar";
+import LandingPageLayout from "../layouts/LandingPageLayout";
 
 const product = () => {
   return (
     <div>
-      <Head>
-        <title>Encrease - Products</title>
-      </Head>
       <div class="py-40">
         <div class="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
           <div class="flex flex-col justify-center gap-y-12">
@@ -42,9 +38,12 @@ const product = () => {
           </div>
         </div>
       </div>
-      <ScrollToTop />
     </div>
   );
 };
 
 export default product;
+
+product.getLayout = (page) => (
+  <LandingPageLayout title="Encrease - Products" children={page} />
+);

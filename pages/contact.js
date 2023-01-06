@@ -1,18 +1,17 @@
-import Head from "next/head";
 import React from "react";
 import Contact from "../components/Contact";
-import ScrollToTop from "../components/ScrollToTop";
+import LandingPageLayout from "../layouts/LandingPageLayout";
 
 const contact = () => {
   return (
     <div>
-      <Head>
-        <title>Encrease - Contact</title>
-      </Head>
       <Contact />
-      <ScrollToTop />
     </div>
   );
 };
 
 export default contact;
+
+contact.getLayout = (page) => (
+  <LandingPageLayout title="Encrease - Contact" children={page} />
+);
