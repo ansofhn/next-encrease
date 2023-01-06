@@ -1,46 +1,58 @@
 {
-    "products":[
-        {
-            "id": "1",
-            "title" : "Service Laptop",
-            "price" : 500000,
-            "image" : "https://source.unsplash.com/random/300x300?laptop"
-        },
-        {
-            "id": "2",
-            "title" : "Service Handphone",
-            "price" : 300000,
-            "image" : "https://source.unsplash.com/random/300x300?Handphone"
-        },
-        {
-            "id": "3",
-            "title" : "Service PC",
-            "price" : 500000,
-            "image" : "https://source.unsplash.com/random/300x300?pc"
-        },
-        {
-            "id": "4",
-            "title" : "Network Installation",
-            "price" : 1000000,
-            "image" : "https://source.unsplash.com/random/300x300?ethernet"
-        },
-        {
-            "id": "5",
-            "title" : "ButterFly Keyboard",
-            "price" : 1200000,
-            "image" : "https://source.unsplash.com/random/300x300?keyboard"
-        },
-        {
-            "id": "6",
-            "title" : "Service Monitor",
-            "price" : 250000,
-            "image" : "https://source.unsplash.com/random/300x300?monitor"
-        },
-        {
-            "id": "7",
-            "title" : "Mouse Murah",
-            "price" : 250000,
-            "image" : "https://source.unsplash.com/random/300x300?gamingmouse"
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "title": "Service Laptop",
+      "price": 500000,
+      "image": "https://source.unsplash.com/random/300x300?laptop"
+    },
+    {
+      "id": "2",
+      "title": "Service Handphone",
+      "price": 300000,
+      "image": "https://source.unsplash.com/random/300x300?Handphone"
+    },
+    {
+      "id": "3",
+      "title": "Service PC",
+      "price": 500000,
+      "image": "https://source.unsplash.com/random/300x300?pc"
+    },
+    {
+      "id": "4",
+      "title": "Network Installation",
+      "price": 1000000,
+      "image": "https://source.unsplash.com/random/300x300?ethernet"
+    },
+    {
+      "id": "5",
+      "title": "ButterFly Keyboard",
+      "price": 1200000,
+      "image": "https://source.unsplash.com/random/300x300?keyboard"
+    },
+    {
+      "id": "6",
+      "title": "Service Monitor",
+      "price": 250000,
+      "image": "https://source.unsplash.com/random/300x300?monitor"
+    },
+    {
+      "id": "7",
+      "title": "Mouse Murah",
+      "price": 250000,
+      "image": "https://source.unsplash.com/random/300x300?gamingmouse"
+    },
+    {
+      "id": "8",
+      "title": "Headset Gaming",
+      "price": 250000,
+      "image": "https://source.unsplash.com/random/300x300?headset"
+    },
+    {
+      "id": "9",
+      "title": "MousePad Gaming",
+      "price": 250000,
+      "image": "https://source.unsplash.com/random/300x300?mousepad"
+    }
+  ]
 }

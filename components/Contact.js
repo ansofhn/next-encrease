@@ -44,7 +44,7 @@ const Contact = () => {
               Your Name
             </label>
             <input
-              className="w-full p-4 text-sm bg-gray-100 border-none rounded-md focus:ring-0"
+              className="w-full p-4 text-sm bg-gray-100 border-none rounded-md focus:outline-none"
               name="name"
               id="name"
               placeholder="What's your name?"
@@ -55,7 +55,7 @@ const Contact = () => {
               Your email
             </label>
             <input
-              className="w-full p-4 text-sm bg-gray-100 border-none rounded-md focus:ring-0"
+              className="w-full p-4 text-sm bg-gray-100 border-none rounded-md focus:outline-none"
               type="email"
               name="email"
               id="email"
@@ -67,7 +67,7 @@ const Contact = () => {
               Phone
             </label>
             <input
-              className="w-full p-4 text-sm bg-gray-100 border-none rounded-md focus:ring-0"
+              className="w-full p-4 text-sm bg-gray-100 border-none rounded-md focus:outline-none"
               placeholder="What's your phone number?"
             />
           </div>
@@ -78,14 +78,14 @@ const Contact = () => {
             <textarea
               id="message"
               rows="8"
-              className="block w-full p-4 text-sm bg-gray-100 border-none rounded-md text-background focus:ring-0 focus:border-none"
+              className="block w-full p-4 text-sm bg-gray-100 border-none rounded-md text-background focus:outline-none focus:border-none"
               placeholder="Your message..."
             ></textarea>
           </div>
           <div>
             <button
               type="submit"
-              className="w-full px-6 py-3 mt-5 font-medium transition duration-300 border-none rounded-md text-semibold text-softWhite bg-background focus:ring-0"
+              className="w-full px-6 py-3 mt-5 font-medium transition duration-300 border-none rounded-md text-semibold text-softWhite bg-background focus:outline-none"
             >
               Send Message
             </button>
