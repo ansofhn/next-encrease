@@ -1,9 +1,9 @@
 import React from "react";
-import Filter from "../components/Filter";
-import ProductCard from "../components/ProductCard";
-import SearchBar from "../components/SearchBar";
-import SortBar from "../components/SortBar";
-import LandingPageLayout from "../layouts/LandingPageLayout";
+import Filter from "../../components/Filter";
+import ProductCard from "../../components/ProductCard";
+import SearchBar from "../../components/SearchBar";
+import SortBar from "../../components/SortBar";
+import LandingPageLayout from "../../layouts/LandingPageLayout";
 
 const product = () => {
   return (
