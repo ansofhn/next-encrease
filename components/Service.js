@@ -45,7 +45,7 @@ const Service = () => {
             </div>
             <div className="row-start-4 space-y-5 text-center md:row-start-2 lg:row-start-2">
               <div className="px-10 text-xl font-bold uppercase text-background">
-                Corperative Identity
+                Competitive Pricing
               </div>
               <div className="px-10 text-background/80">
                 Quisque with placerat Porttitor nisi felis Congue in & Tempus
@@ -53,7 +53,7 @@ const Service = () => {
             </div>
             <div className="row-start-6 space-y-5 text-center md:row-start-4 lg:row-start-2">
               <div className="px-10 text-xl font-bold uppercase text-background">
-                Corperative Identity
+                Report and Analytics
               </div>
               <div className="px-10 text-background/80">
                 Quisque with placerat Porttitor nisi felis Congue in & Tempus
@@ -61,7 +61,7 @@ const Service = () => {
             </div>
             <div className="space-y-5 text-center">
               <div className="px-10 text-xl font-bold uppercase text-background">
-                Corperative Identity
+                Social Collaboration
               </div>
               <div className="px-10 text-background/80">
                 Quisque with placerat Porttitor nisi felis Congue in & Tempus

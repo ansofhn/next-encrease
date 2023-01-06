@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import Head from "next/head";
+import NavbarTest from "../components/NavbarTest";
 
 const LandingPageLayout = ({ title, children }) => {
   return (
@@ -11,6 +12,7 @@ const LandingPageLayout = ({ title, children }) => {
         <title>{title}</title>
       </Head>
       <Navbar />
+      {/* <NavbarTest /> */}
       {children}
       <Footer />
       <ScrollToTop />
