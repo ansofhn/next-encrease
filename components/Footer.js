@@ -61,7 +61,7 @@ const Footer = () => {
         <hr className="my-6 border-gray-300 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-xs text-gray-500 sm:text-center dark:text-gray-400">
-            © 2022 All Rights Reserved. Development by
+            © 2023 All Rights Reserved. Development by
             <a href="https://Encrease.com/" className="hover:underline">
               Encrease
             </a>
