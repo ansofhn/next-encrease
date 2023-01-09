@@ -44,10 +44,10 @@ const ScrollToTop = () => {
           variants={item}
           initial="hidden"
           animate="show"
-          className="fixed p-3 text-xl text-center bg-gray-300 rounded-full outline-none text-background/70 bottom-6 right-6  md:bottom-16 xl:bottom-[70px] md:right-10"
+          className="fixed p-3 text-xl text-center bg-gray-300/80 rounded-full outline-none text-background/70 bottom-5 right-5  md:bottom-16 lg:bottom-[70px] md:right-10"
           onClick={scrollUp}
         >
-          <FaChevronUp className="text-xl font-medium text-background/50" />
+          <FaChevronUp className="text-xl font-medium text-background/30" />
         </motion.button>
       )}
     </>
