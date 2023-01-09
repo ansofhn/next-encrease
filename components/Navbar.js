@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -86,6 +87,7 @@ const Navbar = () => {
             transition={{ duration: 0.4 }}
             exit="exit"
           >
+            <RemoveScrollBar />
             <div className="fixed top-0 flex flex-wrap items-center justify-between w-full p-6 mx-auto bg-softDark sm:px-10 sm:py-10 md:py-8">
               <Link href={"/"}>
                 <div
@@ -111,7 +113,7 @@ const Navbar = () => {
               </div>
             </div>
             <motion.div
-              className="inline-flex my-6 text-base font-light tracking-widest uppercase text-softGray/70"
+              className="inline-flex mb-6 text-base font-light tracking-widest uppercase text-softGray/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
