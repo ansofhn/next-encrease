@@ -17,6 +17,14 @@ const ProductCard = () => {
   //Fetching Products Data
   const {data:Products} = productsRepository.hooks.useProducts()
 
+  // Rupiah Formatter
+  const rupiah = (number) =>{
+    return new Intl.NumberFormat("id-ID",{
+      style:"currency",
+      currency:'IDR'
+    }).format(number)
+  }
+
   return (
     <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 font-poppins">
       {Products?.map(data =>{
@@ -33,7 +41,7 @@ const ProductCard = () => {
               </div>
               <div className="p-4 text-background">
                 <h1 className="text-lg font-semibold">{data?.title}</h1>
-                <p className="font-light">Rp.{data?.price}</p>
+                <p className="font-light">{rupiah(data?.price)}</p>
               </div>
             </div>
           )
