@@ -24,25 +24,42 @@ const DetailProduct = () => {
     }
 
   return (
-    <div className='py-40 p-4 md:p-0'>
-        <div className='max-w-screen-xl mx-auto h-screen flex items-center justify-center bg-red50'>
-            <div className='flex flex-col gap-5 md:flex-row overflow-hidden'>
-              <div className=''>
-                <div className='w-full'>
-                  <Image src={detailProduct?.image} width={400} height={400} alt={'product detail image'}/>
+    <div className='py-40'>
+        <div className='max-w-screen-xl mx-auto'>
+           <div className='p-4'>
+              <div className='flex flex-col md:flex-row gap-5'>
+                <div className='w-full md:w-1/2'>
+                  <Image src={detailProduct?.image} width={300} height={300} className='w-full'/>
                 </div>
-              </div>
-              <div className='w-[40re] flex flex-col gap-5'>
-                <h1 className='text-2xl font-semibold md:text-3xl'>{detailProduct?.title}</h1>
-                <h2 className='text-xl md:text-3xl'>{rupiah(detailProduct?.price)}</h2>
-                <p>Type : {detailProduct?.type}</p>
-                <div className='flex gap-5'>Quantity : <input min={1} defaultValue={1} type={'number'} className={'w-14 text-center border'} /></div>
-                <div className='flex flex-row gap-x-5'>
-                  <button className='bg-softGray px-4 py-2 hover:scale-105 duration-200'>Add to Cart</button>
-                  <button className='bg-background text-softWhite px-4 py-2 hover:scale-105 duration-200'>Buy Now</button>
+                <div className='flex flex-col w-full gap-4 text-xl'>
+                  <h1 className='text-3xl font-semibold mb-5'>{detailProduct?.title}</h1>
+                  <p>Price : {rupiah(detailProduct?.price)}</p>
+                  <p>Category : {detailProduct?.category}</p>
+                  <div>Quantity : <input type={'number'} min={1} minLength={1} defaultValue={1} className='w-12 border text-center'/></div>
+                  <div className='flex flex-row gap-5 mt-5'>
+                  <button className='bg-softGray hover:scale-105 duration-300 p-2 text-sm rounded-sm'>Add To Cart</button>
+                  <button className='bg-background text-softWhite hover:scale-105 duration-300 p-2 text-sm rounded-sm'>Buy Now</button>
                 </div>
               </div>
             </div>
+            <div className='my-10'>
+              <Tabs
+                defaultActiveKey="1"
+                items={[
+                  {
+                    label: `Description`,
+                    key: '1',
+                    children: <p>{detailProduct?.description}</p> ,
+                  },
+                  {
+                    label: `Testimonials`,
+                    key: '2',
+                    children: <Testimonials/>,
+                  },
+                ]}
+              />
+              </div>
+           </div>
         </div>
     </div>
   )
