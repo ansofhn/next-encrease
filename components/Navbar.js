@@ -1,14 +1,26 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrollChange, setScrollChange] = useState(false);
+
   const router = useRouter();
   const currentRoute = router.pathname;
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        setScrollChange(true);
+      } else {
+        setScrollChange(false);
+      }
+    });
+  }, []);
 
   //lets start animation
   const item = {
@@ -25,7 +37,13 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="fixed top-0 z-10 flex flex-wrap items-center justify-between w-full p-6 mx-auto bg-softWhite sm:px-10 sm:py-8">
+      <div
+        className={`fixed top-0 z-10 flex flex-wrap items-center justify-between w-full p-6 mx-auto ${
+          scrollChange || currentRoute === "/product/[id]"
+            ? "shadow-lg shadow-background/5"
+            : ""
+        } bg-softWhite sm:px-10 sm:py-8 transition duration-300`}
+      >
         <Link href={"/"}>
           <div className="flex items-center text-2xl font-bold uppercase cursor-pointer text-background">
             encrease

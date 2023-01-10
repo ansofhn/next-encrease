@@ -4,6 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
+      <hr className="my-10 border-gray-200 sm:mx-auto" />
       <footer className="p-6 sm:p-10">
         <div className="md:flex md:justify-between">
           <div className="flex flex-col justify-between gap-4 mb-6 md:mb-0">
@@ -58,7 +59,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-300 sm:mx-auto lg:my-8" />
+        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-xs text-gray-400 sm:text-center">
             © 2023 All Rights Reserved. Development by
