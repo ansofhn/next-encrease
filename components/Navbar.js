@@ -2,11 +2,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { FiTrash2 } from "react-icons/fi";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
   const [scrollChange, setScrollChange] = useState(false);
 
   const router = useRouter();
@@ -38,7 +40,7 @@ const Navbar = () => {
   return (
     <div>
       <div
-        className={`fixed top-0 z-10 flex flex-wrap items-center justify-between w-full p-6 mx-auto ${
+        className={`fixed top-0 z-20 flex flex-wrap items-center justify-between w-full p-6 mx-auto ${
           scrollChange || currentRoute === "/product/[id]"
             ? "shadow-lg shadow-background/5"
             : ""
@@ -50,7 +52,15 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className="flex items-center gap-2 lg:order-2">
+        <div className="flex items-center gap-2 lg:gap-7 lg:order-2">
+          <div
+            onClick={() => {
+              setOpenCart(!openCart);
+            }}
+            className="items-center hidden px-2 py-1 bg-gray-100 rounded-full cursor-pointer lg:flex"
+          >
+            <FaShoppingCart className="flex items-center justify-center w-5 h-7 text-background/70" />
+          </div>
           <Link href={"/auth/login"}>
             <button className="px-4 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer text-background border-background">
               sign in
@@ -81,16 +91,44 @@ const Navbar = () => {
         <div className="hidden w-full mt-10 rounded-lg xl:ml-[500px] 2xl:ml-[900px] lg:mt-0 lg:justify-between lg:items-center lg:flex lg:w-auto lg:order-1 bg-softGray lg:bg-transparent lg:p-0">
           <div className="flex flex-col gap-4 p-2 font-medium lg:p-0 lg:flex-row lg:gap-10 lg:font-medium text-background">
             <Link href={"/"}>
-              <div className="p-2 cursor-pointer">Home</div>
+              <div
+                onClick={() => {
+                  setOpenCart(false);
+                }}
+                className="p-2 cursor-pointer"
+              >
+                Home
+              </div>
             </Link>
             <Link href={"/product"}>
-              <div className="p-2 cursor-pointer">Products</div>
+              <div
+                onClick={() => {
+                  setOpenCart(false);
+                }}
+                className="p-2 cursor-pointer"
+              >
+                Products
+              </div>
             </Link>
             <Link href={"/about"}>
-              <div className="p-2 cursor-pointer">About</div>
+              <div
+                onClick={() => {
+                  setOpenCart(false);
+                }}
+                className="p-2 cursor-pointer"
+              >
+                About
+              </div>
             </Link>
             <Link href={"/contact"}>
-              <div className="p-2 cursor-pointer">Contact</div>
+              <div
+                onClick={() => {
+                  setOpenCart(false);
+                }}
+                className="p-2 cursor-pointer"
+              >
+                Contact
+              </div>
             </Link>
           </div>
         </div>
@@ -98,7 +136,7 @@ const Navbar = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed z-10 flex flex-col items-center justify-center w-full h-full bg-softDark text-softWhite"
+            className="fixed z-30 flex flex-col items-center justify-center w-full h-full bg-softDark text-softWhite"
             variants={item}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "100vh", opacity: 1 }}
@@ -257,6 +295,88 @@ const Navbar = () => {
               }}
             >
               © 2023 Encrease
+            </motion.div>
+          </motion.div>
+        )}
+        {openCart && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed z-10 w-full h-screen bg-softDark/30"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ease: "easeInOut", delay: 0.2 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed z-30 py-10 space-y-8 px-14 right-4 top-[120px] bg-softWhite"
+            >
+              <div className="flex items-center justify-end">
+                <button
+                  onClick={() => {
+                    setOpenCart(!openCart);
+                  }}
+                  className="text-2xl text-background/70"
+                >
+                  <FaTimes />
+                </button>
+              </div>
+              <hr className="border-gray-200" />
+              <div className="space-y-8">
+                <div className="flex items-center gap-10 mr-4">
+                  <button className="p-4 text-2xl text-background/70">
+                    <FiTrash2 />
+                  </button>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center p-6 w-28 h-28 bg-softGray">
+                      Image
+                    </div>
+                    <div>
+                      <div>Service Laptop</div>
+                      <div className="text-sm text-background/50">
+                        alsdkfjalsdjflak
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center w-24 h-24 p-4 border-gray-200 border-x-2">
+                    1
+                  </div>
+                  <div>Rp. 150000</div>
+                </div>
+                <hr className="border-gray-200" />
+                <div className="flex items-center gap-10 mr-4">
+                  <button className="p-4 text-2xl text-background/70">
+                    <FiTrash2 />
+                  </button>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center p-6 w-28 h-28 bg-softGray">
+                      Image
+                    </div>
+                    <div>
+                      <div>Service Laptop</div>
+                      <div className="text-sm text-background/50">
+                        alsdkfjalsdjflak
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center w-24 h-24 p-4 border-gray-200 border-x-2">
+                    1
+                  </div>
+                  <div>Rp. 150000</div>
+                </div>
+                <hr className="border-gray-200" />
+              </div>
+              <div className="mt-10 space-y-6">
+                <div className="flex items-center justify-end">
+                  TOTAL PRICE :
+                </div>
+                <div className="flex items-center justify-end">
+                  <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
+                    proceed to checkout
+                  </button>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
