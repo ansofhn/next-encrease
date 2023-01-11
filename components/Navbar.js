@@ -1,18 +1,48 @@
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { FaBell, FaShoppingCart, FaTimes } from "react-icons/fa";
+import {
+  FaBell,
+  FaCaretLeft,
+  FaCaretRight,
+  FaShoppingCart,
+  FaTimes,
+} from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
+import { productsRepository } from "../repository/products";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [scrollChange, setScrollChange] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQty = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQty = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
   const router = useRouter();
   const currentRoute = router.pathname;
+
+  //Fetching Products Data
+  const { data: Products } = productsRepository.hooks.useProducts();
+
+  // Rupiah Formatter
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -22,7 +52,7 @@ const Navbar = () => {
         setScrollChange(false);
       }
     });
-  }, []);
+  }, [Products]);
 
   //lets start animation
   const item = {
@@ -39,6 +69,7 @@ const Navbar = () => {
 
   return (
     <div>
+      {/* Main Navbar */}
       <div
         className={`fixed top-0 z-20 flex flex-wrap items-center justify-between w-full p-6 mx-auto ${
           scrollChange || currentRoute === "/product/[id]"
@@ -136,7 +167,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
       <AnimatePresence>
+        {/* Navbar Mobile */}
         {open && (
           <motion.div
             className="fixed z-30 flex flex-col items-center justify-center w-full h-full bg-softDark text-softWhite"
@@ -301,6 +334,8 @@ const Navbar = () => {
             </motion.div>
           </motion.div>
         )}
+
+        {/* Modal Cart */}
         {openCart && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -332,47 +367,48 @@ const Navbar = () => {
                     <FiTrash2 />
                   </button>
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center p-6 w-28 h-28 bg-softGray">
-                      Image
+                    <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
+                      <Image
+                        src={Products[0]?.image}
+                        width={300}
+                        height={300}
+                      />
                     </div>
                     <div>
-                      <div>Service Laptop</div>
-                      <div className="text-sm text-background/50">
-                        alsdkfjalsdjflak
+                      <div className="text-sm font-bold text-background">
+                        {Products[0]?.title}
+                      </div>
+                      <div className="text-xs text-background/50">
+                        {Products[0]?.description}
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center w-24 h-24 p-4 border-gray-200 border-x-2">
-                    1
+                  <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
+                    <FaCaretLeft
+                      onClick={decreaseQty}
+                      className="cursor-pointer text-background/50"
+                    />
+                    <input
+                      type={"number"}
+                      min={1}
+                      minLength={1}
+                      value={quantity}
+                      className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
+                    />
+                    <FaCaretRight
+                      onClick={increaseQty}
+                      className="cursor-pointer text-background/50"
+                    />
                   </div>
-                  <div>Rp. 150000</div>
-                </div>
-                <hr className="border-gray-200" />
-                <div className="flex items-center gap-10 mr-4">
-                  <button className="p-4 text-2xl text-background/70">
-                    <FiTrash2 />
-                  </button>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center p-6 w-28 h-28 bg-softGray">
-                      Image
-                    </div>
-                    <div>
-                      <div>Service Laptop</div>
-                      <div className="text-sm text-background/50">
-                        alsdkfjalsdjflak
-                      </div>
-                    </div>
+                  <div className="font-semibold text-background">
+                    {rupiah(Products[0]?.price)}
                   </div>
-                  <div className="flex items-center justify-center w-24 h-24 p-4 border-gray-200 border-x-2">
-                    1
-                  </div>
-                  <div>Rp. 150000</div>
                 </div>
                 <hr className="border-gray-200" />
               </div>
               <div className="mt-10 space-y-6">
-                <div className="flex items-center justify-end">
-                  TOTAL PRICE :
+                <div className="flex items-center justify-end text-xl font-bold uppercase text-background">
+                  TOTAL PRICE : <span className="ml-2">{rupiah(Products[0]?.price)}</span>
                 </div>
                 <div className="flex items-center justify-end">
                   <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
