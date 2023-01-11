@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import { FaBell, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 
@@ -60,6 +60,9 @@ const Navbar = () => {
             className="items-center hidden px-2 py-1 bg-gray-100 rounded-full cursor-pointer lg:flex"
           >
             <FaShoppingCart className="flex items-center justify-center w-5 h-7 text-background/70" />
+          </div>
+          <div className="items-center hidden px-2 py-2 bg-gray-100 rounded-full cursor-pointer lg:flex">
+            <FaBell className="flex items-center justify-center w-5 h-5 text-background/70" />
           </div>
           <Link href={"/auth/login"}>
             <button className="px-4 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer text-background border-background">
