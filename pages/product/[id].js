@@ -1,4 +1,4 @@
-import { Tabs } from "antd";
+import { Tabs,ConfigProvider } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -7,6 +7,7 @@ import LandingPageLayout from "../../layouts/LandingPageLayout";
 import { productsRepository } from "../../repository/products";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
+
 
 const DetailProduct = () => {
   const router = useRouter();
@@ -96,21 +97,24 @@ const DetailProduct = () => {
             </div>
           </div>
           <div className="my-10">
-            <Tabs
-              defaultActiveKey="1"
-              items={[
-                {
-                  label: `Description`,
-                  key: "1",
-                  children: <p>{detailProduct?.description}</p>,
-                },
-                {
-                  label: `Testimonials`,
-                  key: "2",
-                  children: <Testimonials />,
-                },
-              ]}
-            />
+            <ConfigProvider theme={{token:{colorPrimary:'#23374D'}}}>
+              <Tabs
+                  type="card"
+                  defaultActiveKey="1"
+                  items={[
+                    {
+                      label: <p className="font-semibold text-base">Description</p>,
+                      key: "1",
+                      children: <p>{detailProduct?.description}</p>,
+                    },
+                    {
+                      label:  <p className="font-semibold text-base">Testimonials</p>,
+                      key: "2",
+                      children: <Testimonials />,
+                    },
+                  ]}
+                />
+            </ConfigProvider>
           </div>
         </div>
       </div>
