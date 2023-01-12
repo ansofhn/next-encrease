@@ -38,7 +38,7 @@ const DetailProduct = () => {
   };
 
   return (
-    <div className="py-40">
+    <div className="pb-10 pt-28 lg:pt-40">
       <div className="max-w-screen-xl mx-auto">
         <div className="p-6 md:px-10 lg:px-10 xl:p-6 ">
           <div className="flex flex-col gap-10 md:flex-row">
