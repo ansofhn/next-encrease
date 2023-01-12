@@ -133,7 +133,7 @@ const Navbar = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 w-56 mt-10 origin-top-right rounded-sm shadow-lg shadow-background/10 bg-softWhite focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 w-56 mt-12 origin-top-right rounded-sm shadow-lg shadow-background/10 bg-softWhite focus:outline-none">
                 <div className="py-2">
                   <Menu.Item>
                     {({ active }) => (
@@ -437,7 +437,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease: "easeInOut", delay: 0.2 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed z-30 py-10 space-y-8 px-14 right-3 top-28 bg-softWhite"
+              className="fixed z-30 py-10 space-y-8 px-14 right-3 top-[118px] bg-softWhite"
             >
               <div className="flex items-center justify-end">
                 <button
@@ -542,8 +542,10 @@ const Navbar = () => {
               </div>
               <div className="mt-10 space-y-6">
                 <div className="flex items-center justify-end text-xl font-bold uppercase text-background">
-                  TOTAL PRICE :{" "}
-                  <span className="ml-2">{rupiah(Products[8]?.price + Products[0]?.price)}</span>
+                  TOTAL PRICE :
+                  <span className="ml-2">
+                    {rupiah(Products[8]?.price + Products[0]?.price)}
+                  </span>
                 </div>
                 <div className="flex items-center justify-end">
                   <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
