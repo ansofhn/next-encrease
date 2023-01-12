@@ -455,7 +455,7 @@ const Navbar = () => {
                   <button className="p-4 text-2xl text-background/70">
                     <FiTrash2 />
                   </button>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 w-[250px]">
                     <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
                       <Image
                         src={Products[0]?.image}
@@ -495,10 +495,55 @@ const Navbar = () => {
                 </div>
                 <hr className="border-gray-200" />
               </div>
+              <div className="space-y-8">
+                <div className="flex items-center gap-10 mr-4">
+                  <button className="p-4 text-2xl text-background/70">
+                    <FiTrash2 />
+                  </button>
+                  <div className="flex items-center gap-4 w-[250px]">
+                    <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
+                      <Image
+                        src={Products[8]?.image}
+                        width={300}
+                        height={300}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <div className="text-sm font-bold text-background">
+                        {Products[8]?.title}
+                      </div>
+                      <div className="text-xs text-background/50">
+                        {Products[8]?.category}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
+                    <FaCaretLeft
+                      onClick={decreaseQty}
+                      className="cursor-pointer text-background/50"
+                    />
+                    <input
+                      type={"number"}
+                      min={1}
+                      minLength={1}
+                      value={quantity}
+                      className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
+                    />
+                    <FaCaretRight
+                      onClick={increaseQty}
+                      className="cursor-pointer text-background/50"
+                    />
+                  </div>
+                  <div className="font-semibold text-background">
+                    {rupiah(Products[8]?.price)}
+                  </div>
+                </div>
+                <hr className="border-gray-200" />
+              </div>
               <div className="mt-10 space-y-6">
                 <div className="flex items-center justify-end text-xl font-bold uppercase text-background">
                   TOTAL PRICE :{" "}
-                  <span className="ml-2">{rupiah(Products[0]?.price)}</span>
+                  <span className="ml-2">{rupiah(Products[8]?.price + Products[0]?.price)}</span>
                 </div>
                 <div className="flex items-center justify-end">
                   <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">

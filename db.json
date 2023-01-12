@@ -50,7 +50,7 @@
     },
     {
       "id": "7",
-      "title": "Mouse Murah",
+      "title": "Mouse Gaming",
       "price": 250000,
       "image": "https://source.unsplash.com/random/300x300?gamingmouse",
       "description": "Terima Jasa Service Laptop Murah, Bisa Ditunggu. dan tunggu aja sampe mampus bro, karena ini cepat dan efisien ",
@@ -62,7 +62,7 @@
       "price": 250000,
       "image": "https://source.unsplash.com/random/300x300?headset",
       "description": "Terima Jasa Service Laptop Murah, Bisa Ditunggu. dan tunggu aja sampe mampus bro, karena ini cepat dan efisien ",
-      "type": "Barang"
+      "category": "Barang"
     },
     {
       "id": "9",
@@ -70,7 +70,7 @@
       "price": 250000,
       "image": "https://source.unsplash.com/random/300x300?mousepad",
       "description": "Terima Jasa Service Laptop Murah, Bisa Ditunggu. dan tunggu aja sampe mampus bro, karena ini cepat dan efisien ",
-      "type": "Jasa"
+      "category": "Barang"
     }
   ]
 }
