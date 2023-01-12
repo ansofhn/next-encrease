@@ -1,4 +1,4 @@
-import { Tabs,ConfigProvider } from "antd";
+import { Tabs, ConfigProvider } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -7,7 +7,6 @@ import LandingPageLayout from "../../layouts/LandingPageLayout";
 import { productsRepository } from "../../repository/products";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-
 
 const DetailProduct = () => {
   const router = useRouter();
@@ -72,7 +71,7 @@ const DetailProduct = () => {
                 <span className="text-base text-background">Quantity :</span>
                 <AiFillMinusSquare
                   onClick={decreaseQty}
-                  className="cursor-pointer"
+                  className="cursor-pointer text-background"
                 />
                 <input
                   type={"number"}
@@ -83,7 +82,7 @@ const DetailProduct = () => {
                 />
                 <AiFillPlusSquare
                   onClick={increaseQty}
-                  className="cursor-pointer"
+                  className="cursor-pointer text-background"
                 />
               </div>
               <div className="flex flex-row gap-5 mt-5">
@@ -97,23 +96,31 @@ const DetailProduct = () => {
             </div>
           </div>
           <div className="my-10">
-            <ConfigProvider theme={{token:{colorPrimary:'#23374D'}}}>
+            <ConfigProvider theme={{ token: { colorPrimary: "#23374D" } }}>
               <Tabs
-                  type="card"
-                  defaultActiveKey="1"
-                  items={[
-                    {
-                      label: <p className="font-semibold text-base">Description</p>,
-                      key: "1",
-                      children: <p>{detailProduct?.description}</p>,
-                    },
-                    {
-                      label:  <p className="font-semibold text-base">Testimonials</p>,
-                      key: "2",
-                      children: <Testimonials />,
-                    },
-                  ]}
-                />
+                type="card"
+                defaultActiveKey="1"
+                items={[
+                  {
+                    label: (
+                      <p className="text-base font-semibold text-background">
+                        Description
+                      </p>
+                    ),
+                    key: "1",
+                    children: <p className="md:p-6">{detailProduct?.description}</p>,
+                  },
+                  {
+                    label: (
+                      <p className="text-base font-semibold text-background">
+                        Testimonials
+                      </p>
+                    ),
+                    key: "2",
+                    children: <Testimonials />,
+                  },
+                ]}
+              />
             </ConfigProvider>
           </div>
         </div>

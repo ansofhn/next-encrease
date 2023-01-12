@@ -20,7 +20,7 @@ const product = () => {
               </h2>
             </div>
             <div class="flex flex-col items-center gap-4 lg:justify-between lg:flex-row">
-              <div class="w-full lg:w-[25%]">
+              <div class="w-full lg:w-[24%] xl:w-[23%] 2xl:w-[25%]">
                 <SearchBar />
               </div>
               <div class="w-full lg:w-[23%]">
