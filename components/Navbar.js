@@ -374,12 +374,12 @@ const Navbar = () => {
                         height={300}
                       />
                     </div>
-                    <div>
+                    <div className="space-y-2">
                       <div className="text-sm font-bold text-background">
                         {Products[0]?.title}
                       </div>
                       <div className="text-xs text-background/50">
-                        {Products[0]?.description}
+                        {Products[0]?.category}
                       </div>
                     </div>
                   </div>
