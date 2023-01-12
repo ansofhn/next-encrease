@@ -95,11 +95,18 @@ const Navbar = () => {
           <div className="items-center hidden px-2 py-2 bg-gray-100 rounded-full cursor-pointer lg:flex">
             <FaBell className="flex items-center justify-center w-5 h-5 text-background/70" />
           </div>
-          <Link href={"/auth/login"}>
+          {/* <Link href={"/auth/login"}>
             <button className="px-4 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer text-background border-background">
               sign in
             </button>
-          </Link>
+          </Link> */}
+          <button className="flex items-center gap-3 md:px-3">
+            <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
+            <div className="text-left">
+              <h2 className="text-sm font-medium text-background">Ilham</h2>
+              <p className="text-xs text-background/50">User</p>
+            </div>
+          </button>
           <button
             type="button"
             className="inline-flex items-center p-2 ml-3 text-sm rounded-lg text-background focus:outline-none focus:ring-0 lg:hidden"
@@ -122,7 +129,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className="hidden w-full mt-10 rounded-lg xl:ml-[500px] 2xl:ml-[900px] lg:mt-0 lg:justify-between lg:items-center lg:flex lg:w-auto lg:order-1 bg-softGray lg:bg-transparent lg:p-0">
+        <div className="hidden w-full mt-10 rounded-lg xl:ml-[400px] 2xl:ml-[800px] lg:mt-0 lg:justify-between lg:items-center lg:flex lg:w-auto lg:order-1 bg-softGray lg:bg-transparent lg:p-0">
           <div className="flex flex-col gap-4 p-2 font-medium lg:p-0 lg:flex-row lg:gap-10 lg:font-medium text-background">
             <Link href={"/"}>
               <div

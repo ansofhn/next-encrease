@@ -93,7 +93,7 @@ const Filter = () => {
         id="default-range"
         type="range"
         // value=""
-        className="w-full h-2 rounded-lg appearance-none cursor-pointer accent-gray-500 bg-background"
+        className="w-full h-2 rounded-lg appearance-none cursor-pointer accent-gray-400 bg-background"
       />
 
       <div className="mb-6 font-bold uppercase mt-14 text-background">Brand</div>
