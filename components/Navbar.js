@@ -1,18 +1,24 @@
+import { Menu, Transition } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import {
   FaBell,
   FaCaretLeft,
   FaCaretRight,
   FaShoppingCart,
   FaTimes,
+  FaChevronDown,
 } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { productsRepository } from "../repository/products";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -83,7 +89,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className="flex items-center gap-2 lg:gap-7 lg:order-2">
+        <div className="flex items-center gap-2 lg:gap-4 lg:order-2">
           <div
             onClick={() => {
               setOpenCart(!openCart);
@@ -92,21 +98,97 @@ const Navbar = () => {
           >
             <FaShoppingCart className="flex items-center justify-center w-5 h-7 text-background/70" />
           </div>
-          <div className="items-center hidden px-2 py-2 bg-gray-100 rounded-full cursor-pointer lg:flex">
-            <FaBell className="flex items-center justify-center w-5 h-5 text-background/70" />
-          </div>
+
           {/* <Link href={"/auth/login"}>
-            <button className="px-4 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer text-background border-background">
+            <button className="px-3 py-1 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer md:mx-6 text-background border-background">
               sign in
             </button>
           </Link> */}
-          <button className="flex items-center gap-3 md:px-3">
-            <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
-            <div className="text-left">
-              <h2 className="text-sm font-medium text-background">Ilham</h2>
-              <p className="text-xs text-background/50">User</p>
-            </div>
-          </button>
+          <Menu as={"div"} className="relative inline-block text-left md:px-6">
+            <Menu.Button
+              className={"hidden lg:flex items-center gap-3"}
+              onClick={() => {
+                setOpenCart(false);
+              }}
+            >
+              <div className="w-10 h-10 overflow-hidden bg-gray-200 rounded-full">
+                <Image
+                  src={"https://source.unsplash.com/random/40x40?people"}
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="text-left">
+                <h2 className="text-sm font-medium text-background">Ilham</h2>
+                <p className="text-xs text-background/50">User</p>
+              </div>
+              <FaChevronDown className="w-3 h-3 ml-2 text-sm text-background/60" />
+            </Menu.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-400"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="absolute right-0 z-10 w-56 mt-10 origin-top-right rounded-sm shadow-lg shadow-background/10 bg-softWhite focus:outline-none">
+                <div className="py-2">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link href={""}>
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-white text-background hover:bg-gray-100 hover:text-background"
+                              : "text-gray-700",
+                            "block px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
+                          )}
+                        >
+                          Update Profile
+                        </div>
+                      </Link>
+                    )}
+                  </Menu.Item>
+
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link href={""}>
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-white text-background hover:bg-gray-100 hover:text-background"
+                              : "text-gray-700",
+                            "block px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
+                          )}
+                        >
+                          Change Password
+                        </div>
+                      </Link>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        // onClick={handleLogout}
+                        type="submit"
+                        className={classNames(
+                          active
+                            ? "bg-white text-background hover:bg-gray-100"
+                            : "text-gray-700",
+                          "block px-4 py-2 w-full text-sm text-left"
+                        )}
+                      >
+                        Logout
+                      </button>
+                    )}
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+            </Transition>
+          </Menu>
+
           <button
             type="button"
             className="inline-flex items-center p-2 ml-3 text-sm rounded-lg text-background focus:outline-none focus:ring-0 lg:hidden"
@@ -199,7 +281,7 @@ const Navbar = () => {
                 </div>
               </Link>
 
-              <div className="flex items-center py-0.5">
+              <div className="flex items-center">
                 <button
                   type="button"
                   className="inline-flex items-center p-2 ml-3 text-sm rounded-lg text-softGray/70 focus:outline-none focus:ring-0 lg:hidden"
@@ -355,7 +437,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease: "easeInOut", delay: 0.2 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed z-30 py-10 space-y-8 px-14 right-4 top-[120px] bg-softWhite"
+              className="fixed z-30 py-10 space-y-8 px-14 right-3 top-28 bg-softWhite"
             >
               <div className="flex items-center justify-end">
                 <button
@@ -415,7 +497,8 @@ const Navbar = () => {
               </div>
               <div className="mt-10 space-y-6">
                 <div className="flex items-center justify-end text-xl font-bold uppercase text-background">
-                  TOTAL PRICE : <span className="ml-2">{rupiah(Products[0]?.price)}</span>
+                  TOTAL PRICE :{" "}
+                  <span className="ml-2">{rupiah(Products[0]?.price)}</span>
                 </div>
                 <div className="flex items-center justify-end">
                   <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">

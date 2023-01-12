@@ -10,6 +10,7 @@
     "server": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.7",
     "antd": "^5.0.7",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
