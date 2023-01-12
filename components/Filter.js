@@ -9,7 +9,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -23,7 +23,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -37,7 +37,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -51,7 +51,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -65,7 +65,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -79,7 +79,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -92,8 +92,8 @@ const Filter = () => {
       <input
         id="default-range"
         type="range"
-        value="50"
-        className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-background"
+        // value=""
+        className="w-full h-2 rounded-lg appearance-none cursor-pointer accent-gray-500 bg-background"
       />
 
       <div className="mb-6 font-bold uppercase mt-14 text-background">Brand</div>
@@ -102,7 +102,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -116,7 +116,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -130,7 +130,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
@@ -144,7 +144,7 @@ const Filter = () => {
           id="default-checkbox"
           type="checkbox"
           value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded"
+          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
           for="default-checkbox"
