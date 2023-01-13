@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState, Fragment } from "react";
 import {
-  FaBell,
   FaCaretLeft,
   FaCaretRight,
   FaShoppingCart,
   FaTimes,
-  FaChevronDown,
 } from "react-icons/fa";
+import { BiLogOut } from "react-icons/bi";
 import { FiTrash2 } from "react-icons/fi";
+import { RiAccountCircleLine, RiLockPasswordLine } from "react-icons/ri";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { productsRepository } from "../repository/products";
 
@@ -89,40 +89,42 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className="flex items-center gap-2 lg:gap-4 lg:order-2">
+        <div className="flex items-center md:gap-2 lg:gap-4 lg:order-2">
           <div
             onClick={() => {
               setOpenCart(!openCart);
             }}
-            className="items-center hidden px-2 py-1 bg-gray-100 rounded-full cursor-pointer lg:flex"
+            className="items-center hidden p-3 bg-gray-200 rounded-full cursor-pointer lg:flex"
           >
-            <FaShoppingCart className="flex items-center justify-center w-5 h-7 text-background/70" />
+            <FaShoppingCart className="flex items-center justify-center w-4 h-4 text-background/70" />
           </div>
 
-          <Link href={"/auth/login"}>
-            <button className="px-3 py-1.5 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer md:mx-6 text-background border-background">
+          {/* <Link href={"/auth/login"}>
+            <button className="px-3 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer md:mx-6 text-background border-background">
               sign in
             </button>
-          </Link>
-          {/* <Menu as={"div"} className="relative inline-block text-left md:px-6">
+          </Link> */}
+          <Menu as={"div"} className="relative inline-block text-left md:px-6">
             <Menu.Button
-              className={"hidden lg:flex items-center gap-3"}
+              className={"flex items-center gap-3"}
               onClick={() => {
                 setOpenCart(false);
               }}
             >
-              <div className="w-10 h-10 overflow-hidden bg-gray-200 rounded-full">
-                <Image
-                  src={"https://source.unsplash.com/random/40x40?people"}
-                  width={40}
-                  height={40}
-                />
+              <div className="p-1 bg-gray-200 rounded-full">
+                <div className="overflow-hidden bg-gray-200 rounded-full w-9 h-9">
+                  <Image
+                    src={"https://source.unsplash.com/random/40x40?people"}
+                    width={40}
+                    height={40}
+                  />
+                </div>
               </div>
+
               <div className="text-left">
                 <h2 className="text-sm font-medium text-background">Ilham</h2>
-                <p className="text-xs text-background/50">User</p>
+                <p className="text-xs text-background/50">Student</p>
               </div>
-              <FaChevronDown className="w-3 h-3 ml-2 text-sm text-background/60" />
             </Menu.Button>
             <Transition
               as={Fragment}
@@ -133,7 +135,7 @@ const Navbar = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 w-56 mt-12 origin-top-right rounded-sm shadow-lg shadow-background/10 bg-softWhite focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 w-56 mt-10 -mr-[60px] lg:-mr-6 origin-top-right rounded-sm shadow-lg md:mt-12 shadow-background/10 bg-softWhite focus:outline-none">
                 <div className="py-2">
                   <Menu.Item>
                     {({ active }) => (
@@ -143,9 +145,10 @@ const Navbar = () => {
                             active
                               ? "bg-white text-background hover:bg-gray-100 hover:text-background"
                               : "text-gray-700",
-                            "block px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
+                            "flex items-center gap-4 px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
                           )}
                         >
+                          <RiAccountCircleLine className="text-lg text-background/90" />
                           Update Profile
                         </div>
                       </Link>
@@ -160,9 +163,10 @@ const Navbar = () => {
                             active
                               ? "bg-white text-background hover:bg-gray-100 hover:text-background"
                               : "text-gray-700",
-                            "block px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
+                            "flex items-center gap-4 px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
                           )}
                         >
+                          <RiLockPasswordLine className="text-lg text-background/90" />
                           Change Password
                         </div>
                       </Link>
@@ -177,9 +181,10 @@ const Navbar = () => {
                           active
                             ? "bg-white text-background hover:bg-gray-100"
                             : "text-gray-700",
-                          "block px-4 py-2 w-full text-sm text-left"
+                          " px-4 py-2 w-full flex items-center gap-4 text-sm text-left"
                         )}
                       >
+                        <BiLogOut className="text-lg text-background/90" />
                         Logout
                       </button>
                     )}
@@ -187,7 +192,7 @@ const Navbar = () => {
                 </div>
               </Menu.Items>
             </Transition>
-          </Menu> */}
+          </Menu>
 
           <button
             type="button"
@@ -284,7 +289,7 @@ const Navbar = () => {
               <div className="flex items-center">
                 <button
                   type="button"
-                  className="inline-flex items-center p-2 ml-3 text-sm rounded-lg text-softGray/70 focus:outline-none focus:ring-0 lg:hidden"
+                  className="inline-flex items-center p-2.5 ml-3 text-sm rounded-lg text-softGray/70 focus:outline-none focus:ring-0 lg:hidden"
                   onClick={() => {
                     setOpen(!open);
                   }}
