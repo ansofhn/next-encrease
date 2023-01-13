@@ -137,7 +137,7 @@ const Navbar = () => {
                 <div className="py-2">
                   <Menu.Item>
                     {({ active }) => (
-                      <Link href={""}>
+                      <Link href={"/profile/1"}>
                         <div
                           className={classNames(
                             active

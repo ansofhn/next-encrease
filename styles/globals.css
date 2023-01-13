@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.without-ring {
+    @apply  ring-0 focus:ring-0 shadow-none focus:shadow-none focus:outline-none
+}
+
+.user-profile-form {
+    @apply bg-transparent border-b-[1px] border-background w-full py-2
+}
