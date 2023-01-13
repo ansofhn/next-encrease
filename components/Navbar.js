@@ -99,12 +99,12 @@ const Navbar = () => {
             <FaShoppingCart className="flex items-center justify-center w-5 h-7 text-background/70" />
           </div>
 
-          {/* <Link href={"/auth/login"}>
-            <button className="px-3 py-1 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer md:mx-6 text-background border-background">
+          <Link href={"/auth/login"}>
+            <button className="px-3 py-1.5 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer md:mx-6 text-background border-background">
               sign in
             </button>
-          </Link> */}
-          <Menu as={"div"} className="relative inline-block text-left md:px-6">
+          </Link>
+          {/* <Menu as={"div"} className="relative inline-block text-left md:px-6">
             <Menu.Button
               className={"hidden lg:flex items-center gap-3"}
               onClick={() => {
@@ -187,7 +187,7 @@ const Navbar = () => {
                 </div>
               </Menu.Items>
             </Transition>
-          </Menu>
+          </Menu> */}
 
           <button
             type="button"

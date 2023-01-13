@@ -74,7 +74,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col justify-center h-full space-y-16 md:space-y-8 md:h-auto md:pt-14 lg:pt-28 xl:pt-36 2xl:pt-44 lg:pl-8 xl:pl-10 2xl:pl-12 xl:space-y-10">
+          <div className="flex flex-col justify-center h-[97%] space-y-16 md:space-y-8 md:h-auto md:pt-14 lg:pt-28 xl:pt-36 2xl:pt-44 lg:pl-8 xl:pl-10 2xl:pl-12 xl:space-y-10">
             <div className="space-y-1 lg:space-y-2 xl:space-y-3 2xl:space-y-4">
               <div className="text-xs font-semibold text-gray-400 uppercase lg:text-sm xl:text-base">
                 Welcome back
