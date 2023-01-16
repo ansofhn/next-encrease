@@ -77,7 +77,7 @@ const Navbar = () => {
     <div>
       {/* Main Navbar */}
       <div
-        className={`fixed top-0 z-20 flex flex-wrap items-center justify-between w-full p-6 mx-auto ${
+        className={`fixed top-0 z-40 flex flex-wrap items-center justify-between w-full p-6 mx-auto ${
           scrollChange || currentRoute === "/product/[id]"
             ? "shadow-lg shadow-background/5"
             : ""
@@ -199,6 +199,7 @@ const Navbar = () => {
             className="inline-flex items-center p-2 ml-3 text-sm rounded-lg text-background focus:outline-none focus:ring-0 lg:hidden"
             onClick={() => {
               setOpen(!open);
+              setOpenCart(false);
             }}
           >
             <svg
@@ -266,7 +267,7 @@ const Navbar = () => {
         {/* Navbar Mobile */}
         {open && (
           <motion.div
-            className="fixed z-30 flex flex-col items-center justify-center w-full h-full bg-softDark text-softWhite"
+            className="fixed z-40 flex flex-col items-center justify-center w-full h-full bg-softDark text-softWhite"
             variants={item}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "100vh", opacity: 1 }}
@@ -298,6 +299,7 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
+
             <motion.div
               className="inline-flex mb-6 text-base font-light tracking-widest uppercase text-softGray/70"
               initial={{ opacity: 0 }}
@@ -317,6 +319,7 @@ const Navbar = () => {
               <motion.div
                 onClick={() => {
                   setOpen(!open);
+                  setOpenCart(false);
                 }}
                 className={`inline-flex my-2 text-3xl font-bold ${
                   currentRoute === "/" ? "text-softWhite" : "text-softGray/70"
@@ -329,7 +332,7 @@ const Navbar = () => {
                   y: 80,
                   transition: {
                     ease: "easeInOut",
-                    delay: 0.8,
+                    delay: 0.9,
                   },
                 }}
               >
@@ -340,6 +343,7 @@ const Navbar = () => {
               <motion.div
                 onClick={() => {
                   setOpen(!open);
+                  setOpenCart(false);
                 }}
                 className={`inline-flex my-2 text-3xl font-bold ${
                   currentRoute === "/product"
@@ -354,17 +358,44 @@ const Navbar = () => {
                   y: 80,
                   transition: {
                     ease: "easeInOut",
-                    delay: 0.7,
+                    delay: 0.8,
                   },
                 }}
               >
                 Products
               </motion.div>
             </Link>
+            <Link href={"/cart"}>
+              <motion.div
+                onClick={() => {
+                  setOpen(!open);
+                  setOpenCart(false);
+                }}
+                className={`inline-flex my-2 text-3xl font-bold ${
+                  currentRoute === "/cart"
+                    ? "text-softWhite"
+                    : "text-softGray/70"
+                } `}
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                exit={{
+                  opacity: 0,
+                  y: 80,
+                  transition: {
+                    ease: "easeInOut",
+                    delay: 0.7,
+                  },
+                }}
+              >
+                My cart
+              </motion.div>
+            </Link>
             <Link href={"/about"}>
               <motion.div
                 onClick={() => {
                   setOpen(!open);
+                  setOpenCart(false);
                 }}
                 className={`inline-flex my-2 text-3xl font-bold ${
                   currentRoute === "/about"
@@ -373,7 +404,7 @@ const Navbar = () => {
                 } `}
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.5 }}
                 exit={{
                   opacity: 0,
                   y: 80,
@@ -390,6 +421,7 @@ const Navbar = () => {
               <motion.div
                 onClick={() => {
                   setOpen(!open);
+                  setOpenCart(false);
                 }}
                 className={`inline-flex my-2 text-3xl font-bold ${
                   currentRoute === "/contact"
@@ -398,7 +430,7 @@ const Navbar = () => {
                 } `}
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4 }}
                 exit={{
                   opacity: 0,
                   y: 80,
@@ -435,8 +467,9 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed z-10 w-full h-screen bg-softDark/30"
+            className="fixed z-30 w-full h-screen bg-softDark/30"
           >
+            <RemoveScrollBar />
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -455,96 +488,141 @@ const Navbar = () => {
                 </button>
               </div>
               <hr className="border-gray-200" />
-              <div className="space-y-8">
-                <div className="flex items-center gap-10 mr-4">
-                  <button className="p-4 text-2xl text-background/70">
-                    <FiTrash2 />
-                  </button>
-                  <div className="flex items-center gap-4 w-[250px]">
-                    <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
-                      <Image
-                        src={Products[0]?.image}
-                        width={300}
-                        height={300}
+              <div className="h-[280px] space-y-8 overflow-y-auto">
+                <div className="space-y-8">
+                  <div className="flex items-center gap-10 mr-4">
+                    <button className="p-4 text-2xl text-background/70">
+                      <FiTrash2 />
+                    </button>
+                    <div className="flex items-center gap-4 w-[250px]">
+                      <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
+                        <Image
+                          src={Products[0]?.image}
+                          width={300}
+                          height={300}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="text-sm font-bold text-background">
+                          {Products[0]?.title}
+                        </div>
+                        <div className="text-xs text-background/50">
+                          {Products[0]?.category}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
+                      <FaCaretLeft
+                        onClick={decreaseQty}
+                        className="cursor-pointer text-background/50"
+                      />
+                      <input
+                        type={"number"}
+                        min={1}
+                        minLength={1}
+                        value={quantity}
+                        className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
+                      />
+                      <FaCaretRight
+                        onClick={increaseQty}
+                        className="cursor-pointer text-background/50"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <div className="text-sm font-bold text-background">
-                        {Products[0]?.title}
-                      </div>
-                      <div className="text-xs text-background/50">
-                        {Products[0]?.category}
-                      </div>
+                    <div className="font-semibold text-background">
+                      {rupiah(Products[0]?.price)}
                     </div>
                   </div>
-                  <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
-                    <FaCaretLeft
-                      onClick={decreaseQty}
-                      className="cursor-pointer text-background/50"
-                    />
-                    <input
-                      type={"number"}
-                      min={1}
-                      minLength={1}
-                      value={quantity}
-                      className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
-                    />
-                    <FaCaretRight
-                      onClick={increaseQty}
-                      className="cursor-pointer text-background/50"
-                    />
-                  </div>
-                  <div className="font-semibold text-background">
-                    {rupiah(Products[0]?.price)}
-                  </div>
                 </div>
-                <hr className="border-gray-200" />
-              </div>
-              <div className="space-y-8">
-                <div className="flex items-center gap-10 mr-4">
-                  <button className="p-4 text-2xl text-background/70">
-                    <FiTrash2 />
-                  </button>
-                  <div className="flex items-center gap-4 w-[250px]">
-                    <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
-                      <Image
-                        src={Products[8]?.image}
-                        width={300}
-                        height={300}
+                <div className="space-y-8">
+                  <div className="flex items-center gap-10 mr-4">
+                    <button className="p-4 text-2xl text-background/70">
+                      <FiTrash2 />
+                    </button>
+                    <div className="flex items-center gap-4 w-[250px]">
+                      <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
+                        <Image
+                          src={Products[8]?.image}
+                          width={300}
+                          height={300}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="text-sm font-bold text-background">
+                          {Products[8]?.title}
+                        </div>
+                        <div className="text-xs text-background/50">
+                          {Products[8]?.category}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
+                      <FaCaretLeft
+                        onClick={decreaseQty}
+                        className="cursor-pointer text-background/50"
+                      />
+                      <input
+                        type={"number"}
+                        min={1}
+                        minLength={1}
+                        value={quantity}
+                        className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
+                      />
+                      <FaCaretRight
+                        onClick={increaseQty}
+                        className="cursor-pointer text-background/50"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <div className="text-sm font-bold text-background">
-                        {Products[8]?.title}
-                      </div>
-                      <div className="text-xs text-background/50">
-                        {Products[8]?.category}
-                      </div>
+                    <div className="font-semibold text-background">
+                      {rupiah(Products[8]?.price)}
                     </div>
                   </div>
-                  <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
-                    <FaCaretLeft
-                      onClick={decreaseQty}
-                      className="cursor-pointer text-background/50"
-                    />
-                    <input
-                      type={"number"}
-                      min={1}
-                      minLength={1}
-                      value={quantity}
-                      className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
-                    />
-                    <FaCaretRight
-                      onClick={increaseQty}
-                      className="cursor-pointer text-background/50"
-                    />
-                  </div>
-                  <div className="font-semibold text-background">
-                    {rupiah(Products[8]?.price)}
+                </div>
+                <div className="space-y-8">
+                  <div className="flex items-center gap-10 mr-4">
+                    <button className="p-4 text-2xl text-background/70">
+                      <FiTrash2 />
+                    </button>
+                    <div className="flex items-center gap-4 w-[250px]">
+                      <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
+                        <Image
+                          src={Products[8]?.image}
+                          width={300}
+                          height={300}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="text-sm font-bold text-background">
+                          {Products[8]?.title}
+                        </div>
+                        <div className="text-xs text-background/50">
+                          {Products[8]?.category}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
+                      <FaCaretLeft
+                        onClick={decreaseQty}
+                        className="cursor-pointer text-background/50"
+                      />
+                      <input
+                        type={"number"}
+                        min={1}
+                        minLength={1}
+                        value={quantity}
+                        className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
+                      />
+                      <FaCaretRight
+                        onClick={increaseQty}
+                        className="cursor-pointer text-background/50"
+                      />
+                    </div>
+                    <div className="font-semibold text-background">
+                      {rupiah(Products[8]?.price)}
+                    </div>
                   </div>
                 </div>
-                <hr className="border-gray-200" />
               </div>
+              <hr className="border-gray-200" />
               <div className="mt-10 space-y-6">
                 <div className="flex items-center justify-end text-xl font-bold uppercase text-background">
                   TOTAL PRICE :
