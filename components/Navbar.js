@@ -388,7 +388,7 @@ const Navbar = () => {
                   },
                 }}
               >
-                My cart
+                My Cart
               </motion.div>
             </Link>
             <Link href={"/about"}>

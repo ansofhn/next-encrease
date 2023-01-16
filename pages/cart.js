@@ -1,37 +1,20 @@
 import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import LandingPageLayout from "../layouts/LandingPageLayout";
-import { productsRepository } from "../repository/products";
 
 const cart = () => {
-  //Fetching Products Data
-  const { data: Products } = productsRepository.hooks.useProducts();
-
-  useEffect(() => {
-    console.log(Products);
-  }, [Products]);
-
-  // Rupiah Formatter
-  const rupiah = (number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(number);
-  };
-
   return (
     <div className="w-full h-screen pt-[92px] md:pt-28">
       <RemoveScrollBar />
-      <div className="h-[85%] md:h-[76%] p-6 space-y-2 overflow-y-auto  rounded-t-3xl bg-softGray">
+      <div className="h-[70%] p-6 space-y-2 overflow-y-auto  rounded-t-3xl bg-softGray">
         <div className="flex w-full bg-softWhite rounded-3xl">
           <div className="flex items-center w-full gap-4 p-6">
             <div className="p-3 w-28 bg-softGray">
               <Image
-                src={Products ? Products[0]?.image : ""}
+                src={"https://source.unsplash.com/random/300x300?Headphone"}
                 width={300}
                 height={300}
               />
@@ -39,10 +22,10 @@ const cart = () => {
             <div className="flex flex-col justify-between h-full w-[70%]">
               <div className="space-y-2">
                 <div className="font-semibold text-background">
-                  {Products ? Products[0]?.title : ""}
+                  Headphone Gaming
                 </div>
                 <div className="text-xs font-semibold text-background/70">
-                  {Products ? rupiah(Products[0]?.price) : ""}
+                  Rp. 250.000,00
                 </div>
               </div>
               <div className="flex items-center justify-between">
@@ -74,7 +57,7 @@ const cart = () => {
           <div className="flex items-center w-full gap-4 p-6">
             <div className="p-3 w-28 bg-softGray">
               <Image
-                src={Products ? Products[1]?.image : ""}
+                src={"https://source.unsplash.com/random/300x300?monitor"}
                 width={300}
                 height={300}
               />
@@ -82,10 +65,10 @@ const cart = () => {
             <div className="flex flex-col justify-between h-full w-[70%]">
               <div className="space-y-2">
                 <div className="font-semibold text-background">
-                  {Products ? Products[1]?.title : ""}
+                  Monitor Gaming
                 </div>
                 <div className="text-xs font-semibold text-background/70">
-                  {Products ? rupiah(Products[1]?.price) : ""}
+                  Rp. 300.000,00
                 </div>
               </div>
               <div className="flex items-center justify-between">
@@ -117,7 +100,7 @@ const cart = () => {
           <div className="flex items-center w-full gap-4 p-6">
             <div className="p-3 w-28 bg-softGray">
               <Image
-                src={Products ? Products[2]?.image : ""}
+                src={"https://source.unsplash.com/random/300x300?laptop"}
                 width={300}
                 height={300}
               />
@@ -125,10 +108,10 @@ const cart = () => {
             <div className="flex flex-col justify-between h-full w-[70%]">
               <div className="space-y-2">
                 <div className="font-semibold text-background">
-                  {Products ? Products[2]?.title : ""}
+                  Laptop Ultrabook
                 </div>
                 <div className="text-xs font-semibold text-background/70">
-                  {Products ? rupiah(Products[2]?.price) : ""}
+                  Rp. 350.000,00
                 </div>
               </div>
               <div className="flex items-center justify-between">
@@ -160,11 +143,7 @@ const cart = () => {
       <div className="shadow-lg bg-softGray">
         <div className="flex items-center justify-between p-6 bg-softWhite rounded-3xl">
           <div className="flex items-center justify-end text-sm font-bold md:text-base text-background">
-            {Products
-              ? rupiah(
-                  Products[0]?.price + Products[1]?.price + Products[2]?.price
-                )
-              : ""}
+            Rp. 3.500.000,00
           </div>
           <button className="px-4 py-2.5 text-xs md:text-sm bg-background rounded-xl font-semibold uppercase text-softWhite">
             Proceed to Checkout
