@@ -9,7 +9,7 @@ const cart = () => {
   return (
     <div className="w-full h-screen pt-[92px] md:pt-28">
       <RemoveScrollBar />
-      <div className="fixed bottom-0 z-50 w-full bg-softGray">
+      <div className="fixed bottom-0 z-10 w-full bg-softGray">
         <div className="flex items-center justify-between p-6 bg-softWhite rounded-t-3xl">
           <div className="flex items-center justify-end text-sm font-bold md:text-base text-background">
             Rp. 3.500.000,00
