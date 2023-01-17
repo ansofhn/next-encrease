@@ -6,34 +6,28 @@ const about = () => {
     <div>
       <div className="py-40">
         <div className="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
-          <div className="flex flex-col justify-center gap-y-20 md:gap-y-32">
-            <div className="pb-10 space-y-5 text-center">
-              <h1 className="text-5xl font-bold lg:text-6xl text-background">
+          <div className="flex flex-col justify-center gap-y-20">
+            <div class="pb-10 space-y-5 text-center">
+              <h1 class="text-5xl font-bold lg:text-6xl text-background">
                 About Us
               </h1>
-              <h2 className="text-sm font-light lg:text-base">
-                Find the product or service you are looking for here
+              <h2 class="text-xs font-light md:text-base">
+                Learn more about the project and the team behind it.
               </h2>
             </div>
             <div className="container">
-              <div className="grid grid-cols-1 space-y-6 md:gap-10 lg:mx-10 xl:mx-16 md:grid-cols-2">
-                <div className="text-2xl font-bold text-center uppercase md:col-span-2 lg:mx-10 xl:mx-44 2xl:mx-80 text-background/80">
-                  Supporting information system for this entrepreneurial
-                  pioneering school is a web-based application
+              <div className="grid grid-cols-1 space-y-10 md:space-y-0 md:gap-10 lg:mx-10 xl:mx-20 md:grid-cols-2">
+                <div className="text-4xl font-semibold 2xl:text-5xl text-background/80">
+                  Supporting Information System for Entrepreneurial Pioneering
+                  School is{" "}
+                  <span className="text-background/50">
+                    a Web-based Application
+                  </span>
                 </div>
-                <div className="text-gray-500">
-                  Aliquam vulputate turpis quis nibh tempus finibus. In
-                  fringilla nulla quis lacus sagittis, sed malesuada enim
-                  faucibus. Nulla interdum dolor mauris, vitae molestie dui
-                  bibendum et. Praesent non felis in sem placerat mattis eget et
-                  justo. Fusce quis justo et arcu tristique gravida sit amet
-                </div>
-                <div className="text-gray-500 md:text-right">
-                  Donec purus lacus, vehicula vitae posuere quis, dignissim ut
-                  lectus. Fusce et purus malesuada, vulputate nisi id, convallis
-                  purus. Nam porta ipsum at consequat molestie. In nunc nisl,
-                  gravida sed tortor id, consequat mollis quam. Quisque accumsan
-                  aucto nisi id, convallis purus
+                <div className="flex items-end text-gray-500 lg:pl-10 2xl:pl-20">
+                  To build software that gives customer-facing teams at small-
+                  and medium sized businesses the ability to create fruitful and
+                  enduring relationships with customers.
                 </div>
               </div>
             </div>
@@ -57,6 +51,28 @@ const about = () => {
                       src="https://source.unsplash.com/random/500x410?setup-pc"
                       className="w-full transition duration-500 hover:scale-95"
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="grid grid-cols-1 space-y-10 md:space-y-0 md:gap-10 lg:mx-10 xl:mx-20 md:grid-cols-2 2xl:pr-36">
+                <div className="text-4xl 2xl:text-5xl w-[80%] lg:w-[70%] xl:w-[55%] font-semibold text-background/80">
+                  Together we are strong
+                </div>
+                <div className="space-y-10 text-gray-500 2xl:pr-10">
+                  <div className="font-medium text-background">
+                    Our crew is always getting bigger, but we all work toward
+                    one goal to make this application success not only possible
+                    but inevitable for teams everywhere.
+                  </div>
+                  <div>
+                    Since the Covid-19 Pandemic hit Indonesia, the Central
+                    Statistics Agency there were around 954.6 thousand people of
+                    working age who were forced to be unemployed, with this
+                    unemployment rate the Directorate of Vocational High School
+                    Development continues to strive to develop entrepreneurship
+                    among SMK students.
                   </div>
                 </div>
               </div>

@@ -52,7 +52,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 80) {
         setScrollChange(true);
       } else {
         setScrollChange(false);

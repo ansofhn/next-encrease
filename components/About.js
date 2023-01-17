@@ -8,9 +8,8 @@ const About = () => {
           <h1 className="text-4xl font-bold md:text-5xl text-background">
             About Us
           </h1>
-          <h2 className="text-sm font-light md:mx-10 lg:mx-64 lg:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            elementum id metus ac tempus. consectetur adipiscing elit.
+          <h2 className="mx-10 text-sm font-light md:mx-10 lg:mx-64 lg:text-base">
+            Learn more about the project and the team behind it.
           </h2>
         </div>
         <div className="w-full mt-10 md:px-4 lg:px-10 xl:px-20">
