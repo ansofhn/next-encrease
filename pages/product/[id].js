@@ -8,6 +8,7 @@ import { productsRepository } from "../../repository/products";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsChevronCompactUp, BsChevronCompactDown, BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
+import SugestionProducts from "../../components/SugestionProducts";
 
 
 
@@ -207,6 +208,7 @@ const DetailProduct = () => {
             </ConfigProvider>
           </div>
         </div>
+        <SugestionProducts/>
       </div>
     </div>
   );
