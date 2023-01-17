@@ -31,7 +31,7 @@
         "id": "1",
         "title": "Service Laptop",
         "price": 500000,
-        "image": "https://source.unsplash.com/random/300x300?laptop",
+        "image": "https://source.unsplash.com/random/900x900?laptop",
         "description": "Kami melayani home service komputer/printer/laptop/CCTV dengan dibantu teknisi ahli dibidangnya",
         "category": "Jasa"
       },
@@ -47,7 +47,7 @@
         "id": "3",
         "title": "Service PC",
         "price": 500000,
-        "image": "https://source.unsplash.com/random/300x300?pc",
+        "image": "https://source.unsplash.com/random/300x300?desktop",
         "description": "Terima Jasa Service Laptop Murah, Bisa Ditunggu. dan tunggu aja sampe mampus bro, karena ini cepat dan efisien ",
         "category": "Jasa"
       },

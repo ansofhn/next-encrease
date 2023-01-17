@@ -29,7 +29,7 @@ const ProductCard = () => {
     <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 font-poppins">
       {Products?.map(data =>{
           return(
-            <div className="max-w-sm duration-500 rounded-md shadow-lg bg-slate-50 hover:scale-105" key={data?.id} onClick={()=>detailProduct(data?.id)}>
+            <div className="max-w-sm duration-500 rounded-md shadow-lg bg-slate-50 hover:scale-105 cursor-pointer" key={data?.id} onClick={()=>detailProduct(data?.id)}>
               <div className="p-8 bg-softWhite">
                 <Image
                   src={data?.image}
