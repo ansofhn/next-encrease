@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
 const ProductCard = () => {
@@ -39,9 +40,10 @@ const ProductCard = () => {
                   className="w-full"
                 />
               </div>
-              <div className="p-4 text-background">
+              <div className="p-4 text-background space-y-1">
                 <h1 className="text-lg font-semibold">{data?.title}</h1>
                 <p className="font-light">{rupiah(data?.price)}</p>
+                <span className="flex items-center gap-2 text-background font-bold"> <BsStarFill color="orange"/>4.7</span>
               </div>
             </div>
           )
