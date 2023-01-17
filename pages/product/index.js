@@ -15,7 +15,7 @@ const product = () => {
               <h1 class="text-5xl font-bold lg:text-6xl text-background">
                 Products
               </h1>
-              <h2 class="text-xs font-light md:text-base">
+              <h2 class="text-sm font-light md:text-base">
                 Find the product or service you are looking for here
               </h2>
             </div>

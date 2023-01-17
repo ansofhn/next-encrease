@@ -7,12 +7,12 @@ const about = () => {
       <div className="py-40">
         <div className="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
           <div className="flex flex-col justify-center gap-y-20">
-            <div class="pb-10 space-y-5 text-center">
+            <div class="pb-5 space-y-5 text-center">
               <h1 class="text-5xl font-bold lg:text-6xl text-background">
                 About Us
               </h1>
-              <h2 class="text-xs font-light md:text-base">
-                Learn more about the project and the team behind it.
+              <h2 class="text-sm font-light md:text-base">
+                Learn more about the project and team behind it.
               </h2>
             </div>
             <div className="container">
