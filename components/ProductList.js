@@ -6,7 +6,7 @@ const ProductList = () => {
       <div className="flex flex-col justify-center gap-y-16">
         <div className="space-y-5 text-center">
           <h1 className="text-4xl font-bold md:text-5xl text-background">
-            View our products
+            View Our Products
           </h1>
           <h2 className="text-sm font-light md:mx-10 lg:mx-64 lg:text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
