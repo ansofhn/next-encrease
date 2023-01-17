@@ -490,7 +490,7 @@ const Navbar = () => {
               <hr className="border-gray-200" />
               <div className="h-[280px] space-y-8 overflow-y-auto">
                 <div className="space-y-8">
-                  <div className="flex items-center gap-10 mr-4">
+                  <div className="flex items-center gap-10 mr-10">
                     <button className="p-4 text-2xl text-background/70">
                       <FiTrash2 />
                     </button>
@@ -534,7 +534,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="space-y-8">
-                  <div className="flex items-center gap-10 mr-4">
+                  <div className="flex items-center gap-10 mr-10">
                     <button className="p-4 text-2xl text-background/70">
                       <FiTrash2 />
                     </button>
@@ -578,7 +578,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="space-y-8">
-                  <div className="flex items-center gap-10 mr-4">
+                  <div className="flex items-center gap-10 mr-10">
                     <button className="p-4 text-2xl text-background/70">
                       <FiTrash2 />
                     </button>

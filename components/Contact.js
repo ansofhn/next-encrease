@@ -9,7 +9,7 @@ const Contact = () => {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          className="w-full h-[90vh] lg:w-[85%] xl:w-[85%] 2xl:w-[80%] lg:h-[350px] xl:h-[450px] 2xl:h-[550px] grayscale"
+          className="w-full h-[86vh] lg:w-[85%] 2xl:w-[80%] lg:h-[350px] xl:h-[450px] 2xl:h-[550px] grayscale"
         ></iframe>
 
         <div className="hidden lg:grid-cols-4 lg:grid lg:font-semibold lg:gap-11 xl:gap-20 2xl:gap-28 lg:-mt-10 lg:-ml-[300px] xl:-ml-[400px] 2xl:-ml-[500px] lg:z-0 lg:uppercase lg:text-7xl lg:text-background/80">
