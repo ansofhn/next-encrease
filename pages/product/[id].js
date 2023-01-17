@@ -9,6 +9,7 @@ import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsChevronCompactUp, BsChevronCompactDown, BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs";
 import SugestionProducts from "../../components/SugestionProducts";
+import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 
 
@@ -68,8 +69,8 @@ const DetailProduct = () => {
              <div className="flex flex-col-reverse md:flex-row gap-5">
                 <div className="flex flex-row md:flex-col items-center">
                   <BsChevronCompactUp className="hidden cursor-pointer md:block" size={30} onClick={()=>slideUp()}/>
-                  <BsChevronCompactLeft className="md:hidden cursor-pointer" size={50} onClick={()=>slideLeft()}/>
-                  <div className="flex flex-row md:flex-col bg-softGray items-center justify-start p-4 gap-2 md:py-2 overflow-scroll md:h-[400px] scroll-smooth" id="slider">
+                  <BsChevronCompactLeft className="md:hidden cursor-pointer" size={80} onClick={()=>slideLeft()}/>
+                  <div className="flex flex-row md:flex-col bg-softGray items-center justify-start p-4 gap-2 md:py-2 overflow-scroll md:h-[400px] scroll-smooth scrollbar-hide" id="slider">
                      <Image
                       src={'https://source.unsplash.com/random/900x900?laptop'}
                       width={100}
@@ -122,7 +123,7 @@ const DetailProduct = () => {
                     
                   </div>
                   <BsChevronCompactDown className="hidden cursor-pointer md:block" size={30} onClick={()=>slideDown()}/>
-                  <BsChevronCompactRight className="md:hidden cursor-pointer" size={50}  onClick={()=>slideRight()}/>
+                  <BsChevronCompactRight className="md:hidden cursor-pointer" size={80}  onClick={()=>slideRight()}/>
                 </div>
                 <div className="w-full">
                   <Image
