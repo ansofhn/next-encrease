@@ -30,7 +30,7 @@ const LatestNews = () => {
                 <div>by ansofhn</div>
                 <div>17 Januari 2023</div>
               </div>
-              <div className="text-sm">
+              <div className="text-sm text-background/80">
                 Lorem ipsum dolor sit lkjsdfhlasjd alsdkjfa alsdjkf amet,
                 consectetur adipiscing elit. Cras elementum id metus ac tempus.
               </div>
@@ -54,7 +54,7 @@ const LatestNews = () => {
                 <div>by anonymous</div>
                 <div>17 Januari 2023</div>
               </div>
-              <div className="text-sm">
+              <div className="text-sm text-background/80">
                 Lorem ipsum dolor sit lkjsdfhlasjd alsdkjfa alsdjkf amet,
                 consectetur adipiscing elit. Cras elementum id metus ac tempus.
               </div>
@@ -78,7 +78,7 @@ const LatestNews = () => {
                 <div>by anonymous</div>
                 <div>17 Januari 2023</div>
               </div>
-              <div className="text-sm">
+              <div className="text-sm text-background/80">
                 Lorem ipsum dolor sit lkjsdfhlasjd alsdkjfa alsdjkf amet,
                 consectetur adipiscing elit. Cras elementum id metus ac tempus.
               </div>
