@@ -15,7 +15,7 @@ const UserProfile = () => {
   const { data: dataProfile } = userRepository.hooks.getDetailUser(id);
 
   return (
-    <div className="flex flex-col px-4 mx-auto w-[55%] py-4 gap-y-12">
+    <div className="flex flex-col px-4 mx-auto w-full md:w-[80%] lg:w-[55%] py-4 gap-y-12">
       <div className="flex items-end justify-center">
         <Avatar src={dataProfile?.image} size={120} />
         <button className="p-2 border-none rounded-lg shadow text-background hover:text-maroon focus:text-maroon ring-0">

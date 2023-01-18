@@ -3,7 +3,7 @@ import SettingLayout from "../../layouts/SettingLayout";
 
 const password = () => {
   return (
-    <div className="flex flex-col px-4 mx-auto w-[55%] py-4 gap-y-20">
+    <div className="flex flex-col px-4 mx-auto w-full md:w-[80%] lg:w-[55%] py-4 gap-y-20">
       <div className="text-xl font-bold text-background">
         Set Your Password
         <p className="text-sm font-light text-background">
@@ -39,7 +39,7 @@ const password = () => {
                 type="submit"
                 className="p-3 text-sm duration-200 rounded-md bg-background text-softWhite hover:scale-105"
               >
-                Save Changes
+                Change Password
               </button>
               <button
                 type="reset"

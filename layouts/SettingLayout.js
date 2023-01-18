@@ -15,8 +15,8 @@ const SettingLayout = ({ title, children }) => {
       </Head>
       <Navbar />
       <div className="pt-32 pb-10 md:pt-24 bg-softWhite">
-        <div className="container flex gap-x-10 md:py-24">
-          <div className="flex flex-col space-y-20 w-[25%] p-10 border-background/60 border-r">
+        <div className="container flex flex-col lg:flex-row gap-x-10 md:py-24">
+          <div className="hidden lg:flex flex-col space-y-20 lg:w-[25%] p-10 border-background/60 border-r">
             <Link href={"/profile/1"}>
               <button className="flex items-center gap-4 pl-10 font-semibold text-background">
                 <CgProfile className="text-2xl text-center " />
