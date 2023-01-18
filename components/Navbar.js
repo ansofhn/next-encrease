@@ -157,7 +157,7 @@ const Navbar = () => {
 
                   <Menu.Item>
                     {({ active }) => (
-                      <Link href={""}>
+                      <Link href={"/profile/password"}>
                         <div
                           className={classNames(
                             active
