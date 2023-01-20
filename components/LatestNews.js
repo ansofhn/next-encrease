@@ -1,21 +1,31 @@
 import React from "react";
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 const LatestNews = () => {
   return (
-    <div className="container py-20">
+    <div className="container pt-20 pb-28">
       <div className="flex flex-col justify-center gap-y-20">
-        <div className="flex flex-col items-center space-y-5 text-center">
-          <div className="w-0.5 h-12 bg-background/50 hidden lg:block" />
-          <h1 className="text-4xl font-bold md:text-5xl text-background">
-            Latest News
+        <div className="flex flex-col items-start justify-start space-y-6 text-center mx-7 md:space-y-0 md:space-x-6 md:flex-row 2xl:justify-start lg:space-x-6 lg:mx-8 xl:space-x-20 xl:mx-10">
+          <div className="font-medium tracking-widest uppercase w-36 md:pt-3 lg:pt-4">
+            Our Product
+          </div>
+          <h1 className="text-4xl font-semibold text-left w-72 md:w-[75%] lg:w-[90%] xl:w-[70%] 2xl:w-[55%] md:text-5xl text-background">
+            Our product with affordable prices and with the best quality
           </h1>
-          <h2 className="text-sm font-light md:mx-10 lg:mx-64 lg:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            elementum id metus ac tempus. Praesent ut mauris eget velit volutpat
-            posuere
-          </h2>
         </div>
-        <div className="grid grid-cols-1 gap-10 px-3 md:container md:grid-cols-2 xl:grid-cols-3 lg:px-12">
+        <div className="grid grid-cols-1 gap-10 mx-5 md:mx-10 md:grid-cols-2 lg:grid-cols-3">
+          <div className="bg-gray-200 h-60 md:h-auto md:row-span-2"></div>
+          <div className="bg-gray-200 h-60"></div>
+          <div className="bg-gray-200 h-60"></div>
+          <div className="bg-gray-200 h-60"></div>
+          <div className="flex items-center pl-4 xl:pl-24">
+            <button className="flex items-center gap-3 px-6 py-2.5 my-8 text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer text-background border-background hover:bg-background hover:text-softWhite">
+              see more
+              <HiArrowNarrowRight className="text-xl" />
+            </button>
+          </div>
+        </div>
+        {/* <div className="grid grid-cols-1 gap-10 px-3 md:container md:grid-cols-2 xl:grid-cols-3 lg:px-12">
           <div className="bg-gray-200/50">
             <div className="w-full bg-gray-300">
               <img
@@ -88,7 +98,7 @@ const LatestNews = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

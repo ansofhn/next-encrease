@@ -30,8 +30,8 @@ const ProductCard = () => {
     <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 font-poppins">
       {Products?.map(data =>{
           return(
-            <div className="max-w-sm duration-500 rounded-md shadow-lg bg-slate-50 hover:scale-105 cursor-pointer" key={data?.id} onClick={()=>detailProduct(data?.id)}>
-              <div className="p-8 bg-softWhite">
+            <div className="max-w-sm duration-500 rounded-md shadow-lg cursor-pointer bg-slate-50 hover:scale-105" key={data?.id} onClick={()=>detailProduct(data?.id)}>
+              <div className="p-6 bg-softWhite">
                 <Image
                   src={data?.image}
                   alt={'Image Product'}
@@ -40,10 +40,10 @@ const ProductCard = () => {
                   className="w-full"
                 />
               </div>
-              <div className="p-4 text-background space-y-1">
+              <div className="p-4 space-y-1 text-background">
                 <h1 className="text-lg font-semibold">{data?.title}</h1>
                 <p className="font-light">{rupiah(data?.price)}</p>
-                <span className="flex items-center gap-2 text-background font-bold"> <BsStarFill color="orange"/>4.7</span>
+                <span className="flex items-center gap-2 font-bold text-background"> <BsStarFill color="orange"/>4.7</span>
               </div>
             </div>
           )

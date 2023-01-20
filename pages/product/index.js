@@ -12,7 +12,7 @@ const product = () => {
         <div class="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
           <div class="flex flex-col justify-center gap-y-12">
             <div class="pb-10 space-y-5 text-center">
-              <h1 class="text-5xl font-bold lg:text-6xl text-background">
+              <h1 class="text-5xl font-semibold lg:text-7xl text-background">
                 Products
               </h1>
               <h2 class="text-sm font-light md:text-base">

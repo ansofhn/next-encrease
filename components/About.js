@@ -1,16 +1,20 @@
 import React from "react";
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 const About = () => {
   return (
     <div className="container px-0 py-28">
       <div className="flex flex-col justify-center gap-y-20">
-        <div className="flex flex-col items-center space-y-5 text-center">
-          <div className="w-0.5 h-12 bg-background/50 hidden lg:block" />
-          <h1 className="text-4xl font-bold md:text-5xl text-background">
+        <div className="flex flex-col items-start justify-center space-y-6 text-center mx-7 md:space-y-0 md:space-x-6 md:flex-row 2xl:justify-start lg:space-x-10 lg:mx-8 xl:space-x-20 xl:mx-20">
+          <div className="font-medium tracking-widest uppercase md:pt-3 lg:pt-4">
             About Us
+          </div>
+          <h1 className="text-4xl font-semibold text-left w-72 md:w-80 md:text-5xl text-background">
+            Together we are strong
           </h1>
-          <h2 className="mx-10 text-sm font-light md:mx-10 lg:mx-64 lg:text-base">
-            Learn more about the project and the team behind it.
+          <h2 className="md:pt-3 lg:pt-4 text-sm font-light text-left w-80 md:w-60 lg:w-[450px] lg:text-base">
+            Supporting Information System for Entrepreneurial Pioneering School
+            is a Web-based Application.
           </h2>
         </div>
         <div className="w-full mt-10 md:px-4 lg:px-10 xl:px-20">
@@ -23,8 +27,9 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 elementum id metus ac tempus. consectetur adipiscing.
               </h2>
-              <button className="px-4 py-2 my-8 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
+              <button className="flex items-center px-6 py-2.5 my-8 text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer  text-background border-background hover:bg-background hover:text-softWhite">
                 view more
+                <HiArrowNarrowRight className="text-xl"/>
               </button>
             </div>
             <div className="w-full md:w-[80%] lg:w-[90%] xl:w-[80%] lg:order-2 pb-10 px-6">

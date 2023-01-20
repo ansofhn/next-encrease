@@ -6,8 +6,7 @@ const Service = () => {
       <div className="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
         <div className="flex flex-col justify-center gap-y-12">
           <div className="flex flex-col items-center justify-center space-y-5 text-center">
-            <div className="w-0.5 h-12 bg-background/50 hidden lg:block"/>
-            <h1 className="text-4xl font-bold md:text-5xl text-background">
+            <h1 className="text-4xl font-semibold md:text-5xl text-background">
               Our Services
             </h1>
             <h2 className="text-sm font-light lg:text-base">
