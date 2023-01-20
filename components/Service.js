@@ -5,7 +5,8 @@ const Service = () => {
     <div className="container py-28">
       <div className="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
         <div className="flex flex-col justify-center gap-y-12">
-          <div className="space-y-5 text-center">
+          <div className="flex flex-col items-center justify-center space-y-5 text-center">
+            <div className="w-0.5 h-12 bg-background/50 hidden lg:block"/>
             <h1 className="text-4xl font-bold md:text-5xl text-background">
               Our Services
             </h1>
@@ -13,7 +14,7 @@ const Service = () => {
               Find the product or service you are looking for here
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 xl:mx-10">
+          <div className="grid grid-cols-1 gap-4 mx-10 md:mx-12 lg:mx-0 xl:mx-10 md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center justify-center p-6">
               <div className="p-10 m-2 border-2 rounded-full border-softGray">
                 <div className="flex items-center w-12 h-12 text-center"></div>

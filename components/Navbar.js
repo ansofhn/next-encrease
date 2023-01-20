@@ -224,9 +224,10 @@ const Navbar = () => {
                 onClick={() => {
                   setOpenCart(false);
                 }}
-                className="p-2 cursor-pointer"
+                className="relative p-2 cursor-pointer group"
               >
                 Home
+                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
               </div>
             </Link>
             <Link href={"/product"}>
@@ -234,9 +235,10 @@ const Navbar = () => {
                 onClick={() => {
                   setOpenCart(false);
                 }}
-                className="p-2 cursor-pointer"
+                className="relative p-2 cursor-pointer group"
               >
                 Products
+                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
               </div>
             </Link>
             <Link href={"/about"}>
@@ -244,9 +246,10 @@ const Navbar = () => {
                 onClick={() => {
                   setOpenCart(false);
                 }}
-                className="p-2 cursor-pointer"
+                className="relative p-2 cursor-pointer group"
               >
                 About
+                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
               </div>
             </Link>
             <Link href={"/contact"}>
@@ -254,9 +257,10 @@ const Navbar = () => {
                 onClick={() => {
                   setOpenCart(false);
                 }}
-                className="p-2 cursor-pointer"
+                className="relative p-2 cursor-pointer group"
               >
                 Contact
+                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
               </div>
             </Link>
           </div>
