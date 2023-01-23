@@ -227,7 +227,11 @@ const Navbar = () => {
                 className="relative p-2 cursor-pointer group"
               >
                 Home
-                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
+                <div
+                  className={`w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300 ${
+                    currentRoute === "/" ? "scale-x-110" : "scale-x-0"
+                  }`}
+                />
               </div>
             </Link>
             <Link href={"/product"}>
@@ -238,7 +242,11 @@ const Navbar = () => {
                 className="relative p-2 cursor-pointer group"
               >
                 Products
-                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
+                <div
+                  className={`w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300 ${
+                    currentRoute === "/product" ? "scale-x-110" : "scale-x-0"
+                  }`}
+                />
               </div>
             </Link>
             <Link href={"/about"}>
@@ -249,7 +257,11 @@ const Navbar = () => {
                 className="relative p-2 cursor-pointer group"
               >
                 About
-                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
+                <div
+                  className={`w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300 ${
+                    currentRoute === "/about" ? "scale-x-110" : "scale-x-0"
+                  }`}
+                />
               </div>
             </Link>
             <Link href={"/contact"}>
@@ -260,7 +272,11 @@ const Navbar = () => {
                 className="relative p-2 cursor-pointer group"
               >
                 Contact
-                <div className="w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300" />
+                <div
+                  className={`w-full h-0.5 bg-background/80 scale-x-0 group-hover:scale-x-110 transition-transform duration-300 ${
+                    currentRoute === "/contact" ? "scale-x-110" : "scale-x-0"
+                  }`}
+                />
               </div>
             </Link>
           </div>
@@ -473,7 +489,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             className="fixed z-30 w-full h-screen bg-softDark/30"
           >
-            <RemoveScrollBar />
+            {/* <RemoveScrollBar /> */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -492,7 +508,7 @@ const Navbar = () => {
                 </button>
               </div>
               <hr className="border-gray-200" />
-              <div className="h-[280px] space-y-8 overflow-y-auto">
+              <div className="h-[24vh] space-y-8 overflow-y-auto">
                 <div className="space-y-8">
                   <div className="flex items-center gap-10 mr-10">
                     <button className="p-4 text-2xl text-background/70">
