@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
@@ -16,22 +15,22 @@ const LatestNews = () => {
         </div>
         <div className="grid grid-cols-1 gap-10 mx-5 md:mx-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-gray-200 aspect-[4/3] md:aspect-[3/4.9] xl:aspect-[3/4.8]  md:h-auto md:row-span-2 overflow-hidden group relative hover:scale-95 transition-all duration-500">
-            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?monitor')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
+            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?arduino')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
               <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
             </div>
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
-            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?cpu')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
+            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?router')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
               <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
             </div>
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
-            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?mousepad')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
+            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?asus')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
               <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
             </div>
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
-            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?ram')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
+            <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?logitech')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
               <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
             </div>
           </div>
