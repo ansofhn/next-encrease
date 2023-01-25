@@ -19,7 +19,7 @@ const cart = () => {
           </button>
         </div>
       </div>
-      <div className="h-full p-6 space-y-3 overflow-y-auto pb-28 rounded-t-3xl bg-softGray">
+      <div className="h-full p-6 space-y-3 overflow-y-auto pb-36 rounded-t-3xl bg-softGray">
         <div className="flex w-full bg-softWhite rounded-3xl">
           <div className="flex items-center w-full gap-4 p-6">
             <div className="p-3 w-28 bg-softGray">
