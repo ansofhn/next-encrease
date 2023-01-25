@@ -1,10 +1,39 @@
+import { message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useRef } from "react";
+import { appConfig } from "../../config/app";
 import LoginRegisterLayout from "../../layouts/LoginRegisterLayout";
 import macPhoto from "../../public/assets/macPhoto.png";
+import { authentication } from "../../utils/authentication";
+
+const SuperAgent = require('superagent')
 
 const Login = () => {
+
+  const router = useRouter()
+
+  // Form Control 
+  const emailRef = useRef()
+  const passwordRef = useRef()
+
+  const onSubmitForm = async (event) =>{
+    try{
+      event.preventDefault()
+      const data = {
+        email : emailRef.current.value,
+        password : passwordRef.current.value
+      }
+      await SuperAgent.post(appConfig.apiUrl + '/auth/login').send(data)
+      .then(res => authentication.setAccessToken(res.body?.data?.access_token))
+      message.success("Success Logged In")
+      router.push('/')
+    }catch(e){
+      message.error('Failed to Login ')
+      console.log(e)
+    }
+  }
   return (
     <div className="flex items-center justify-center w-full h-full bg-gray-200">
       <div className="h-[95%] md:h-[450px] lg:h-[550px] xl:h-[650px] 2xl:h-[750px] w-[90%] md:w-[50%] lg:w-[93%] xl:w-[80%] 2xl:w-[70%] bg-softWhite rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
@@ -47,13 +76,14 @@ const Login = () => {
               </div>
             </div>
             <div className="lg:w-[80%]">
-              <form className="space-y-2 xl:space-y-3 2xl:space-y-4">
+              <form className="space-y-2 xl:space-y-3 2xl:space-y-4" onSubmit={onSubmitForm}>
                 <div className="w-full px-3 py-1 bg-gray-100 rounded-lg xl:px-4 xl:py-2">
                   <label className="text-xs font-medium text-gray-400">
-                    Username
+                    Email
                   </label>
                   <input
-                    type="text"
+                    ref={emailRef}
+                    type="email"
                     required
                     className="w-full text-sm bg-transparent text-background focus:outline-none"
                   />
@@ -63,6 +93,7 @@ const Login = () => {
                     Password
                   </label>
                   <input
+                    ref={passwordRef}
                     type="password"
                     required
                     className="w-full text-sm bg-transparent text-background focus:outline-none"
