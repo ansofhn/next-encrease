@@ -16,7 +16,8 @@ const ProductCard = () => {
   }
 
   //Fetching Products Data
-  const {data:Products} = productsRepository.hooks.useProducts()
+  const {data:dataProducts} = productsRepository.hooks.useProducts()
+  const products = dataProducts?.data
 
   // Rupiah Formatter
   const rupiah = (number) =>{
@@ -28,12 +29,12 @@ const ProductCard = () => {
 
   return (
     <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 font-poppins">
-      {Products?.map(data =>{
+      {products?.map(data =>{
           return(
             <div className="max-w-sm duration-500 rounded-md shadow-lg cursor-pointer bg-slate-50 hover:scale-105" key={data?.id} onClick={()=>detailProduct(data?.id)}>
               <div className="p-6 bg-softWhite">
                 <Image
-                  src={data?.image}
+                  src={data?.image || 'https://source.unsplash.com/random/300x300?ethernet'}
                   alt={'Image Product'}
                   width={300}
                   height={300}
@@ -41,7 +42,7 @@ const ProductCard = () => {
                 />
               </div>
               <div className="p-4 space-y-1 text-background">
-                <h1 className="text-lg font-semibold">{data?.title}</h1>
+                <h1 className="text-lg font-semibold">{data?.name}</h1>
                 <p className="font-light">{rupiah(data?.price)}</p>
                 <span className="flex items-center gap-2 font-bold text-background"> <BsStarFill color="orange"/>4.7</span>
               </div>

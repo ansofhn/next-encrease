@@ -35,7 +35,8 @@ const DetailProduct = () => {
   const { id } = router.query;
 
   // Fetching Data
-  const { data: detailProduct } = productsRepository.hooks.useDetailProduct(id);
+  const { data: dataDetailProduct } = productsRepository.hooks.useDetailProduct(id);
+  const detailProduct = dataDetailProduct?.data
 
   // Rupiah Formatter
   const rupiah = (number) => {
@@ -148,7 +149,7 @@ const DetailProduct = () => {
                 </div>
                 <div className="w-full h-full md:h-96">
                   <Image
-                    src={detailProduct?.image}
+                    src={detailProduct?.image || 'https://source.unsplash.com/random/300x300?ethernet'}
                     width={900}
                     height={900}
                     className="w-full"
@@ -160,7 +161,7 @@ const DetailProduct = () => {
             <div className="flex flex-col w-full text-xl">
               <div className="lg:pl-8 space-y-7">
                 <h1 className="pt-5 pb-5 text-3xl font-bold lg:pt-0 text-background">
-                  {detailProduct?.title}
+                  {detailProduct?.name}
                 </h1>
                 <p className="text-base text-background">
                   Price :
@@ -171,7 +172,7 @@ const DetailProduct = () => {
                 <p className="text-base text-background">
                   Category :
                   <span className="ml-4 text-xl font-semibold">
-                    {detailProduct?.category}
+                    {detailProduct?.category || "-"}
                   </span>
                 </p>
                 <div className="flex items-center gap-x-4">
@@ -192,6 +193,12 @@ const DetailProduct = () => {
                     className="cursor-pointer text-background"
                   />
                 </div>
+                <p className="text-base text-background">
+                  Stock :
+                  <span className="ml-4 text-base font-semibold">
+                    {detailProduct?.stok}
+                  </span>
+                </p>
                 <div className="flex flex-row gap-5 pt-5">
                   <button className="flex items-center px-3 py-3 text-sm font-medium uppercase duration-300 rounded-sm text-background bg-softGray hover:scale-105 gap-x-2">
                     <FaShoppingCart /> Add To Cart
