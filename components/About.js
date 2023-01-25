@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
@@ -27,10 +28,12 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 elementum id metus ac tempus. consectetur adipiscing.
               </h2>
-              <button className="flex items-center px-6 py-2.5 my-8 text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer  text-background border-background hover:bg-background hover:text-softWhite">
-                view more
-                <HiArrowNarrowRight className="text-xl"/>
-              </button>
+              <Link href={"/about"}>
+                <button className="flex items-center px-6 py-2.5 mt-8 text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer  text-background border-background hover:bg-background hover:text-softWhite">
+                  view more
+                  <HiArrowNarrowRight className="text-xl" />
+                </button>
+              </Link>
             </div>
             <div className="w-full md:w-[80%] lg:w-[90%] xl:w-[80%] lg:order-2 pb-10 px-6">
               <div className="p-8 -mt-32 2xl:-mt-36 bg-softWhite">

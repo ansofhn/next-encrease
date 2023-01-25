@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
@@ -34,11 +35,13 @@ const LatestNews = () => {
               <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
             </div>
           </div>
-          <div className="flex items-center pl-4 xl:pl-24">
-            <button className="flex items-center gap-3 px-6 py-2.5 my-8 text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer text-background border-background hover:bg-background hover:text-softWhite">
-              see more
-              <HiArrowNarrowRight className="text-xl" />
-            </button>
+          <div className="flex items-center py-8 pl-4 xl:pl-24">
+            <Link href={"/product"}>
+              <button className="flex items-center gap-3 px-6 py-2.5  text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer text-background border-background hover:bg-background hover:text-softWhite">
+                see more
+                <HiArrowNarrowRight className="text-xl" />
+              </button>
+            </Link>
           </div>
         </div>
         {/* <div className="grid grid-cols-1 gap-10 px-3 md:container md:grid-cols-2 xl:grid-cols-3 lg:px-12">
