@@ -17,6 +17,8 @@ import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { productsRepository } from "../repository/products";
 import { message } from "antd";
 import { authentication } from "../utils/authentication";
+import ProfilePreview from "./ProfilePreview";
+import { UserProvider } from "../context/UserDetailContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -31,7 +33,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setToken(authentication.isVerified());
-  }, [token]);
+  }, []);
 
   const increaseQty = () => {
     setQuantity(quantity + 1);
@@ -83,6 +85,7 @@ const Navbar = () => {
   const handleLogout = () => {
     authentication.clearAccesToken();
     setToken("");
+    router.push("/");
     message.success("success logout");
   };
 
@@ -97,20 +100,22 @@ const Navbar = () => {
         } bg-softWhite sm:px-10 sm:py-8 transition duration-300`}
       >
         <Link href={"/"}>
-          <div className="flex items-center text-2xl font-bold uppercase cursor-pointer text-background">
+          <div className="flex items-center text-lg md:text-2xl font-bold uppercase cursor-pointer text-background">
             encrease
           </div>
         </Link>
 
         <div className="flex items-center md:gap-2 lg:gap-4 lg:order-2">
-          <div
-            onClick={() => {
-              setOpenCart(!openCart);
-            }}
-            className="items-center hidden p-3 bg-gray-200 rounded-full cursor-pointer lg:flex"
-          >
-            <FaShoppingCart className="flex items-center justify-center w-4 h-4 text-background/70" />
-          </div>
+          {token && (
+            <div
+              onClick={() => {
+                setOpenCart(!openCart);
+              }}
+              className="items-center hidden p-3 bg-gray-200 rounded-full cursor-pointer lg:flex"
+            >
+              <FaShoppingCart className="flex items-center justify-center w-4 h-4 text-background/70" />
+            </div>
+          )}
 
           {!token ? (
             <Link href={"/auth/login"}>
@@ -130,22 +135,25 @@ const Navbar = () => {
                     setOpenCart(false);
                   }}
                 >
-                  <div className="p-1 bg-gray-200 rounded-full">
-                    <div className="overflow-hidden bg-gray-200 rounded-full w-9 h-9">
-                      <Image
-                        src={"https://source.unsplash.com/random/40x40?people"}
-                        width={40}
-                        height={40}
-                      />
+                  {/* <div className="p-1 bg-gray-200 rounded-full">
+                      <div className="overflow-hidden bg-gray-200 rounded-full w-9 h-9">
+                        <Image
+                          src={"https://source.unsplash.com/random/40x40?people"}
+                          width={40}
+                          height={40}
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="text-left">
-                    <h2 className="text-sm font-medium text-background">
-                      Ilham
-                    </h2>
-                    <p className="text-xs text-background/50">Student</p>
-                  </div>
+                    <div className="text-left">
+                      <h2 className="text-sm font-medium text-background">
+                        Ilham
+                      </h2>
+                      <p className="text-xs text-background/50">Student</p>
+                    </div> */}
+                  <UserProvider>
+                    <ProfilePreview />
+                  </UserProvider>
                 </Menu.Button>
                 <Transition
                   as={Fragment}
@@ -408,32 +416,34 @@ const Navbar = () => {
                 Products
               </motion.div>
             </Link>
-            <Link href={"/cart"}>
-              <motion.div
-                onClick={() => {
-                  setOpen(!open);
-                  setOpenCart(false);
-                }}
-                className={`inline-flex my-2 text-3xl font-bold ${
-                  currentRoute === "/cart"
-                    ? "text-softWhite"
-                    : "text-softGray/70"
-                } `}
-                initial={{ y: 80, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                exit={{
-                  opacity: 0,
-                  y: 80,
-                  transition: {
-                    ease: "easeInOut",
-                    delay: 0.7,
-                  },
-                }}
-              >
-                My Cart
-              </motion.div>
-            </Link>
+            {token && (
+              <Link href={"/cart"}>
+                <motion.div
+                  onClick={() => {
+                    setOpen(!open);
+                    setOpenCart(false);
+                  }}
+                  className={`inline-flex my-2 text-3xl font-bold ${
+                    currentRoute === "/cart"
+                      ? "text-softWhite"
+                      : "text-softGray/70"
+                  } `}
+                  initial={{ y: 80, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  exit={{
+                    opacity: 0,
+                    y: 80,
+                    transition: {
+                      ease: "easeInOut",
+                      delay: 0.7,
+                    },
+                  }}
+                >
+                  My Cart
+                </motion.div>
+              </Link>
+            )}
             <Link href={"/about"}>
               <motion.div
                 onClick={() => {
