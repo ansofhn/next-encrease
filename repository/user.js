@@ -16,4 +16,10 @@ const hooks = {
   },
 };
 
-export const userRepository = { url, hooks };
+const api = {
+  editProfile: (id, data) => {
+    return http.put(url.detailUser(id), data);
+  },
+};
+
+export const userRepository = { url, hooks, api };

@@ -1,12 +1,14 @@
-import { Avatar } from "antd";
+import { Avatar, message } from "antd";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useRef } from "react";
 import { userRepository } from "../../repository/user";
 import { MdOutlineFileUpload } from "react-icons/md";
 import SettingLayout from "../../layouts/SettingLayout";
 import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { mutate } from "swr";
+import SideBarProfile from "../../components/SideBarProfile";
 
 const UserProfile = () => {
   const router = useRouter();
@@ -18,23 +20,32 @@ const UserProfile = () => {
   const { data } = userRepository.hooks.getDetailUser(id);
   const dataProfile = data?.data;
 
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+  const addressRef = useRef();
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const data = {
+        fullName: nameRef.current.value,
+        email: emailRef.current.value,
+        phone: phoneRef.current.value,
+        address: addressRef.current.value,
+      };
+      await userRepository.api.editProfile(id, data);
+      message.success("Success Edit Profile");
+      await mutate(userRepository.hooks.getDetailUser(id));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   return (
     <div className="pt-32 pb-10 md:pt-24 bg-softWhite">
       <div className="container flex flex-col lg:flex-row gap-x-10 md:py-24">
-        <div className="hidden lg:flex flex-col space-y-20 lg:w-[25%] p-10 border-background/60 border-r">
-          <Link href={"/profile/1"}>
-            <button className="flex items-center gap-4 pl-10 font-semibold text-background">
-              <CgProfile className="text-2xl text-center " />
-              Profile
-            </button>
-          </Link>
-          <Link href={"/profile/password"}>
-            <button className="flex items-center gap-4 pl-10 font-semibold text-background">
-              <RiLockPasswordLine className="text-2xl text-center " />
-              Password
-            </button>
-          </Link>
-        </div>
+        <SideBarProfile id={id} />
         <div className="flex flex-col px-4 mx-auto w-full md:w-[80%] lg:w-[55%] py-4 gap-y-12">
           <div className="flex items-end justify-center">
             <Avatar
@@ -49,13 +60,14 @@ const UserProfile = () => {
             </button>
           </div>
           <div>
-            <form>
+            <form onSubmit={onSubmit}>
               <div className="flex flex-col gap-y-10">
                 <div className="flex flex-col gap-y-2 text-background">
                   <label className="font-semibold">
                     NAME :<br />
                   </label>
                   <input
+                    ref={nameRef}
                     type={"text"}
                     defaultValue={dataProfile?.fullname}
                     className="user-profile-form without-ring"
@@ -66,6 +78,7 @@ const UserProfile = () => {
                     EMAIL :<br />
                   </label>
                   <input
+                    ref={emailRef}
                     type={"email"}
                     defaultValue={dataProfile?.email}
                     className="user-profile-form without-ring"
@@ -76,6 +89,7 @@ const UserProfile = () => {
                     PHONE :<br />
                   </label>
                   <input
+                    ref={phoneRef}
                     type={"tel"}
                     defaultValue={dataProfile?.phone}
                     className="user-profile-form without-ring"
@@ -86,6 +100,7 @@ const UserProfile = () => {
                     ADDRESS :<br />
                   </label>
                   <textarea
+                    ref={addressRef}
                     defaultValue={dataProfile?.address}
                     className="user-profile-form without-ring"
                   />
