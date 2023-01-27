@@ -15,7 +15,8 @@ const UserProfile = () => {
   const { id } = router.query;
 
   //Fetching Api
-  const { data: dataProfile } = userRepository.hooks.getDetailUser(id);
+  const { data } = userRepository.hooks.getDetailUser(id);
+  const dataProfile = data?.data;
 
   return (
     <div className="pt-32 pb-10 md:pt-24 bg-softWhite">
@@ -36,7 +37,13 @@ const UserProfile = () => {
         </div>
         <div className="flex flex-col px-4 mx-auto w-full md:w-[80%] lg:w-[55%] py-4 gap-y-12">
           <div className="flex items-end justify-center">
-            <Avatar src={dataProfile?.image} size={120} />
+            <Avatar
+              src={
+                dataProfile?.image ||
+                "https://source.unsplash.com/random/900x900?male"
+              }
+              size={120}
+            />
             <button className="p-2 border-none rounded-lg shadow text-background hover:text-maroon focus:text-maroon ring-0">
               <MdOutlineFileUpload className="text-lg" />
             </button>
@@ -50,7 +57,7 @@ const UserProfile = () => {
                   </label>
                   <input
                     type={"text"}
-                    defaultValue={dataProfile?.name}
+                    defaultValue={dataProfile?.fullname}
                     className="user-profile-form without-ring"
                   />
                 </div>
