@@ -28,6 +28,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
               src={"https://source.unsplash.com/random/40x40?people"}
               width={40}
               height={40}
+              alt="Profile Image"
             />
           </div>
         </div>

@@ -141,9 +141,9 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -453,6 +453,7 @@ const Navbar = () => {
                           src={Products[0]?.image}
                           width={300}
                           height={300}
+                          alt="Product Image"
                         />
                       </div>
                       <div className="space-y-2">
@@ -473,7 +474,7 @@ const Navbar = () => {
                         type={"number"}
                         min={1}
                         minLength={1}
-                        value={quantity}
+                        defaultValue={quantity}
                         className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
                       />
                       <FaCaretRight
@@ -497,6 +498,7 @@ const Navbar = () => {
                           src={Products[8]?.image}
                           width={300}
                           height={300}
+                          alt="Product Image"
                         />
                       </div>
                       <div className="space-y-2">
@@ -517,7 +519,7 @@ const Navbar = () => {
                         type={"number"}
                         min={1}
                         minLength={1}
-                        value={quantity}
+                        defaultValue={quantity}
                         className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
                       />
                       <FaCaretRight
@@ -541,6 +543,7 @@ const Navbar = () => {
                           src={Products[8]?.image}
                           width={300}
                           height={300}
+                          alt="Product Image"
                         />
                       </div>
                       <div className="space-y-2">
@@ -561,7 +564,7 @@ const Navbar = () => {
                         type={"number"}
                         min={1}
                         minLength={1}
-                        value={quantity}
+                        defaultValue={quantity}
                         className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
                       />
                       <FaCaretRight

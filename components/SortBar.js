@@ -11,7 +11,7 @@ const SortBar = () => {
     <Listbox value="selected" onChange={setSelected}>
       <Listbox.Button
         placeholder="Sort by"
-        class="w-full px-4 py-2.5 flex justify-between bg-white items-center text-sm border text-background lg:w-full focus:outline-none"
+        className="w-full px-4 py-2.5 flex justify-between bg-white items-center text-sm border text-background lg:w-full focus:outline-none"
       >
         <span>{selected?.price}</span>
         <FaChevronDown />

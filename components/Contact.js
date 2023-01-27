@@ -6,9 +6,9 @@ const Contact = () => {
       <div className="flex">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1401.484130475399!2d106.8067545824225!3d-6.522220680237036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c3db9bbedcc3%3A0x1f5280e86053b1e9!2sSMK%20N%201%20Cibinong!5e0!3m2!1sen!2sid!4v1672636259221!5m2!1sen!2sid"
-          allowfullscreen=""
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
           className="w-full h-[86vh] lg:w-[85%] 2xl:w-[80%] lg:h-[350px] xl:h-[450px] 2xl:h-[550px] grayscale"
         ></iframe>
 
@@ -40,7 +40,7 @@ const Contact = () => {
             Love to hear from you, Get in touch
           </div>
           <div className="md:col-start-1">
-            <label className="text-background" forInput="name">
+            <label className="text-background" forinput="name">
               Your Name
             </label>
             <input
@@ -51,7 +51,7 @@ const Contact = () => {
             />
           </div>
           <div className="">
-            <label className="text-background" forInput="email">
+            <label className="text-background" forinput="email">
               Your email
             </label>
             <input
@@ -63,7 +63,7 @@ const Contact = () => {
             />
           </div>
           <div className="md:col-span-2">
-            <label className="text-background" forInput="phone">
+            <label className="text-background" forinput="phone">
               Phone
             </label>
             <input
@@ -72,7 +72,7 @@ const Contact = () => {
             />
           </div>
           <div className="md:col-span-2">
-            <label className="text-background" forInput="message">
+            <label className="text-background" forinput="message">
               Message
             </label>
             <textarea

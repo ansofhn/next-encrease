@@ -12,7 +12,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           All
@@ -26,7 +26,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           Service
@@ -40,7 +40,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           Technology
@@ -54,7 +54,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           Personal Computer
@@ -68,7 +68,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           Web Design
@@ -82,13 +82,15 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           Installation
         </label>
       </div>
-      <div className="mb-6 font-bold uppercase mt-14 text-background">Price</div>
+      <div className="mb-6 font-bold uppercase mt-14 text-background">
+        Price
+      </div>
       <input
         id="default-range"
         type="range"
@@ -96,7 +98,9 @@ const Filter = () => {
         className="w-full h-2 rounded-lg appearance-none cursor-pointer accent-gray-400 bg-background"
       />
 
-      <div className="mb-6 font-bold uppercase mt-14 text-background">Brand</div>
+      <div className="mb-6 font-bold uppercase mt-14 text-background">
+        Brand
+      </div>
       <div className="flex items-center my-2">
         <input
           id="default-checkbox"
@@ -105,7 +109,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           ASUS
@@ -119,7 +123,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           ACER
@@ -133,7 +137,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           DELL
@@ -147,7 +151,7 @@ const Filter = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="ml-2 text-sm font-medium text-gray-400"
         >
           Samsung

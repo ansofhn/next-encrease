@@ -36,6 +36,7 @@ const Testimonials = () => {
                     width={80}
                     height={80}
                     className={"rounded-full"}
+                    alt="Profile Image"
                   />
                 </div>
                 <div className="flex flex-col gap-2">

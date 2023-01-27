@@ -27,6 +27,7 @@ const cart = () => {
                 src={"https://source.unsplash.com/random/300x300?Headphone"}
                 width={300}
                 height={300}
+                alt="Product Image"
               />
             </div>
             <div className="flex flex-col justify-between h-full w-[70%]">
@@ -70,6 +71,7 @@ const cart = () => {
                 src={"https://source.unsplash.com/random/300x300?monitor"}
                 width={300}
                 height={300}
+                alt="Product Image"
               />
             </div>
             <div className="flex flex-col justify-between h-full w-[70%]">
@@ -113,6 +115,7 @@ const cart = () => {
                 src={"https://source.unsplash.com/random/300x300?laptop"}
                 width={300}
                 height={300}
+                alt="Product Image"
               />
             </div>
             <div className="flex flex-col justify-between h-full w-[70%]">
@@ -156,6 +159,7 @@ const cart = () => {
                 src={"https://source.unsplash.com/random/300x300?monitor"}
                 width={300}
                 height={300}
+                alt="Product Image"
               />
             </div>
             <div className="flex flex-col justify-between h-full w-[70%]">

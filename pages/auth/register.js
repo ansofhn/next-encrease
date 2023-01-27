@@ -7,38 +7,37 @@ import { appConfig } from "../../config/app";
 import LoginRegisterLayout from "../../layouts/LoginRegisterLayout";
 import signUp from "../../public/assets/signUp.png";
 
-const SuperAgent = require('superagent')
+const SuperAgent = require("superagent");
 
 const Register = () => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   // Form Control
-  const fullNameRef = useRef()
-  const emailRef = useRef()
-  const phoneRef = useRef()
-  const passwordRef = useRef()
+  const fullNameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+  const passwordRef = useRef();
 
-  const onSubmitForm = async (event)=>{
-    event.preventDefault()
-    try{
+  const onSubmitForm = async (event) => {
+    event.preventDefault();
+    try {
       const data = {
-        fullname : fullNameRef.current.value,
-        email : emailRef.current.value,
-        phone : phoneRef.current.value,
-        password :passwordRef.current.value,
-        isActive : true,
-        roleId : '0171eae9-0968-4ce1-9145-b607a0e1882a'
-      }
-      await SuperAgent.post(appConfig.apiUrl + '/auth/register').send(data)
-      .then(res => console.log(res))
-      message.success("Success Register")
-      .then(router.push('/auth/login'))
-    }catch(e){
-      message.error('Failed to Register')
-      console.log(e.message)
+        fullname: fullNameRef.current.value,
+        email: emailRef.current.value,
+        phone: phoneRef.current.value,
+        password: passwordRef.current.value,
+        isActive: true,
+        roleId: "0171eae9-0968-4ce1-9145-b607a0e1882a",
+      };
+      await SuperAgent.post(appConfig.apiUrl + "/auth/register")
+        .send(data)
+        .then((res) => console.log(res));
+      message.success("Success Register").then(router.push("/auth/login"));
+    } catch (e) {
+      message.error("Failed to Register");
+      console.log(e.message);
     }
-  }
+  };
 
   return (
     <div className="flex items-center justify-center w-full h-full bg-gray-800/80">
@@ -82,7 +81,10 @@ const Register = () => {
               </div>
             </div>
             <div className="lg:w-[80%]">
-              <form className="space-y-2 xl:space-y-3 2xl:space-y-4" onSubmit={onSubmitForm}>
+              <form
+                className="space-y-2 xl:space-y-3 2xl:space-y-4"
+                onSubmit={onSubmitForm}
+              >
                 <div className="w-full px-3 py-1 rounded-lg xl:px-4 xl:py-2 bg-softGray/10">
                   <label className="text-xs font-medium text-gray-400">
                     Full Name
@@ -137,7 +139,11 @@ const Register = () => {
           </div>
         </div>
         <div className="hidden lg:block">
-          <Image src={signUp} className="w-full h-full ml-10" />
+          <Image
+            src={signUp}
+            className="w-full h-full ml-10"
+            alt="Register Page Image"
+          />
         </div>
       </div>
     </div>

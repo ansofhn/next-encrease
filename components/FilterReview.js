@@ -15,7 +15,7 @@ const FilterReview = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-background"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="flex items-center gap-1 ml-2 text-sm font-medium text-background/80"
         >
           <div>
@@ -32,7 +32,7 @@ const FilterReview = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-background"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="flex items-center gap-1 ml-2 text-sm font-medium text-background/80"
         >
           <div>
@@ -49,7 +49,7 @@ const FilterReview = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-background"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="flex items-center gap-1 ml-2 text-sm font-medium text-background/80"
         >
           <div>
@@ -66,7 +66,7 @@ const FilterReview = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-background"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="flex items-center gap-1 ml-2 text-sm font-medium text-background/80"
         >
           <div>
@@ -83,7 +83,7 @@ const FilterReview = () => {
           className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-background"
         />
         <label
-          for="default-checkbox"
+          htmlFor="default-checkbox"
           className="flex items-center gap-1 ml-2 text-sm font-medium text-background/80"
         >
           <div>

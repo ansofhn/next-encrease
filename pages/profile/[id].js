@@ -54,6 +54,7 @@ const UserProfile = () => {
                 "https://source.unsplash.com/random/900x900?male"
               }
               size={120}
+              alt="Profile Image"
             />
             <button className="p-2 border-none rounded-lg shadow text-background hover:text-maroon focus:text-maroon ring-0">
               <MdOutlineFileUpload className="text-lg" />
