@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
+import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { appConfig } from "../../config/app";
 import LoginRegisterLayout from "../../layouts/LoginRegisterLayout";
 import signUp from "../../public/assets/signUp.png";
@@ -41,7 +42,8 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center w-full h-full bg-gray-800/80">
-      <div className="h-[95%] md:h-[550px] lg:h-[650px] xl:h-[650px] 2xl:h-[750px] w-[90%] md:w-[50%] lg:w-[93%] xl:w-[80%] 2xl:w-[70%] bg-softDark/60 rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+      <RemoveScrollBar />
+      <div className="h-[95%] md:h-[520px] lg:h-[550px] xl:h-[650px] 2xl:h-[750px] w-[90%] md:w-[50%] lg:w-[93%] xl:w-[80%] 2xl:w-[70%] bg-softDark/60 rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         <div className="p-8 lg:p-10">
           <div className="flex items-center justify-between">
             <div className="text-sm font-bold uppercase xl:text-base text-softWhite">
@@ -60,7 +62,7 @@ const Register = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col justify-center h-[97%] space-y-16 md:space-y-8 md:h-auto md:pt-6 lg:pt-16 xl:pt-12 2xl:pt-24 lg:pl-8 xl:pl-10 2xl:pl-12 xl:space-y-10">
+          <div className="flex flex-col justify-center h-[97%] space-y-16 md:space-y-8 md:h-auto md:pt-6 lg:pt-8 xl:pt-12 2xl:pt-24 lg:pl-8 xl:pl-10 2xl:pl-12 xl:space-y-10">
             <div className="space-y-1 lg:space-y-2 xl:space-y-3 2xl:space-y-4">
               <div className="text-xs font-semibold text-gray-400 uppercase lg:text-sm xl:text-base">
                 Start for free

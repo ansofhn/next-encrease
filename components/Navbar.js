@@ -93,7 +93,7 @@ const Navbar = () => {
         } bg-softWhite sm:px-10 sm:py-8 transition duration-300`}
       >
         <Link href={"/"}>
-          <div className="flex items-center text-lg md:text-2xl font-bold uppercase cursor-pointer text-background">
+          <div className="flex items-center text-lg font-bold uppercase cursor-pointer md:text-2xl text-background">
             encrease
           </div>
         </Link>
@@ -112,7 +112,7 @@ const Navbar = () => {
 
           {!token ? (
             <Link href={"/auth/login"}>
-              <button className="px-3 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer md:mx-6 text-background border-background">
+              <button className="px-3 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer text-background border-background">
                 sign in
               </button>
             </Link>
