@@ -3,11 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   eslint: {
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
-  images :{
-    domains:['source.unsplash.com']
-  }
-}
+  images: {
+    domains: ["source.unsplash.com", "49.0.2.250"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

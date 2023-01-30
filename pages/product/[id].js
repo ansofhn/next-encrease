@@ -35,8 +35,9 @@ const DetailProduct = () => {
   const { id } = router.query;
 
   // Fetching Data
-  const { data: dataDetailProduct } = productsRepository.hooks.useDetailProduct(id);
-  const detailProduct = dataDetailProduct?.data
+  const { data: dataDetailProduct } =
+    productsRepository.hooks.useDetailProduct(id);
+  const detailProduct = dataDetailProduct?.data;
 
   // Rupiah Formatter
   const rupiah = (number) => {
@@ -87,49 +88,49 @@ const DetailProduct = () => {
                     id="slider"
                   >
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?laptop"}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?Iphone"}
+                      ssrc={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?samsung"}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?realme"}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?mug"}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?camera"}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
                     <Image
-                      src={"https://source.unsplash.com/random/900x900?porche"}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
@@ -149,7 +150,7 @@ const DetailProduct = () => {
                 </div>
                 <div className="w-full h-full md:h-96">
                   <Image
-                    src={detailProduct?.image || 'https://source.unsplash.com/random/300x300?ethernet'}
+                    src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                     width={900}
                     height={900}
                     className="w-full"
@@ -160,7 +161,7 @@ const DetailProduct = () => {
             </div>
             <div className="flex flex-col w-full text-xl">
               <div className="lg:pl-8 space-y-7">
-                <h1 className="pt-5 pb-5 text-3xl font-bold lg:pt-0 text-background">
+                <h1 className="pt-5 pb-5 text-2xl font-bold lg:pt-0 text-background">
                   {detailProduct?.name}
                 </h1>
                 <p className="text-base text-background">
@@ -171,8 +172,8 @@ const DetailProduct = () => {
                 </p>
                 <p className="text-base text-background">
                   Category :
-                  <span className="ml-4 text-xl font-semibold">
-                    {detailProduct?.category || "-"}
+                  <span className="ml-4 text-lg font-semibold ">
+                    {detailProduct?.category.name.toUpperCase() || "-"}
                   </span>
                 </p>
                 <div className="flex items-center gap-x-4">

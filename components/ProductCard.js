@@ -27,8 +27,17 @@ const ProductCard = () => {
     }).format(number);
   };
 
+  // Truncate Manual Formatter
+  const truncateText = (text) => {
+    if (text.split(" ").length > 10) {
+      return text.substring(0, 60) + "...";
+    } else {
+      return text;
+    }
+  };
+
   return (
-    <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 font-poppins">
+    <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3 font-poppins">
       {products?.map((data) => {
         return (
           <div
@@ -38,10 +47,7 @@ const ProductCard = () => {
           >
             <div className="p-6 bg-softWhite">
               <Image
-                src={
-                  data?.image ||
-                  "https://source.unsplash.com/random/300x300?ethernet"
-                }
+                src={`http://49.0.2.250:3002/file/${data?.image}`}
                 alt="Product Image"
                 width={300}
                 height={300}
@@ -49,10 +55,11 @@ const ProductCard = () => {
               />
             </div>
             <div className="p-4 space-y-1 text-background">
-              <h1 className="text-lg font-semibold">{data?.name}</h1>
+              <h1 className={`text-base font-semibold `}>
+                {truncateText(data?.name)}
+              </h1>
               <p className="font-light">{rupiah(data?.price)}</p>
               <span className="flex items-center gap-2 font-bold text-background">
-                {" "}
                 <BsStarFill color="orange" />
                 4.7
               </span>
