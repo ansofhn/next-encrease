@@ -17,22 +17,51 @@ const LatestNews = () => {
         <div className="grid grid-cols-1 gap-10 mx-5 md:mx-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-gray-200 aspect-[4/3] md:aspect-[3/4.9] xl:aspect-[3/4.8]  md:h-auto md:row-span-2 overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?monitor')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
+              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+                  Products suitable for all students
+                </div>
+                <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
+                  We have recommendations products that are suitable for
+                  Students thats very cool.
+                </p>
+              </div>
             </div>
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?keyboard')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
+              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+                  10 Best Product for your needs
+                </div>
+                <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
+                  This products is perfect for your needs and make task easier
+                </p>
+              </div>
             </div>
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?cpu')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
+              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+                  The best product of this week
+                </div>
+                <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
+                  We have the best price deals and the best services for this products
+                </p>
+              </div>
             </div>
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?mousepad')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full bg-gradient-to-br from-softDark"></div>
+              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+                  Discount for this week
+                </div>
+                <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
+                  there are many discount for this week, let's choose yours
+                </p>
+              </div>
             </div>
           </div>
           <div className="flex items-center py-8 pl-4 xl:pl-24">
