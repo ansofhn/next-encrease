@@ -44,7 +44,7 @@ const ScrollToTop = () => {
           variants={item}
           initial="hidden"
           animate="show"
-          className="fixed p-3 text-xl text-center bg-gray-300/80 rounded-full outline-none text-background/70 bottom-5 right-5  md:bottom-16 lg:bottom-[70px] md:right-10"
+          className="fixed p-3 text-xl text-center bg-gray-200 rounded-full outline-none text-background/70 bottom-5 right-5  md:bottom-16 lg:bottom-[70px] md:right-10"
           onClick={scrollUp}
         >
           <FaChevronUp className="text-xl font-medium text-background/30" />
