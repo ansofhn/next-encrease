@@ -17,7 +17,7 @@ const LatestNews = () => {
         <div className="grid grid-cols-1 gap-10 mx-5 md:mx-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-gray-200 aspect-[4/3] md:aspect-[3/4.9] xl:aspect-[3/4.8]  md:h-auto md:row-span-2 overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?monitor')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
                 <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
                   Products suitable for all students
                 </div>
@@ -30,7 +30,7 @@ const LatestNews = () => {
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?keyboard')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
                 <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
                   10 Best Product for your needs
                 </div>
@@ -42,7 +42,7 @@ const LatestNews = () => {
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?cpu')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
                 <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
                   The best product of this week
                 </div>
@@ -54,7 +54,7 @@ const LatestNews = () => {
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?mousepad')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50">
+              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
                 <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
                   Discount for this week
                 </div>
