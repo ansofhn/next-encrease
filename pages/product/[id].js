@@ -95,7 +95,7 @@ const DetailProduct = () => {
                       alt="Product Image"
                     />
                     <Image
-                      ssrc={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
                       className="w-1/3 md:w-full"
@@ -186,7 +186,7 @@ const DetailProduct = () => {
                     type={"number"}
                     min={1}
                     minLength={1}
-                    value={quantity}
+                    defaultValue={quantity}
                     className="w-12 text-lg text-center border"
                   />
                   <AiFillPlusSquare
