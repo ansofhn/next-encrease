@@ -17,8 +17,8 @@ const LatestNews = () => {
         <div className="grid grid-cols-1 gap-10 mx-5 md:mx-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-gray-200 aspect-[4/3] md:aspect-[3/4.9] xl:aspect-[3/4.8]  md:h-auto md:row-span-2 overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?monitor')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
-                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+              <div className="w-full h-full px-8 py-8 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/95">
                   Products suitable for all students
                 </div>
                 <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
@@ -30,8 +30,8 @@ const LatestNews = () => {
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?keyboard')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
-                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+              <div className="w-full h-full px-8 py-8 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/95">
                   10 Best Product for your needs
                 </div>
                 <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
@@ -42,8 +42,8 @@ const LatestNews = () => {
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?cpu')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
-                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+              <div className="w-full h-full px-8 py-8 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/95">
                   The best product of this week
                 </div>
                 <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
@@ -54,8 +54,8 @@ const LatestNews = () => {
           </div>
           <div className="bg-gray-200 aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
             <div className="w-full h-full bg-[url('https://source.unsplash.com/random/1024x720?mousepad')] bg-cover bg-center absolute group-hover:scale-110 transition-all duration-500">
-              <div className="w-full h-full px-8 py-10 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
-                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/80">
+              <div className="w-full h-full px-8 py-8 space-y-3 transition-all duration-500 xl:space-y-6 bg-gradient-to-br from-softDark to-softDark/50 group-hover:scale-95">
+                <div className="text-2xl font-medium lg:text-2xl xl:text-3xl 2xl:text-4xl text-softWhite/95">
                   Discount for this week
                 </div>
                 <p className="text-sm xl:text-base 2xl:text-lg text-softWhite/60">
@@ -73,80 +73,6 @@ const LatestNews = () => {
             </Link>
           </div>
         </div>
-        {/* <div className="grid grid-cols-1 gap-10 px-3 md:container md:grid-cols-2 xl:grid-cols-3 lg:px-12">
-          <div className="bg-gray-200/50">
-            <div className="w-full bg-gray-300">
-              <img
-                src="https://source.unsplash.com/random/1920x1300?student"
-                className="w-full"
-              />
-            </div>
-            <div className="space-y-4 p-7">
-              <div className="text-xl font-medium">
-                Siswa SMK Lulusan Terbaik dan Teladan
-              </div>
-              <div className="flex items-center gap-10 text-xs">
-                <div>by ansofhn</div>
-                <div>17 Januari 2023</div>
-              </div>
-              <div className="text-sm text-background/80">
-                Lorem ipsum dolor sit lkjsdfhlasjd alsdkjfa alsdjkf amet,
-                consectetur adipiscing elit. Cras elementum id metus ac tempus.
-              </div>
-              <button className="px-6 py-2 text-sm font-medium bg-background text-softWhite">
-                Read More
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-200/50">
-            <div className="w-full bg-gray-300">
-              <img
-                src="https://source.unsplash.com/random/1920x1300?letter"
-                className="w-full"
-              />
-            </div>
-            <div className="space-y-4 p-7">
-              <div className="text-xl font-medium">
-                Dituding Tahan Ijasah Siswa SMKN 1 Cibinong
-              </div>
-              <div className="flex items-center gap-10 text-xs">
-                <div>by anonymous</div>
-                <div>17 Januari 2023</div>
-              </div>
-              <div className="text-sm text-background/80">
-                Lorem ipsum dolor sit lkjsdfhlasjd alsdkjfa alsdjkf amet,
-                consectetur adipiscing elit. Cras elementum id metus ac tempus.
-              </div>
-              <button className="px-6 py-2 text-sm font-medium bg-background text-softWhite">
-                Read More
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-200/50">
-            <div className="w-full bg-gray-300">
-              <img
-                src="https://source.unsplash.com/random/1920x1300?college"
-                className="w-full"
-              />
-            </div>
-            <div className="space-y-4 p-7">
-              <div className="text-xl font-medium">
-                Wali Murid Keluhkan Sumbangan di Sekolah
-              </div>
-              <div className="flex items-center gap-10 text-xs">
-                <div>by anonymous</div>
-                <div>17 Januari 2023</div>
-              </div>
-              <div className="text-sm text-background/80">
-                Lorem ipsum dolor sit lkjsdfhlasjd alsdkjfa alsdjkf amet,
-                consectetur adipiscing elit. Cras elementum id metus ac tempus.
-              </div>
-              <button className="px-6 py-2 text-sm font-medium bg-background text-softWhite">
-                Read More
-              </button>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
