@@ -1,10 +1,22 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import SideBarProfile from "../../components/SideBarProfile";
 import { UserProvider } from "../../context/UserDetailContext";
 import SettingLayout from "../../layouts/SettingLayout";
 
 const password = () => {
+  const [visiblePassword, setVisiblePassword] = useState(false);
+  const [visibleConfirmPassword, setVisibleConfirmPassword] = useState(false);
+
+  const handleChangeType = () => {
+    setVisiblePassword(!visiblePassword);
+  };
+
+  const handleChangeTypeConfirm = () => {
+    setVisibleConfirmPassword(!visibleConfirmPassword);
+  };
+
   return (
     <div className="pt-32 pb-10 md:pt-24 bg-softWhite">
       <div className="container flex flex-col lg:flex-row gap-x-10 md:py-24">
@@ -26,21 +38,43 @@ const password = () => {
                   <label className="font-semibold">
                     Password :<br />
                   </label>
-                  <input
-                    type={"text"}
-                    // defaultValue={dataProfile?.name}
-                    className="user-profile-form without-ring"
-                  />
+                  <div className="relative flex items-center">
+                    <input
+                      type={visiblePassword ? "text" : "password"}
+                      className="user-profile-form without-ring"
+                    />
+                    <div
+                      className="absolute right-0"
+                      onClick={() => handleChangeType()}
+                    >
+                      {visiblePassword ? (
+                        <AiFillEyeInvisible size={20} />
+                      ) : (
+                        <AiFillEye size={20} />
+                      )}
+                    </div>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-y-2 text-background">
                   <label className="font-semibold">
                     Confirm Password :<br />
                   </label>
-                  <input
-                    type={"email"}
-                    // defaultValue={dataProfile?.email}
-                    className="user-profile-form without-ring"
-                  />
+                  <div className="relative flex items-center">
+                    <input
+                      type={visibleConfirmPassword ? "text" : "password"}
+                      className="user-profile-form without-ring"
+                    />
+                    <div
+                      className="absolute right-0"
+                      onClick={() => handleChangeTypeConfirm()}
+                    >
+                      {visibleConfirmPassword ? (
+                        <AiFillEyeInvisible size={20} />
+                      ) : (
+                        <AiFillEye size={20} />
+                      )}
+                    </div>
+                  </div>
                 </div>
                 <div className="flex flex-row gap-5">
                   <button
