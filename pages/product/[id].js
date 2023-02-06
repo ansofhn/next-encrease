@@ -15,6 +15,8 @@ import {
 } from "react-icons/bs";
 import SugestionProducts from "../../components/SugestionProducts";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
+import { http } from "../../utils/http";
+import { cartRepository } from "../../repository/cart";
 
 const DetailProduct = () => {
   const router = useRouter();
@@ -63,6 +65,20 @@ const DetailProduct = () => {
   const slideDown = () => {
     let slider = document.getElementById("slider");
     slider.scrollTop = slider.scrollTop + 120;
+  };
+
+  // Add To Cart Function
+  const handleAddToCart = async () => {
+    try {
+      const data = {
+        qty: quantity,
+        productId: id,
+        price: detailProduct?.price,
+      };
+      await cartRepository.api.createCart(data);
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   return (
@@ -201,7 +217,10 @@ const DetailProduct = () => {
                   </span>
                 </p>
                 <div className="flex flex-row gap-5 pt-5">
-                  <button className="flex items-center px-3 py-3 text-sm font-medium uppercase duration-300 rounded-sm text-background bg-softGray hover:scale-105 gap-x-2">
+                  <button
+                    className="flex items-center px-3 py-3 text-sm font-medium uppercase duration-300 rounded-sm text-background bg-softGray hover:scale-105 gap-x-2"
+                    onClick={handleAddToCart}
+                  >
                     <FaShoppingCart /> Add To Cart
                   </button>
                   <button className="py-3 text-sm font-medium uppercase duration-300 rounded-sm px-7 bg-background text-softWhite hover:scale-105">
