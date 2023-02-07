@@ -41,4 +41,17 @@ export const http = {
       return;
     }
   },
+  del: async (url, data) => {
+    try {
+      let req = SuperAgent.del(appConfig.apiUrl + url).set(
+        "Authorization",
+        "Bearer " + localStorage.getItem("access_token")
+      );
+      let resp = await req;
+      return resp?.body;
+    } catch (e) {
+      console.log(e.message);
+      return;
+    }
+  },
 };

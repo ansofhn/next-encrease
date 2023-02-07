@@ -25,6 +25,15 @@ const api = {
   createCart(data) {
     return http.post(url.postCart(), data);
   },
+  increaseCart(data) {
+    return http.post(url.increaseCart(), data);
+  },
+  decreaseCart(data) {
+    return http.post(url.decreaseCart(), data);
+  },
+  deleteProduct(id) {
+    return http.del(url.deleteCart(id));
+  },
 };
 
 export const cartRepository = { url, hooks, api };

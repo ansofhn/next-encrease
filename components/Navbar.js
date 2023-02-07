@@ -16,25 +16,53 @@ import { message } from "antd";
 import { authentication } from "../utils/authentication";
 import { UserProvider } from "../context/UserDetailContext";
 import ProfileSetting from "./ProfileSetting";
+import { cartRepository } from "../repository/cart";
+import { mutate } from "swr";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [scrollChange, setScrollChange] = useState(false);
-  const [quantity, setQuantity] = useState(1);
   const [token, setToken] = useState();
 
   useEffect(() => {
     setToken(authentication.isVerified());
   }, []);
 
-  const increaseQty = () => {
-    setQuantity(quantity + 1);
+  // Cart Functions
+  const increaseQty = async (id, qty) => {
+    console.log(id, qty, "ini");
+    try {
+      const data = {
+        id: id,
+      };
+      await cartRepository.api.increaseCart(data);
+      console.log(data, "ini");
+      mutate(cartRepository.hooks.useCart());
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
-  const decreaseQty = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+  const decreaseQty = async () => {
+    try {
+      const data = {
+        id: id,
+        qty: qty,
+      };
+      await cartRepository.api.decreaseCart(data);
+      mutate(cartRepository.hooks.useCart());
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  const handleDeleteProduct = async (id) => {
+    try {
+      await cartRepository.api.deleteProduct(id);
+      mutate(cartRepository.hooks.useCart());
+    } catch (e) {
+      console.log(e.message);
     }
   };
 
@@ -43,6 +71,11 @@ const Navbar = () => {
 
   //Fetching Products Data
   const { data: Products } = productsRepository.hooks.useProducts();
+
+  // Fetching Cart Data
+  const { data: Cart } = cartRepository.hooks.useCart();
+  const dataCart = Cart?.data;
+  const totalPrice = [];
 
   // Rupiah Formatter
   const rupiah = (number) => {
@@ -442,149 +475,67 @@ const Navbar = () => {
               </div>
               <hr className="border-gray-200" />
               <div className="h-[24vh] space-y-8 overflow-y-auto">
-                <div className="space-y-8">
-                  <div className="flex items-center gap-10 mr-10">
-                    <button className="p-4 text-2xl text-background/70">
-                      <FiTrash2 />
-                    </button>
-                    <div className="flex items-center gap-4 w-[250px]">
-                      <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
-                        <Image
-                          src={Products[0]?.image}
-                          width={300}
-                          height={300}
-                          alt="Product Image"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="text-sm font-bold text-background">
-                          {Products[0]?.title}
-                        </div>
-                        <div className="text-xs text-background/50">
-                          {Products[0]?.category}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
-                      <FaCaretLeft
-                        onClick={decreaseQty}
-                        className="cursor-pointer text-background/50"
-                      />
-                      <input
-                        type={"number"}
-                        min={1}
-                        minLength={1}
-                        defaultValue={quantity}
-                        className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
-                      />
-                      <FaCaretRight
-                        onClick={increaseQty}
-                        className="cursor-pointer text-background/50"
-                      />
-                    </div>
-                    <div className="font-semibold text-background">
-                      {rupiah(Products[0]?.price)}
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-8">
-                  <div className="flex items-center gap-10 mr-10">
-                    <button className="p-4 text-2xl text-background/70">
-                      <FiTrash2 />
-                    </button>
-                    <div className="flex items-center gap-4 w-[250px]">
-                      <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
-                        <Image
-                          src={Products[8]?.image}
-                          width={300}
-                          height={300}
-                          alt="Product Image"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="text-sm font-bold text-background">
-                          {Products[8]?.title}
-                        </div>
-                        <div className="text-xs text-background/50">
-                          {Products[8]?.category}
+                {dataCart
+                  ?.filter((data) => data?.createdBy === "nabil@gmail.com")
+                  .map((data) => {
+                    console.log(data);
+                    return (
+                      <div className="space-y-8">
+                        <div className="flex items-center gap-10 mr-10">
+                          <button
+                            className="p-4 text-2xl text-background/70"
+                            onClick={() => handleDeleteProduct(data?.id)}
+                          >
+                            <FiTrash2 />
+                          </button>
+                          <div className="flex items-center gap-4 w-[250px]">
+                            <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
+                              <Image
+                                src={`http://49.0.2.250:3002/file/${data?.product?.image}`}
+                                width={300}
+                                height={300}
+                                alt="Product Image"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <div className="text-sm font-bold text-background">
+                                {data?.product?.name}
+                              </div>
+                              <div className="text-xs text-background/50">
+                                {data?.product?.name}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
+                            <FaCaretLeft
+                              onClick={() => decreaseQty(data?.id, data?.qty)}
+                              className="cursor-pointer text-background/50"
+                            />
+                            <input
+                              type={"number"}
+                              min={1}
+                              disabled
+                              minLength={1}
+                              value={data?.qty}
+                              className="w-12 p-2 text-sm text-center bg-softWhite focus:outline-none"
+                            />
+                            <FaCaretRight
+                              onClick={() => increaseQty(data?.id, data?.qty)}
+                              className="cursor-pointer text-background/50"
+                            />
+                          </div>
+                          <div className="font-semibold text-background">
+                            {rupiah(data?.product?.price)}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
-                      <FaCaretLeft
-                        onClick={decreaseQty}
-                        className="cursor-pointer text-background/50"
-                      />
-                      <input
-                        type={"number"}
-                        min={1}
-                        minLength={1}
-                        defaultValue={quantity}
-                        className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
-                      />
-                      <FaCaretRight
-                        onClick={increaseQty}
-                        className="cursor-pointer text-background/50"
-                      />
-                    </div>
-                    <div className="font-semibold text-background">
-                      {rupiah(Products[8]?.price)}
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-8">
-                  <div className="flex items-center gap-10 mr-10">
-                    <button className="p-4 text-2xl text-background/70">
-                      <FiTrash2 />
-                    </button>
-                    <div className="flex items-center gap-4 w-[250px]">
-                      <div className="flex items-center justify-center p-4 w-28 h-28 bg-softGray">
-                        <Image
-                          src={Products[8]?.image}
-                          width={300}
-                          height={300}
-                          alt="Product Image"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="text-sm font-bold text-background">
-                          {Products[8]?.title}
-                        </div>
-                        <div className="text-xs text-background/50">
-                          {Products[8]?.category}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center w-24 h-24 p-2 border-gray-200 border-x-2">
-                      <FaCaretLeft
-                        onClick={decreaseQty}
-                        className="cursor-pointer text-background/50"
-                      />
-                      <input
-                        type={"number"}
-                        min={1}
-                        minLength={1}
-                        defaultValue={quantity}
-                        className="w-10 p-2 text-sm text-center bg-softWhite focus:outline-none"
-                      />
-                      <FaCaretRight
-                        onClick={increaseQty}
-                        className="cursor-pointer text-background/50"
-                      />
-                    </div>
-                    <div className="font-semibold text-background">
-                      {rupiah(Products[8]?.price)}
-                    </div>
-                  </div>
-                </div>
+                    );
+                  })}
               </div>
               <hr className="border-gray-200" />
               <div className="mt-10 space-y-6">
                 <div className="flex items-center justify-end text-xl font-bold uppercase text-background">
-                  TOTAL PRICE :
-                  <span className="ml-2">
-                    {rupiah(Products[8]?.price + Products[0]?.price)}
-                  </span>
+                  TOTAL PRICE :<span className="ml-2">{rupiah(130000)}</span>
                 </div>
                 <div className="flex items-center justify-end">
                   <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
