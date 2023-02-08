@@ -2,13 +2,14 @@ import useSwr from "swr";
 import { http } from "../utils/http";
 
 const url = {
-  products: () => "/products",
+  products: (page, filter) =>
+    `/products?page=${page}&limit=9&filter.category.name=$ilike:${filter}`,
   detailProduct: (id) => `/products/${id}`,
 };
 
 const hooks = {
-  useProducts() {
-    return useSwr(url.products(), http.get);
+  useProducts(page, filter) {
+    return useSwr(url.products(page, filter), http.get);
   },
   useDetailProduct(id) {
     return useSwr(url.detailProduct(id), http.get);
