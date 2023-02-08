@@ -3,7 +3,7 @@ import { http } from "../utils/http";
 
 const url = {
   products: (page, filter) =>
-    `/products?page=${page}&limit=9&filter.category.name=$ilike:${filter}`,
+    `/products?page=${page}&limit=6&filter.category.name=$ilike:${filter}`,
   detailProduct: (id) => `/products/${id}`,
 };
 
