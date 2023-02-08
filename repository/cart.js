@@ -2,7 +2,7 @@ import useSwr from "swr";
 import { http } from "../utils/http";
 
 const url = {
-  getCart: () => "/cart",
+  getCart: () => "/cart?limit=1000",
   getDetailCart: (id) => `/cart/${id}`,
   updateCart: (id) => `/cart/update/${id}`,
   deleteCart: (id) => `/cart/remove/${id}`,

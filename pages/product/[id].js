@@ -1,4 +1,4 @@
-import { Tabs, ConfigProvider } from "antd";
+import { Tabs, ConfigProvider, message } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -15,8 +15,8 @@ import {
 } from "react-icons/bs";
 import SugestionProducts from "../../components/SugestionProducts";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import { http } from "../../utils/http";
 import { cartRepository } from "../../repository/cart";
+import { mutate } from "swr";
 
 const DetailProduct = () => {
   const router = useRouter();
@@ -76,6 +76,8 @@ const DetailProduct = () => {
         price: detailProduct?.price,
       };
       await cartRepository.api.createCart(data);
+      message.success("Success Add to Cart");
+      mutate(cartRepository.hooks.useCart());
     } catch (e) {
       console.log(e.message);
     }

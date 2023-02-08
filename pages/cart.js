@@ -1,18 +1,82 @@
-import Image from "next/image";
-import React from "react";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
-import { FiTrash2 } from "react-icons/fi";
+import { message } from "antd";
+import React, { useEffect, useState } from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
+import { mutate } from "swr";
+import CartComponent from "../components/CartComponent";
+import { UserProvider } from "../context/UserDetailContext";
 import LandingPageLayout from "../layouts/LandingPageLayout";
+import { cartRepository } from "../repository/cart";
+import { http } from "../utils/http";
 
 const cart = () => {
+  const [dataCart, setDataCart] = useState([]);
+
+  useEffect(() => {
+    getDataCart();
+  }, []);
+
+  const getDataCart = async () => {
+    try {
+      await http
+        .get(cartRepository.url.getCart())
+        .then((res) => setDataCart(res.data));
+    } catch (e) {
+      message.error(e.message);
+    }
+  };
+
+  // Rupiah Formatter
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
+
+  // Cart Functions
+  const increaseQty = async (id) => {
+    try {
+      const data = {
+        id: id,
+      };
+      await cartRepository.api.increaseCart(data);
+      getDataCart();
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  const decreaseQty = async (id) => {
+    try {
+      const data = {
+        id: id,
+      };
+      await cartRepository.api.decreaseCart(data);
+      getDataCart();
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  const handleDeleteProduct = async (id) => {
+    try {
+      const setData = dataCart
+        ?.filter((data) => data?.id !== id)
+        .map((data) => data);
+      await cartRepository.api.deleteProduct(id).then(setDataCart(setData));
+      message.success("Success Delete Product");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   return (
     <div className="w-full h-screen pt-[92px] md:pt-28">
       <RemoveScrollBar />
       <div className="fixed bottom-0 z-10 w-full bg-softGray">
         <div className="flex items-center justify-between p-6 bg-softWhite rounded-t-3xl">
           <div className="flex items-center justify-end text-sm font-bold md:text-base text-background">
-            Rp. 3.500.000,00
+            {rupiah(dataCart[0]?.total)}
           </div>
           <button className="px-4 py-2.5 text-xs md:text-sm bg-background rounded-xl font-semibold uppercase text-softWhite">
             Proceed to Checkout
@@ -20,182 +84,15 @@ const cart = () => {
         </div>
       </div>
       <div className="h-full p-6 pb-40 space-y-3 overflow-y-auto rounded-t-3xl bg-softGray">
-        <div className="flex w-full bg-softWhite rounded-3xl">
-          <div className="flex items-center w-full gap-4 p-6">
-            <div className="p-3 w-28 bg-softGray">
-              <Image
-                src={"https://source.unsplash.com/random/300x300?Headphone"}
-                width={300}
-                height={300}
-                alt="Product Image"
-              />
-            </div>
-            <div className="flex flex-col justify-between h-full w-[70%]">
-              <div className="space-y-2">
-                <div className="font-semibold text-background">
-                  Headphone Gaming
-                </div>
-                <div className="text-xs font-semibold text-background/70">
-                  Rp. 250.000,00
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <FaCaretLeft
-                    //   onClick={decreaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                  <input
-                    type={"number"}
-                    min={1}
-                    minLength={1}
-                    value={1}
-                    className="w-10 p-2 text-sm text-center text-background bg-softWhite focus:outline-none"
-                  />
-                  <FaCaretRight
-                    //   onClick={increaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                </div>
-                <button className="p-4 text-sm text-background/70">
-                  <FiTrash2 />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex w-full bg-softWhite rounded-3xl">
-          <div className="flex items-center w-full gap-4 p-6">
-            <div className="p-3 w-28 bg-softGray">
-              <Image
-                src={"https://source.unsplash.com/random/300x300?monitor"}
-                width={300}
-                height={300}
-                alt="Product Image"
-              />
-            </div>
-            <div className="flex flex-col justify-between h-full w-[70%]">
-              <div className="space-y-2">
-                <div className="font-semibold text-background">
-                  Monitor Gaming
-                </div>
-                <div className="text-xs font-semibold text-background/70">
-                  Rp. 300.000,00
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <FaCaretLeft
-                    //   onClick={decreaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                  <input
-                    type={"number"}
-                    min={1}
-                    minLength={1}
-                    value={1}
-                    className="w-10 p-2 text-sm text-center text-background bg-softWhite focus:outline-none"
-                  />
-                  <FaCaretRight
-                    //   onClick={increaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                </div>
-                <button className="p-4 text-sm text-background/70">
-                  <FiTrash2 />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex w-full bg-softWhite rounded-3xl">
-          <div className="flex items-center w-full gap-4 p-6">
-            <div className="p-3 w-28 bg-softGray">
-              <Image
-                src={"https://source.unsplash.com/random/300x300?laptop"}
-                width={300}
-                height={300}
-                alt="Product Image"
-              />
-            </div>
-            <div className="flex flex-col justify-between h-full w-[70%]">
-              <div className="space-y-2">
-                <div className="font-semibold text-background">
-                  Laptop Ultrabook
-                </div>
-                <div className="text-xs font-semibold text-background/70">
-                  Rp. 350.000,00
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <FaCaretLeft
-                    //   onClick={decreaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                  <input
-                    type={"number"}
-                    min={1}
-                    minLength={1}
-                    value={1}
-                    className="w-10 p-2 text-sm text-center text-background bg-softWhite focus:outline-none"
-                  />
-                  <FaCaretRight
-                    //   onClick={increaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                </div>
-                <button className="p-4 text-sm text-background/70">
-                  <FiTrash2 />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex w-full bg-softWhite rounded-3xl">
-          <div className="flex items-center w-full gap-4 p-6">
-            <div className="p-3 w-28 bg-softGray">
-              <Image
-                src={"https://source.unsplash.com/random/300x300?monitor"}
-                width={300}
-                height={300}
-                alt="Product Image"
-              />
-            </div>
-            <div className="flex flex-col justify-between h-full w-[70%]">
-              <div className="space-y-2">
-                <div className="font-semibold text-background">
-                  Monitor Gaming
-                </div>
-                <div className="text-xs font-semibold text-background/70">
-                  Rp. 300.000,00
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <FaCaretLeft
-                    //   onClick={decreaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                  <input
-                    type={"number"}
-                    min={1}
-                    minLength={1}
-                    value={1}
-                    className="w-10 p-2 text-sm text-center text-background bg-softWhite focus:outline-none"
-                  />
-                  <FaCaretRight
-                    //   onClick={increaseQty}
-                    className="cursor-pointer text-background/50"
-                  />
-                </div>
-                <button className="p-4 text-sm text-background/70">
-                  <FiTrash2 />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <UserProvider>
+          <CartComponent
+            increaseQty={increaseQty}
+            decreaseQty={decreaseQty}
+            handleDeleteProduct={handleDeleteProduct}
+            dataCart={dataCart}
+            rupiah={rupiah}
+          />
+        </UserProvider>
       </div>
     </div>
   );
