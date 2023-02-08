@@ -45,16 +45,24 @@ const ProductCard = () => {
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
       return (
-        <button onClick={window.scrollTo({ top, behavior: "smooth" })}>
+        <div
+          onClick={() => {
+            window.scrollTo({ top, behavior: "smooth" });
+          }}
+        >
           {originalElement}
-        </button>
+        </div>
       );
     }
     if (type === "next") {
       return (
-        <button onClick={window.scrollTo({ top, behavior: "smooth" })}>
+        <div
+          onClick={() => {
+            window.scrollTo({ top, behavior: "smooth" });
+          }}
+        >
           {originalElement}
-        </button>
+        </div>
       );
     }
     return originalElement;

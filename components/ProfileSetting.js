@@ -15,7 +15,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
   const user = useContext(UserContext);
 
   return (
-    <Menu as={"div"} className="relative inline-block text-left md:px-6">
+    <Menu as={"div"} className="relative inline-block text-left md:pl-6">
       <Menu.Button
         className={"flex items-center gap-3"}
         onClick={() => {
@@ -33,7 +33,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
           </div>
         </div>
 
-        <div className="text-left">
+        <div className="hidden md:block md:text-left">
           <h2 className="text-sm font-medium text-background">
             {user?.fullName}
           </h2>
@@ -49,7 +49,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 w-56 mt-3 -mr-[60px] lg:-mr-6 origin-top-right rounded-sm shadow-lg shadow-background/10 bg-softWhite focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 w-56 mt-10 -mr-[60px] lg:-mr-6 origin-top-right rounded-sm shadow-lg shadow-background/10 bg-softWhite focus:outline-none">
           <div className="py-2">
             <Menu.Item>
               {({ active }) => (

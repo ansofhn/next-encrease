@@ -67,7 +67,7 @@ const Navbar = () => {
         } bg-softWhite sm:px-10 sm:py-8 transition duration-300`}
       >
         <Link href={"/"}>
-          <div className="flex items-center text-lg font-bold uppercase cursor-pointer md:text-2xl text-background">
+          <div className="flex items-center text-2xl font-bold uppercase cursor-pointer text-background">
             encrease
           </div>
         </Link>
