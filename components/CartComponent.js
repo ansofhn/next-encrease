@@ -25,8 +25,8 @@ const CartComponent = (props) => {
                   <Image
                     preview={false}
                     src={`http://49.0.2.250:3002/file/${data?.product?.image}`}
-                    width={300}
-                    height={300}
+                    width={90}
+                    height={90}
                     alt="Product Image"
                   />
                 </div>
