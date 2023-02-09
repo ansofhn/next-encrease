@@ -109,6 +109,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -116,6 +117,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -123,6 +125,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -130,6 +133,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -137,6 +141,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -144,6 +149,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -151,6 +157,7 @@ const DetailProduct = () => {
                       src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                       width={100}
                       height={100}
+                      preview={false}
                       className="w-1/3 md:w-full"
                       alt="Product Image"
                     />
@@ -171,6 +178,7 @@ const DetailProduct = () => {
                     src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                     width={450}
                     height={450}
+                    preview={false}
                     className="w-full"
                     alt="Product Image"
                   />
