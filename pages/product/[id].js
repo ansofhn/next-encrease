@@ -1,5 +1,5 @@
-import { Tabs, ConfigProvider, message } from "antd";
-import Image from "next/image";
+import { Tabs, ConfigProvider, message, Image } from "antd";
+// import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Testimonials from "../../components/Testimonials";
@@ -169,8 +169,8 @@ const DetailProduct = () => {
                 <div className="w-full h-full md:h-96">
                   <Image
                     src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                    width={900}
-                    height={900}
+                    width={450}
+                    height={450}
                     className="w-full"
                     alt="Product Image"
                   />

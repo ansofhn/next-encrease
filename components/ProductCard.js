@@ -1,5 +1,5 @@
-import { Pagination } from "antd";
-import Image from "next/image";
+import { Pagination, Image } from "antd";
+// import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { use, useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
@@ -81,8 +81,9 @@ const ProductCard = () => {
                 <Image
                   src={`http://49.0.2.250:3002/file/${data?.image}`}
                   alt="Product Image"
-                  width={300}
-                  height={300}
+                  // width={300}
+                  // height={300}
+                  preview={false}
                   className="w-full"
                 />
               </div>
