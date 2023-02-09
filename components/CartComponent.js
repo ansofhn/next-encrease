@@ -1,4 +1,5 @@
-import Image from "next/image";
+// import Image from "next/image";
+import { Image } from "antd";
 import React, { useContext } from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
@@ -22,6 +23,7 @@ const CartComponent = (props) => {
               <div className="flex items-center w-full gap-4 p-6">
                 <div className="p-3 w-28 bg-softGray">
                   <Image
+                    preview={false}
                     src={`http://49.0.2.250:3002/file/${data?.product?.image}`}
                     width={300}
                     height={300}
