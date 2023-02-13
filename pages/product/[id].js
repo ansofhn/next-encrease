@@ -91,119 +91,76 @@ const DetailProduct = () => {
             <div className="w-full overflow-hidden rounded-sm">
               <div className="flex flex-col-reverse gap-5 md:flex-row">
                 <div className="flex flex-row items-center md:flex-col">
-                  <BsChevronCompactUp
-                    className="hidden cursor-pointer md:block"
-                    size={30}
-                    onClick={() => slideUp()}
-                  />
-                  <BsChevronCompactLeft
-                    className="cursor-pointer md:hidden"
-                    size={80}
-                    onClick={() => slideLeft()}
-                  />
                   <div
-                    className="flex flex-row md:flex-col bg-softGray items-center justify-start p-3 gap-2 md:py-2 overflow-scroll md:h-[400px] lg:h-[280px] xl:h-[400px] scroll-smooth scrollbar-hide"
+                    className="flex flex-row items-center gap-2 p-2 overflow-scroll max-w-screen max-h-[460px] md:flex-col bg-gray-100 scroll-smooth scrollbar-hide"
                     id="slider"
                   >
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
-                    <Image
-                      src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                      width={100}
-                      height={100}
-                      preview={false}
-                      className="w-1/3 md:w-full"
-                      alt="Product Image"
-                    />
+                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                      <Image
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        preview={false}
+                        className="w-full h-full"
+                        alt="Product Image"
+                      />
+                    </div>
+
+                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                      <Image
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        preview={false}
+                        className="w-full h-full"
+                        alt="Product Image"
+                      />
+                    </div>
+
+                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                      <Image
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        preview={false}
+                        className="w-full h-full"
+                        alt="Product Image"
+                      />
+                    </div>
+
+                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                      <Image
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        preview={false}
+                        className="w-full h-full"
+                        alt="Product Image"
+                      />
+                    </div>
                   </div>
-                  <BsChevronCompactDown
-                    className="hidden cursor-pointer md:block"
-                    size={30}
-                    onClick={() => slideDown()}
-                  />
-                  <BsChevronCompactRight
-                    className="cursor-pointer md:hidden"
-                    size={80}
-                    onClick={() => slideRight()}
-                  />
                 </div>
-                <div className="w-full h-full md:h-96">
+                <div className="w-full h-full">
                   <Image
                     src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
-                    width={450}
-                    height={450}
                     preview={false}
-                    className="w-full"
+                    className="w-full max-h-[475px]"
                     alt="Product Image"
                   />
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full text-xl">
+            <div className="flex flex-col w-full mx-2 text-xl">
               <div className="lg:pl-8 space-y-7">
-                <h1 className="pt-5 pb-5 text-2xl font-bold lg:pt-0 text-background">
+                <h1 className="pt-5 pb-5 text-3xl font-bold lg:pt-0 text-background">
                   {detailProduct?.name}
                 </h1>
-                <p className="text-base text-background">
+                <p className="text-sm text-background">
                   Price :
-                  <span className="ml-4 text-xl font-semibold">
+                  <span className="ml-4 text-lg font-semibold">
                     {rupiah(detailProduct?.price)}
                   </span>
                 </p>
-                <p className="text-base text-background">
+                <p className="text-sm text-background">
                   Category :
-                  <span className="ml-4 text-lg font-semibold ">
+                  <span className="ml-4 text-base font-semibold ">
                     {detailProduct?.category.name.toUpperCase() || "-"}
                   </span>
                 </p>
                 <div className="flex items-center gap-x-4">
-                  <span className="text-base text-background">Quantity :</span>
+                  <span className="text-sm text-background">Quantity :</span>
                   <AiFillMinusSquare
                     onClick={decreaseQty}
                     className="cursor-pointer text-background"
@@ -213,14 +170,14 @@ const DetailProduct = () => {
                     min={1}
                     minLength={1}
                     defaultValue={quantity}
-                    className="w-12 text-lg text-center border"
+                    className="w-12 text-base text-center border"
                   />
                   <AiFillPlusSquare
                     onClick={increaseQty}
                     className="cursor-pointer text-background"
                   />
                 </div>
-                <p className="text-base text-background">
+                <p className="text-sm text-background">
                   Stock :
                   <span className="ml-4 text-base font-semibold">
                     {detailProduct?.stok}
@@ -228,12 +185,12 @@ const DetailProduct = () => {
                 </p>
                 <div className="flex flex-row gap-5 pt-5">
                   <button
-                    className="flex items-center px-3 py-3 text-sm font-medium uppercase duration-300 rounded-sm text-background bg-softGray hover:scale-105 gap-x-2"
+                    className="flex items-center px-4 py-3 text-sm font-medium uppercase duration-300 rounded-sm text-background bg-softGray gap-x-2"
                     onClick={handleAddToCart}
                   >
                     <FaShoppingCart /> Add To Cart
                   </button>
-                  <button className="py-3 text-sm font-medium uppercase duration-300 rounded-sm px-7 bg-background text-softWhite hover:scale-105">
+                  <button className="py-3 text-sm font-medium uppercase duration-300 rounded-sm px-7 bg-background text-softWhite">
                     Buy Now
                   </button>
                 </div>
@@ -248,18 +205,18 @@ const DetailProduct = () => {
                 items={[
                   {
                     label: (
-                      <p className="text-base font-semibold text-background">
+                      <p className="px-4 text-sm font-semibold font-poppins text-background/80">
                         Description
                       </p>
                     ),
                     key: "1",
                     children: (
-                      <p className="md:p-6">{detailProduct?.description}</p>
+                      <p className="p-6">{detailProduct?.description}</p>
                     ),
                   },
                   {
                     label: (
-                      <p className="text-base font-semibold text-background">
+                      <p className="px-4 text-sm font-semibold font-poppins text-background/80">
                         Testimonials
                       </p>
                     ),

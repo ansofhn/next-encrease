@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 
 const FilterReview = () => {
   return (
-    <div className="p-5 mx-2 my-10 border rounded-md lg:mx-5 border-background/20">
+    <div className="p-5 mx-6 my-10 border rounded-md md:mx-2 lg:mx-5 border-background/20">
       <div className="mb-4 font-bold uppercase text-background">
         Filter Review
       </div>

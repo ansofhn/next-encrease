@@ -5,9 +5,9 @@ import React from "react";
 import FilterReview from "./FilterReview";
 
 const Testimonials = () => {
-  const data = [1, 2, 3, 4, 5];
+  const data = [1, 2, 3, 4];
   return (
-    <div className="max-w-screen-xl">
+    <div className="max-w-screen-xl mx-8 md:mx-0">
       <div className="flex flex-col gap-10 my-4 md:flex-row">
         <div className="w-full lg:p-2 md:w-[45%] lg:w-[25%] xl:w-[20%] text-start">
           <h2 className="mb-3 text-lg font-bold text-center uppercase text-background">
@@ -58,7 +58,7 @@ const Testimonials = () => {
           })}
           <Pagination
             // simple
-            defaultCurrent={2}
+            defaultCurrent={1}
             total={50}
             className={"text-center"}
           />
