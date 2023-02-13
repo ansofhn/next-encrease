@@ -1,14 +1,10 @@
 import { Listbox, Transition } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
-const price = [{ price: "Highest Price" }, { price: "Lowest Price" }];
-
-const SortBar = () => {
-  const [selected, setSelected] = useState(price[0]);
-
+const SortBar = ({ price, selected, setSelected }) => {
   return (
-    <Listbox value="selected" onChange={setSelected}>
+    <Listbox value="selected" onChange={(value) => setSelected(value)}>
       <Listbox.Button
         placeholder="Sort by"
         className="w-full px-4 py-2.5 flex justify-between bg-white items-center text-sm border text-background lg:w-full focus:outline-none"

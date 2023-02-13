@@ -5,6 +5,16 @@ import SearchBar from "../../components/SearchBar";
 import SortBar from "../../components/SortBar";
 import LandingPageLayout from "../../layouts/LandingPageLayout";
 const product = () => {
+  // SORTBAR
+  const price = [
+    { price: "All Price", value: " " },
+    { price: "Highest Price", value: "DESC" },
+    { price: "Lowest Price", value: "ASC" },
+  ];
+
+  const [selected, setSelected] = useState(price[0]);
+
+  // FILTER
   const [filter, setFilter] = useState([]);
 
   const handleChange = (e) => {
@@ -34,12 +44,16 @@ const product = () => {
                 <SearchBar />
               </div>
               <div className="w-full lg:w-[23%]">
-                <SortBar />
+                <SortBar
+                  selected={selected}
+                  setSelected={setSelected}
+                  price={price}
+                />
               </div>
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">
               <div className="lg:pl-4 lg:order-1">
-                <ProductCard filter={filter} />
+                <ProductCard filter={filter} selected={selected} />
               </div>
               <div className="px-2 py-6 lg:py-0 lg:w-1/3 xl:w-1/4">
                 <Filter handleChange={handleChange} />
