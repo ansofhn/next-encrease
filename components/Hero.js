@@ -4,23 +4,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
 const Hero = () => {
   return (
     <div>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={10}
         slidesPerView={1}
+        direction="horizontal"
         pagination={{ clickable: true }}
-        speed={1000}
+        speed={2000}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop
       >
         <SwiperSlide className="w-full h-full">
           <div className="py-24 overflow-hidden md:pt-32 md:pb-20 md:px-10 lg:pb-16 lg:pl-32 lg:pr-24 xl:pt-38 xl:px-0 2xl:pt-48 2xl:pb-28 2xl:pr-0 xl:ml-10">
             <div
-              className="w-full h-full flex justify-center lg:justify-start py-44 bg-center bg-no-repeat md:p-10 lg:p-0 2xl:scale-105"
+              className="flex justify-center w-full h-full bg-center bg-no-repeat lg:justify-start py-44 md:p-10 lg:p-0 2xl:scale-105"
               style={{
                 backgroundImage:
                   "url(https://source.unsplash.com/random/1024x620?laptop)",
@@ -40,7 +42,7 @@ const Hero = () => {
         <SwiperSlide>
           <div className="py-24 overflow-hidden md:pt-32 md:pb-20 md:px-10 lg:pb-16 lg:pl-32 lg:pr-24 xl:pt-38 xl:px-0 2xl:pt-48 2xl:pb-28 2xl:pr-0 xl:ml-10">
             <div
-              className="w-full h-full flex justify-center lg:justify-start py-44 bg-center bg-no-repeat md:p-10 lg:p-0 2xl:scale-105"
+              className="flex justify-center w-full h-full bg-center bg-no-repeat lg:justify-start py-44 md:p-10 lg:p-0 2xl:scale-105"
               style={{
                 backgroundImage:
                   "url(https://source.unsplash.com/random/1024x620?pc)",
@@ -60,7 +62,7 @@ const Hero = () => {
         <SwiperSlide>
           <div className="py-24 overflow-hidden md:pt-32 md:pb-20 md:px-10 lg:pb-16 lg:pl-32 lg:pr-24 xl:pt-38 xl:px-0 2xl:pt-48 2xl:pb-28 2xl:pr-0 xl:ml-10">
             <div
-              className="w-full h-full flex justify-center lg:justify-start py-44 bg-center bg-no-repeat md:p-10 lg:p-0 2xl:scale-105"
+              className="flex justify-center w-full h-full bg-center bg-no-repeat lg:justify-start py-44 md:p-10 lg:p-0 2xl:scale-105"
               style={{
                 backgroundImage:
                   "url(https://source.unsplash.com/random/1024x620?keyboard)",
@@ -80,7 +82,7 @@ const Hero = () => {
         <SwiperSlide>
           <div className="py-24 overflow-hidden md:pt-32 md:pb-20 md:px-10 lg:pb-16 lg:pl-32 lg:pr-24 xl:pt-38 xl:px-0 2xl:pt-48 2xl:pb-28 2xl:pr-0 xl:ml-10">
             <div
-              className="w-full h-full flex justify-center lg:justify-start py-44 bg-center bg-no-repeat md:p-10 lg:p-0 2xl:scale-105"
+              className="flex justify-center w-full h-full bg-center bg-no-repeat lg:justify-start py-44 md:p-10 lg:p-0 2xl:scale-105"
               style={{
                 backgroundImage:
                   "url(https://source.unsplash.com/random/1024x620?motherboard)",

@@ -1,4 +1,7 @@
 import React from "react";
+import { HiOutlineShoppingBag, HiOutlineCreditCard } from "react-icons/hi";
+import { GoPackage } from "react-icons/go";
+import { RiCustomerService2Line } from "react-icons/ri";
 
 const Service = () => {
   return (
@@ -16,22 +19,30 @@ const Service = () => {
           <div className="grid grid-cols-1 gap-4 mx-10 md:mx-12 lg:mx-0 xl:mx-10 md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col items-center justify-center p-6">
               <div className="p-10 m-2 border-2 rounded-full border-softGray">
-                <div className="flex items-center w-12 h-12 text-center"></div>
+                <div className="flex items-center w-12 h-12 text-center">
+                  <HiOutlineShoppingBag className="w-full h-full text-background" />
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-center justify-center p-6">
               <div className="p-10 m-2 border-2 rounded-full border-softGray">
-                <div className="flex items-center w-12 h-12 text-center"></div>
+                <div className="flex items-center w-12 h-12 text-center">
+                  <HiOutlineCreditCard className="w-full h-full text-background" />
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-center justify-center p-6">
               <div className="p-10 m-2 border-2 rounded-full border-softGray">
-                <div className="flex items-center w-12 h-12 text-center"></div>
+                <div className="flex items-center w-12 h-12 text-center">
+                  <GoPackage className="w-full h-full text-background" />
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-center justify-center p-6">
               <div className="p-10 m-2 border-2 rounded-full border-softGray">
-                <div className="flex items-center w-12 h-12 text-center"></div>
+                <div className="flex items-center w-12 h-12 text-center">
+                  <RiCustomerService2Line className="w-full h-full text-background" />
+                </div>
               </div>
             </div>
 
