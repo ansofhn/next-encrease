@@ -136,6 +136,7 @@ const DetailProduct = () => {
                   <Image
                     src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
                     preview={false}
+                    height={475}
                     className="w-full max-h-[475px]"
                     alt="Product Image"
                   />

@@ -8,7 +8,7 @@ const SugestionProducts = () => {
   const { data: dataProducts } = productsRepository.hooks.useProducts(1, " ");
   const Products = dataProducts?.data;
 
-  const category = ["laptop", "keyboard", "mouse", "headset", "smartphone"];
+  const category = ["laptop", "keyboard", "monitor", "headset", "smartphone"];
 
   const ProductList = () => {
     return (
@@ -19,7 +19,7 @@ const SugestionProducts = () => {
         {Products?.map((data, i) => {
           return (
             <div
-              className="pb-10 snap-center md:snap-start text-background w-[320px] md:w-80 lg:w-72 2xl:w-80"
+              className="pb-10 snap-center md:snap-start text-background w-[320px] md:w-[310px] lg:w-[270px] xl:w-[285px] 2xl:w-[278px]"
               key={i}
             >
               <div className="overflow-hidden rounded-sm w-[320px] md:w-[310px] lg:w-[270px] xl:w-[285px] 2xl:w-[278px] h-[320px]">
