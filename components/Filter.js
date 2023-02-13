@@ -1,7 +1,8 @@
+import { Checkbox } from "antd";
 import React from "react";
 import { categoriesRepository } from "../repository/category";
 
-const Filter = () => {
+const Filter = ({ handleChange }) => {
   // Fetching Data
   const { data: dataCategories } = categoriesRepository.hooks.useCategory();
   const categories = dataCategories?.data;
@@ -12,18 +13,13 @@ const Filter = () => {
       {categories?.map((data) => {
         return (
           <div className="flex items-center my-2" key={data?.id}>
-            <input
-              id={data?.name}
-              type="checkbox"
+            <Checkbox
+              className="font-poppins  text-sm font-medium text-gray-400"
               value={data?.name}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
-            />
-            <label
-              htmlFor={data?.name}
-              className="ml-2 text-sm font-medium text-gray-400"
+              onChange={(e) => handleChange(e)}
             >
               {data?.name}
-            </label>
+            </Checkbox>
           </div>
         );
       })}

@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Filter from "../../components/Filter";
 import ProductCard from "../../components/ProductCard";
 import SearchBar from "../../components/SearchBar";
 import SortBar from "../../components/SortBar";
 import LandingPageLayout from "../../layouts/LandingPageLayout";
-
 const product = () => {
+  const [filter, setFilter] = useState([]);
+
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      setFilter([...filter, e.target.value]);
+    } else {
+      const filtered = filter.filter((data) => data !== e.target.value);
+      setFilter(filtered);
+    }
+  };
+
   return (
     <div>
       <div className="pt-40">
@@ -29,10 +39,10 @@ const product = () => {
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">
               <div className="lg:pl-4 lg:order-1">
-                <ProductCard />
+                <ProductCard filter={filter} />
               </div>
               <div className="px-2 py-6 lg:py-0 lg:w-1/3 xl:w-1/4">
-                <Filter />
+                <Filter handleChange={handleChange} />
               </div>
             </div>
           </div>

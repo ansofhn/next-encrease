@@ -2,8 +2,17 @@ import useSwr from "swr";
 import { http } from "../utils/http";
 
 const url = {
-  products: (page, filter) =>
-    `/products?page=${page}&limit=6&filter.category.name=$ilike:${filter}`,
+  products: (page, filter) => {
+    if (filter) {
+      if (filter?.length > 1) {
+        return `/products?page=${page}&limit=6&filter.category.name=$in:${filter}`;
+      } else {
+        return `/products?page=${page}&limit=6&filter.category.name=$ilike:${filter}`;
+      }
+    } else {
+      return `/products?page=${page}&limit=6`;
+    }
+  },
   detailProduct: (id) => `/products/${id}`,
 };
 

@@ -5,7 +5,7 @@ import React, { use, useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
-const ProductCard = () => {
+const ProductCard = ({ filter }) => {
   const router = useRouter();
 
   const [pagePagination, setPagePagination] = useState(1);
@@ -21,7 +21,7 @@ const ProductCard = () => {
   //Fetching Products Data
   const { data: dataProducts } = productsRepository.hooks.useProducts(
     pagePagination,
-    " "
+    filter
   );
   const products = dataProducts?.data;
 
