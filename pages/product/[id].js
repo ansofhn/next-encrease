@@ -1,7 +1,7 @@
 import { Tabs, ConfigProvider, message, Image } from "antd";
 // import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Testimonials from "../../components/Testimonials";
 import LandingPageLayout from "../../layouts/LandingPageLayout";
 import { productsRepository } from "../../repository/products";
@@ -17,8 +17,11 @@ import SugestionProducts from "../../components/SugestionProducts";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { cartRepository } from "../../repository/cart";
 import { mutate } from "swr";
+import { UserContext } from "../../context/UserDetailContext";
 
 const DetailProduct = () => {
+  // User Context
+  const user = useContext(UserContext);
   const router = useRouter();
 
   const [quantity, setQuantity] = useState(1);
@@ -69,17 +72,27 @@ const DetailProduct = () => {
 
   // Add To Cart Function
   const handleAddToCart = async () => {
-    try {
-      const data = {
-        qty: quantity,
-        productId: id,
-        price: detailProduct?.price,
-      };
-      await cartRepository.api.createCart(data);
-      message.success("Success Add to Cart");
-      mutate(cartRepository.hooks.useCart());
-    } catch (e) {
-      console.log(e.message);
+    if (user) {
+      try {
+        const data = {
+          qty: quantity,
+          productId: id,
+          price: detailProduct?.price,
+        };
+        await cartRepository.api
+          .createCart(data)
+          .then((res) =>
+            res !== undefined
+              ? message.success("Success Add to Cart")
+              : message.error("Something went Wrong")
+          );
+      } catch (e) {
+        console.log(e.message, "error");
+        message.error("Failed Add to Cart");
+        return;
+      }
+    } else {
+      message.warning("You Must Login First");
     }
   };
 
