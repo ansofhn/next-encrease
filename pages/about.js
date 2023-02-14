@@ -33,7 +33,7 @@ const about = () => {
             </div>
             <div className="w-full mt-10 md:px-4 lg:px-10 xl:px-20">
               <div className="grid w-full h-full grid-cols-1 bg-gray-200 lg:grid-cols-2 py-14">
-                <div className="order-1 mx-10 my-auto space-y-6 md:mx-14 lg:ml-24 lg:order-1">
+                <div className="order-1 mx-10 my-auto space-y-6 md:mx-12 lg:ml-24 lg:order-1">
                   <h1 className="text-xl font-bold uppercase text-background">
                     Why Choose Us
                   </h1>
