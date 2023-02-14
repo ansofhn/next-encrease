@@ -9,9 +9,9 @@ const ProductList = () => {
             View Our Products
           </h1>
           <h2 className="text-sm font-light md:mx-10 lg:mx-64 lg:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            elementum id metus ac tempus. Praesent ut mauris eget velit volutpat
-            posuere
+            Unlock the Potential of Our Product, Enhance Your Daily Routine and
+            Maximize Your Results. Discover Why Our Product Stands Out from the
+            Rest.
           </h2>
         </div>
         <div className="grid grid-cols-1 gap-6 md:gap-10 md:mx-10 lg:grid-cols-2">

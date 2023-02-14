@@ -38,9 +38,10 @@ const about = () => {
                     Why Choose Us
                   </h1>
                   <h2 className="text-sm font-light lg:text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Cras elementum id metus ac tempus. consectetur adipiscing.
-                    ipsum dolor sit amet, consectetur
+                    We provide customer support and regular software updates,
+                    ensuring that your business always has access to the latest
+                    technology. We're committed to providing the best customer
+                    experience, and our website is designed with you in mind.
                   </h2>
                 </div>
                 <div className="w-full md:w-[80%] lg:w-[90%] xl:w-[80%] lg:order-2 pb-10 px-6">

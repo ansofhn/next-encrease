@@ -20,13 +20,15 @@ const About = () => {
         </div>
         <div className="w-full mt-10 md:px-4 lg:px-10 xl:px-20">
           <div className="grid w-full h-full grid-cols-1 bg-gray-200 lg:grid-cols-2 py-14">
-            <div className="order-1 mx-10 my-auto space-y-6 md:mx-14 lg:ml-24 lg:order-1">
+            <div className="order-1 mx-10 my-auto space-y-6 md:mx-12 lg:ml-24 lg:order-1">
               <h1 className="text-xl font-bold uppercase text-background">
                 Why Choose Us
               </h1>
               <h2 className="text-sm font-light lg:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                elementum id metus ac tempus. consectetur adipiscing.
+                We provide customer support and regular software updates,
+                ensuring that your business always has access to the latest
+                technology. We're committed to providing the best customer
+                experience, and our website is designed with you in mind.
               </h2>
               <Link href={"/about"}>
                 <button className="flex items-center px-6 py-2.5 mt-8 text-sm font-semibold uppercase transition duration-300 bg-transparent border-2 rounded-full cursor-pointer  text-background border-background hover:bg-background hover:text-softWhite">

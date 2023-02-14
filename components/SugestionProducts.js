@@ -8,7 +8,7 @@ const SugestionProducts = () => {
   const { data: dataProducts } = productsRepository.hooks.useProducts(1, " ");
   const Products = dataProducts?.data;
 
-  const category = ["laptop", "keyboard", "monitor", "headset", "smartphone"];
+  const category = ["processor", "arduino", "keyboard", "headset", "smartphone"];
 
   const ProductList = () => {
     return (
@@ -25,7 +25,7 @@ const SugestionProducts = () => {
               <div className="overflow-hidden rounded-sm w-[320px] md:w-[310px] lg:w-[270px] xl:w-[285px] 2xl:w-[278px] h-[320px]">
                 <img
                   className="h-[320px]"
-                  src={`https://source.unsplash.com/random/900x900?grey+${category[i] ? category[i] : "random"}`}
+                  src={`http://49.0.2.250:3002/file/${data?.image}`}
                 />
               </div>
               <div className="px-2 py-4">
@@ -34,7 +34,7 @@ const SugestionProducts = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between px-2">
-                <div className="text-xs font-medium">{data.price}</div>
+                <div className="text-xs font-medium">Rp. {data.price}</div>
                 <div className="flex items-center gap-2 text-xs font-medium">
                   <span className="flex items-center gap-2 font-bold text-background">
                     <BsStarFill color="orange" />
