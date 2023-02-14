@@ -13,7 +13,8 @@ const Service = () => {
               Our Services
             </h1>
             <h2 className="text-sm font-light lg:text-base">
-              Find the product or service you are looking for here
+              Empowering Student with Innovative Entrepreneurship
+              Services
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-4 mx-10 md:mx-12 lg:mx-0 xl:mx-10 md:grid-cols-2 lg:grid-cols-4">
