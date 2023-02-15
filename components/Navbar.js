@@ -122,7 +122,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className="hidden w-full mt-10 rounded-lg xl:ml-[400px] 2xl:ml-[800px] lg:mt-0 lg:justify-between lg:items-center lg:flex lg:w-auto lg:order-1 bg-softGray lg:bg-transparent lg:p-0">
+        <div className="hidden w-full mt-10 rounded-lg xl:ml-[180px] 2xl:ml-[800px] lg:mt-0 lg:justify-between lg:items-center lg:flex lg:w-auto lg:order-1 bg-softGray lg:bg-transparent lg:p-0">
           <div className="flex flex-col gap-4 p-2 font-medium lg:p-0 lg:flex-row lg:gap-10 lg:font-medium text-background">
             <Link href={"/"}>
               <div
