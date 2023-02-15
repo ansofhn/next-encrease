@@ -105,7 +105,7 @@ const ProductCard = ({ filter, selected }) => {
           );
         })}
       </div>
-      {/* <Pagination
+      <Pagination
         total={dataProducts?.meta?.totalPages * 10}
         pageSize={12}
         current={pagePagination}
@@ -117,7 +117,7 @@ const ProductCard = ({ filter, selected }) => {
           });
         }}
         itemRender={itemRender}
-      /> */}
+      />
     </div>
   );
 };
