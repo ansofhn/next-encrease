@@ -2,10 +2,10 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { CgProfile } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { UserContext } from "../context/UserDetailContext";
+import { store } from "../store/store";
 
 const SideBarProfile = ({ id }) => {
-  const user = useContext(UserContext);
+  const user = store.UserStore.user;
   return (
     <div className="hidden lg:flex flex-col space-y-20 lg:w-[25%] p-10 border-background/60 border-r">
       <Link href={`/profile/${id || user?.id}`}>

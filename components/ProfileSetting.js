@@ -1,18 +1,18 @@
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import { BiLogOut } from "react-icons/bi";
 import { RiAccountCircleLine, RiLockPasswordLine } from "react-icons/ri";
-import { UserContext } from "../context/UserDetailContext";
+import { store } from "../store/store";
 
 const ProfileSetting = ({ setOpenCart, handleLogout }) => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
 
-  // User Data From Context
-  const user = useContext(UserContext);
+  // User Data From Store
+  const user = store.UserStore.user;
 
   return (
     <Menu as={"div"} className="relative inline-block text-left md:pl-6">

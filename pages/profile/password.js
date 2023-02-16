@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import SideBarProfile from "../../components/SideBarProfile";
-import { UserProvider } from "../../context/UserDetailContext";
 import SettingLayout from "../../layouts/SettingLayout";
 
 const password = () => {
@@ -20,9 +19,7 @@ const password = () => {
   return (
     <div className="pt-32 pb-10 md:pt-24 bg-softWhite">
       <div className="container flex flex-col lg:flex-row gap-x-10 md:py-24">
-        <UserProvider>
-          <SideBarProfile />
-        </UserProvider>
+        <SideBarProfile />
         <div className="flex flex-col px-4 mx-auto w-full md:w-[80%] lg:w-[55%] py-4 gap-y-20">
           <div className="text-xl font-bold text-background">
             Set Your Password

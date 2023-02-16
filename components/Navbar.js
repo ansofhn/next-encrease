@@ -6,7 +6,6 @@ import { FaShoppingCart, FaTimes } from "react-icons/fa";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { productsRepository } from "../repository/products";
 import { message } from "antd";
-import { UserProvider } from "../context/UserDetailContext";
 import ProfileSetting from "./ProfileSetting";
 import { store } from "../store/store";
 
@@ -86,12 +85,10 @@ const Navbar = () => {
               </button>
             </Link>
           ) : (
-            <UserProvider>
-              <ProfileSetting
-                setOpenCart={setOpenCart}
-                handleLogout={handleLogout}
-              />
-            </UserProvider>
+            <ProfileSetting
+              setOpenCart={setOpenCart}
+              handleLogout={handleLogout}
+            />
           )}
 
           <button
