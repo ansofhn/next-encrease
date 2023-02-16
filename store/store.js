@@ -1,5 +1,5 @@
-import { TestStore } from "./TestStore";
+import { AuthStore } from "./AuthStore";
 
 export const store = {
-  TestStore: new TestStore(),
+  AuthStore: new AuthStore(),
 };

@@ -1,4 +1,5 @@
 import { message } from "antd";
+import { observer } from "mobx-react-lite";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -6,11 +7,12 @@ import React, { useRef } from "react";
 import { appConfig } from "../../config/app";
 import LoginRegisterLayout from "../../layouts/LoginRegisterLayout";
 import macPhoto from "../../public/assets/macPhoto.png";
+import { store } from "../../store/store";
 import { authentication } from "../../utils/authentication";
 
 const SuperAgent = require("superagent");
 
-const Login = () => {
+const Login = observer(() => {
   const router = useRouter();
 
   // Form Control
@@ -24,11 +26,7 @@ const Login = () => {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       };
-      await SuperAgent.post(appConfig.apiUrl + "/auth/login")
-        .send(data)
-        .then((res) =>
-          authentication.setAccessToken(res.body?.data?.access_token)
-        );
+      await store.AuthStore.login(data);
       message.success("Success Logged In");
       router.push("/");
     } catch (e) {
@@ -123,7 +121,7 @@ const Login = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Login;
 

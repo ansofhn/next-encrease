@@ -17,11 +17,10 @@ import SugestionProducts from "../../components/SugestionProducts";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { cartRepository } from "../../repository/cart";
 import { mutate } from "swr";
-import { UserContext } from "../../context/UserDetailContext";
+import { store } from "../../store/store";
 
 const DetailProduct = () => {
   // User Context
-  const user = useContext(UserContext);
   const router = useRouter();
 
   const [quantity, setQuantity] = useState(1);
@@ -72,7 +71,7 @@ const DetailProduct = () => {
 
   // Add To Cart Function
   const handleAddToCart = async () => {
-    if (user) {
+    if (store.AuthStore.isLoggin) {
       try {
         const data = {
           qty: quantity,
@@ -91,6 +90,14 @@ const DetailProduct = () => {
         message.error("Failed Add to Cart");
         return;
       }
+    } else {
+      message.warning("You Must Login First");
+    }
+  };
+
+  const handleBuyItem = () => {
+    if (store.AuthStore.isLoggin) {
+      message.loading("Please Wait");
     } else {
       message.warning("You Must Login First");
     }
@@ -204,7 +211,10 @@ const DetailProduct = () => {
                   >
                     <FaShoppingCart /> Add To Cart
                   </button>
-                  <button className="py-3 text-sm font-medium uppercase duration-300 rounded-sm px-7 bg-background text-softWhite">
+                  <button
+                    className="py-3 text-sm font-medium uppercase duration-300 rounded-sm px-7 bg-background text-softWhite"
+                    onClick={handleBuyItem}
+                  >
                     Buy Now
                   </button>
                 </div>

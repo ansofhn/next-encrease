@@ -6,19 +6,15 @@ import { FaShoppingCart, FaTimes } from "react-icons/fa";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { productsRepository } from "../repository/products";
 import { message } from "antd";
-import { authentication } from "../utils/authentication";
 import { UserProvider } from "../context/UserDetailContext";
 import ProfileSetting from "./ProfileSetting";
+import { store } from "../store/store";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [scrollChange, setScrollChange] = useState(false);
-  const [token, setToken] = useState();
-
-  useEffect(() => {
-    setToken(authentication.isVerified());
-  }, []);
+  const isLoggin = store.AuthStore.isLoggin;
 
   const router = useRouter();
   const currentRoute = router.pathname;
@@ -50,8 +46,7 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    authentication.clearAccesToken();
-    setToken("");
+    store.AuthStore.logout();
     router.push("/");
     message.success("success logout");
   };
@@ -73,7 +68,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center md:gap-2 lg:gap-4 lg:order-2">
-          {token && (
+          {isLoggin && (
             <div
               onClick={() => {
                 router.push("/cart");
@@ -84,7 +79,7 @@ const Navbar = () => {
             </div>
           )}
 
-          {!token ? (
+          {!isLoggin ? (
             <Link href={"/auth/login"}>
               <button className="px-3 py-2 font-bold uppercase transition duration-300 border-2 rounded-md cursor-pointer text-background border-background">
                 sign in
@@ -290,7 +285,7 @@ const Navbar = () => {
                 Products
               </motion.div>
             </Link>
-            {token && (
+            {isLoggin && (
               <Link href={"/cart"}>
                 <motion.div
                   onClick={() => {
