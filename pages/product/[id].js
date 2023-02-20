@@ -95,9 +95,29 @@ const DetailProduct = () => {
     }
   };
 
-  const handleBuyItem = () => {
+  const handleBuyItem = async () => {
     if (store.AuthStore.isLoggin) {
       message.loading("Please Wait");
+      setTimeout(() => {
+        try {
+          const data = {
+            qty: quantity,
+            productId: id,
+            price: detailProduct?.price,
+          };
+          cartRepository.api
+            .createCart(data)
+            .then((res) =>
+              res !== undefined
+                ? router.push("/cart")
+                : message.error("Something went Wrong")
+            );
+        } catch (e) {
+          console.log(e.message, "error");
+          message.error("Failed Add to Cart");
+          return;
+        }
+      }, 3000);
     } else {
       message.warning("You Must Login First");
     }
@@ -190,8 +210,9 @@ const DetailProduct = () => {
                     type={"number"}
                     min={1}
                     minLength={1}
-                    defaultValue={quantity}
+                    value={quantity}
                     className="w-12 text-base text-center border"
+                    disabled
                   />
                   <AiFillPlusSquare
                     onClick={increaseQty}
