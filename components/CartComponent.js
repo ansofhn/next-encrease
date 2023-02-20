@@ -4,16 +4,17 @@ import React, { useContext } from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { UserContext } from "../context/UserDetailContext";
+import { store } from "../store/store";
 
 const CartComponent = (props) => {
   const { increaseQty, decreaseQty, handleDeleteProduct, dataCart, rupiah } =
     props;
   // User Data From Context
-  const user = useContext(UserContext);
+  const user = store.UserStore.user;
   return (
     <div>
       {dataCart
-        ?.filter((data) => data?.createdBy === user.email)
+        ?.filter((data) => data?.userId === user.id)
         .map((data, idx) => {
           return (
             <div

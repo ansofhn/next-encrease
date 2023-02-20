@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { Fragment } from "react";
 import { BiLogOut } from "react-icons/bi";
 import { RiAccountCircleLine, RiLockPasswordLine } from "react-icons/ri";
+import { userRepository } from "../repository/user";
 import { store } from "../store/store";
 
 const ProfileSetting = ({ setOpenCart, handleLogout }) => {
@@ -11,8 +12,12 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
     return classes.filter(Boolean).join(" ");
   }
 
-  // User Data From Store
-  const user = store.UserStore.user;
+  const { data: userDetail } = userRepository.hooks.getDetailUser(
+    store.UserStore.user.id
+  );
+  const user = userDetail?.data;
+
+  console.log(user);
 
   return (
     <Menu as={"div"} className="relative inline-block text-left md:pl-6">
@@ -35,7 +40,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
 
         <div className="hidden md:block md:text-left">
           <h2 className="text-sm font-medium text-background">
-            {user?.fullName}
+            {user?.fullname}
           </h2>
           <p className="text-xs text-background/50">{user?.email}</p>
         </div>
