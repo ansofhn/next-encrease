@@ -29,7 +29,7 @@ const UserProfile = () => {
     event.preventDefault();
     try {
       const data = {
-        fullName: nameRef.current.value,
+        fullname: nameRef.current.value,
         email: emailRef.current.value,
         phone: phoneRef.current.value,
         address: addressRef.current.value,

@@ -5,11 +5,15 @@ export class UserStore {
   user = null;
 
   setUser() {
-    const decodedToken = jwtDecode(authentication.isVerified());
-    if (decodedToken) {
-      this.user = decodedToken;
-    } else {
-      this.user = null;
+    try {
+      const decodedToken = jwtDecode(authentication.isVerified());
+      if (decodedToken) {
+        this.user = decodedToken;
+      } else {
+        this.user = null;
+      }
+    } catch (error) {
+      console.log(error, ":)")
     }
   }
 }
