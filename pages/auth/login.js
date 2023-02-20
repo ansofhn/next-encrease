@@ -27,6 +27,7 @@ const Login = observer(() => {
         password: passwordRef.current.value,
       };
       await store.AuthStore.login(data);
+      store.UserStore.setUser();
       message.success("Success Logged In");
       router.push("/");
     } catch (e) {

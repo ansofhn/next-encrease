@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
   useEffect(() => {
     store.AuthStore.isAuthenticated();
-    store.UserStore.setUser();
+    // store.UserStore.setUser();
   }, [store.AuthStore.isLoggin]);
 
   return getLayout(<Component {...pageProps} />);
