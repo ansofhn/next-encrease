@@ -17,8 +17,6 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
   );
   const user = userDetail?.data;
 
-  console.log(user);
-
   return (
     <Menu as={"div"} className="relative inline-block text-left md:pl-6">
       <Menu.Button

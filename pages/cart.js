@@ -6,14 +6,23 @@ import CartComponent from "../components/CartComponent";
 import { UserProvider } from "../context/UserDetailContext";
 import LandingPageLayout from "../layouts/LandingPageLayout";
 import { cartRepository } from "../repository/cart";
+import { store } from "../store/store";
 import { http } from "../utils/http";
 
 const cart = () => {
   const [dataCart, setDataCart] = useState([]);
+  const user = store.UserStore.user;
+  const totalPrice = [];
 
   useEffect(() => {
     getDataCart();
   }, []);
+  totalPrice.push(
+    dataCart
+      .filter((data) => data.userId === user.id)
+      .map((data) => data.total)
+      .reduce((acc, cur) => acc + cur, 0)
+  );
 
   const getDataCart = async () => {
     try {
@@ -76,7 +85,7 @@ const cart = () => {
       <div className="fixed bottom-0 z-10 w-full bg-softGray">
         <div className="flex items-center justify-between p-6 bg-softWhite rounded-t-3xl">
           <div className="flex items-center justify-end text-sm font-bold md:text-base text-background">
-            {rupiah(dataCart[0]?.total)}
+            {rupiah(totalPrice[0])}
           </div>
           <button className="px-4 py-2.5 text-xs md:text-sm bg-background rounded-xl font-semibold uppercase text-softWhite">
             Proceed to Checkout
