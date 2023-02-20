@@ -1,4 +1,4 @@
-import { Checkbox } from "antd";
+import { Checkbox, Slider } from "antd";
 import React from "react";
 import { categoriesRepository } from "../repository/category";
 
@@ -7,6 +7,25 @@ const Filter = ({ handleChange }) => {
   const { data: dataCategories } = categoriesRepository.hooks.useCategory();
   const categories = dataCategories?.data;
 
+  const onChange = (value) => {
+    console.log(value, "change");
+  };
+
+  const onAfterChange = (value) => {
+    console.log(value, "after");
+  };
+
+  const categoryType = [
+    {
+      name: "goods",
+      value: "goods",
+    },
+    {
+      name: "services",
+      value: "services",
+    },
+  ];
+
   return (
     <div>
       <div className="my-6 font-bold uppercase text-background">Category</div>
@@ -14,7 +33,7 @@ const Filter = ({ handleChange }) => {
         return (
           <div className="flex items-center my-2" key={data?.id}>
             <Checkbox
-              className="font-poppins  text-sm font-medium text-gray-400"
+              className="text-sm font-medium text-gray-400 font-poppins"
               value={data?.name}
               onChange={(e) => handleChange(e)}
             >
@@ -23,76 +42,36 @@ const Filter = ({ handleChange }) => {
           </div>
         );
       })}
-      <div className="mb-6 font-bold uppercase mt-14 text-background">
+      <div className="mb-12 font-bold uppercase mt-14 text-background">
         Price
       </div>
-      <input
-        id="default-range"
-        type="range"
-        value="100"
-        className="w-full h-2 rounded-lg appearance-none cursor-pointer accent-gray-400 bg-background"
+      <Slider
+        trackStyle={{
+          backgroundColor: "#23374D", // change this to the color you want
+        }}
+        range
+        defaultValue={[0, 100]}
+        onChange={onChange}
+        onAfterChange={onAfterChange}
       />
 
       <div className="mb-6 font-bold uppercase mt-14 text-background">
-        Brand
+        Product Type
       </div>
-      <div className="flex items-center my-2">
-        <input
-          id="default-checkbox"
-          type="checkbox"
-          value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
-        />
-        <label
-          htmlFor="default-checkbox"
-          className="ml-2 text-sm font-medium text-gray-400"
-        >
-          ASUS
-        </label>
-      </div>
-      <div className="flex items-center my-2">
-        <input
-          id="default-checkbox"
-          type="checkbox"
-          value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
-        />
-        <label
-          htmlFor="default-checkbox"
-          className="ml-2 text-sm font-medium text-gray-400"
-        >
-          ACER
-        </label>
-      </div>
-      <div className="flex items-center my-2">
-        <input
-          id="default-checkbox"
-          type="checkbox"
-          value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
-        />
-        <label
-          htmlFor="default-checkbox"
-          className="ml-2 text-sm font-medium text-gray-400"
-        >
-          DELL
-        </label>
-      </div>
-      <div className="flex items-center my-2">
-        <input
-          id="default-checkbox"
-          type="checkbox"
-          value=""
-          className="w-4 h-4 bg-gray-100 border-gray-300 rounded accent-gray-500"
-        />
-        <label
-          htmlFor="default-checkbox"
-          className="ml-2 text-sm font-medium text-gray-400"
-        >
-          Samsung
-        </label>
-      </div>
-      <button className="w-full px-8 py-2 my-8 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
+      {categoryType?.map((data) => {
+        return (
+          <div className="flex items-center my-2">
+            <Checkbox
+              className="text-sm font-medium text-gray-400 capitalize font-poppins"
+              value={data?.name}
+              onChange={(e) => handleChange(e)}
+            >
+              {data?.name}
+            </Checkbox>
+          </div>
+        );
+      })}
+      <button className="w-full px-8 py-2 my-12 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
         clear all filters
       </button>
     </div>
