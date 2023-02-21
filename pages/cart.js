@@ -1,5 +1,4 @@
 import { message } from "antd";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { mutate } from "swr";
@@ -12,7 +11,6 @@ import { store } from "../store/store";
 import { http } from "../utils/http";
 
 const cart = () => {
-  const router = useRouter();
   const [dataCart, setDataCart] = useState([]);
   const user = store.UserStore.user;
   const totalPrice = [];
@@ -93,7 +91,9 @@ const cart = () => {
       try {
         await transactionRepository.api.createTransaction(dataForCheckout);
         message.loading("Making Invoice");
-        router.push("/transaction");
+        setTimeout(() => {
+          window.location.href = "/transaction";
+        }, 3000);
       } catch (e) {
         console.log(e.message);
       }

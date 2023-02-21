@@ -1,10 +1,14 @@
 import React from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import { transactionRepository } from "../../repository/transaction";
+import { store } from "../../store/store";
 
 const SuccessTabs = () => {
+  const user = store.UserStore.user;
   const { data } = transactionRepository.hooks.useTransaction();
-  const transactionData = data?.data?.filter((data) => !data.paymentStatus);
+  const transactionData = data?.data?.filter(
+    (data) => data.user.id === user.id
+  );
   console.log(transactionData);
   return (
     <div className="h-[80vh] overflow-y-auto p-4">
@@ -35,24 +39,6 @@ const SuccessTabs = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <FaCaretLeft
-                      //   onClick={() => decreaseQty(data?.id)}
-                      className="cursor-pointer text-background/50"
-                    />
-                    <input
-                      type={"number"}
-                      min={1}
-                      minLength={1}
-                      disabled
-                      value={data?.qty}
-                      className="w-10 p-2 text-sm text-center text-background bg-softWhite focus:outline-none"
-                    />
-                    <FaCaretRight
-                      //   onClick={() => increaseQty(data?.id)}
-                      className="cursor-pointer text-background/50"
-                    />
-                  </div>
                   <button
                     className="p-4 text-sm text-background/70"
                     // onClick={() => handleDeleteProduct(data?.id)}
