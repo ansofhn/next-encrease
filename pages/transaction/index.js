@@ -45,10 +45,10 @@ const Transaction = () => {
   return (
     <div className="py-32">
       <div className="max-w-screen-lg mx-auto">
-        <div className="w-full">
+        <div className="w-full" id="transaction-tab">
           <Tabs
             animated={true}
-            size={"large"}
+            size={"small"}
             items={items}
             type={"card"}
             defaultActiveKey="1"

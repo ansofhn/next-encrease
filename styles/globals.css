@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 .without-ring {
-    @apply  ring-0 focus:ring-0 shadow-none focus:shadow-none focus:outline-none
+  @apply ring-0 focus:ring-0 shadow-none focus:shadow-none focus:outline-none;
 }
 
 .user-profile-form {
-    @apply bg-transparent border-b-[1px] border-background w-full py-2
+  @apply bg-transparent border-b-[1px] border-background w-full py-2;
+}
+
+@media (max-width: 768px) {
+  #transaction-tab .ant-tabs-nav-wrap {
+    justify-content: center;
+  }
 }
