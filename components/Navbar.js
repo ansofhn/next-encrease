@@ -283,6 +283,34 @@ const Navbar = () => {
               </motion.div>
             </Link>
             {isLoggin && (
+              <Link href={"/transaction"}>
+                <motion.div
+                  onClick={() => {
+                    setOpen(!open);
+                    setOpenCart(false);
+                  }}
+                  className={`inline-flex my-2 text-3xl font-bold ${
+                    currentRoute === "/cart"
+                      ? "text-softWhite"
+                      : "text-softGray/70"
+                  } `}
+                  initial={{ y: 80, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  exit={{
+                    opacity: 0,
+                    y: 80,
+                    transition: {
+                      ease: "easeInOut",
+                      delay: 0.7,
+                    },
+                  }}
+                >
+                  Transaction
+                </motion.div>
+              </Link>
+            )}
+            {isLoggin && (
               <Link href={"/cart"}>
                 <motion.div
                   onClick={() => {
