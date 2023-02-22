@@ -1,9 +1,13 @@
 import { Image } from "antd";
+import { useRouter } from "next/router";
 import React from "react";
 import { transactionRepository } from "../../repository/transaction";
 import { store } from "../../store/store";
 
 const ToPayTabs = () => {
+  //Router
+  const router = useRouter();
+
   // Data from User Store
   const user = store.UserStore.user;
 
@@ -65,7 +69,10 @@ const ToPayTabs = () => {
               </div>
               <button
                 className="bg-background py-2 px-8 text-sm text-white rounded-lg"
-                // onClick={() => handleDeleteProduct(data?.id)}
+                onClick={() => {
+                  console.log(data, "click");
+                  router.push(`/transaction/${data?.id}`);
+                }}
               >
                 Pay Now
               </button>
