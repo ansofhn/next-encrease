@@ -17,7 +17,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
   }
 
   const { data: userDetail } = userRepository.hooks.getDetailUser(
-    store.UserStore.user.id
+    store?.UserStore?.user?.id
   );
   const user = userDetail?.data;
 

@@ -10,6 +10,7 @@ import {
 import ToPayTabs from "../../components/transaction/ToPayTabs";
 import SuccessTabs from "../../components/transaction/SuccessTabs";
 import CancelledTabs from "../../components/transaction/CancelledTabs";
+import LandingPageLayoutVerified from "../../layouts/LandingPageLayoutVerified";
 
 const Transaction = () => {
   const items = [
@@ -63,5 +64,5 @@ const Transaction = () => {
 export default Transaction;
 
 Transaction.getLayout = (page) => (
-  <LandingPageLayout title="Encrease - Transaction" children={page} />
+  <LandingPageLayoutVerified title="Encrease - Transaction" children={page} />
 );

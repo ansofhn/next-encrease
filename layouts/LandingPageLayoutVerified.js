@@ -1,16 +1,13 @@
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { CgProfile } from "react-icons/cg";
-import { RiLockPasswordLine } from "react-icons/ri";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
-import { authentication } from "../utils/authentication";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import { TokenUtil } from "../utils/token";
+import { authentication } from "../utils/authentication";
 
-const SettingLayout = ({ title, children }) => {
+const LandingPageLayoutVerified = ({ title, children }) => {
   const [token, setToken] = useState();
   const router = useRouter();
   useEffect(() => {
@@ -20,6 +17,7 @@ const SettingLayout = ({ title, children }) => {
     }
     setToken(authentication.isVerified());
   }, []);
+
   return (
     <div className="bg-softWhite">
       <Head>
@@ -33,4 +31,4 @@ const SettingLayout = ({ title, children }) => {
   );
 };
 
-export default SettingLayout;
+export default LandingPageLayoutVerified;

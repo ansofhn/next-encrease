@@ -13,7 +13,7 @@ export class UserStore {
         this.user = null;
       }
     } catch (error) {
-      console.log(error, ":)")
+      console.log(error, ":)");
     }
   }
 }

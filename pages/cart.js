@@ -5,6 +5,7 @@ import { mutate } from "swr";
 import CartComponent from "../components/CartComponent";
 import { UserProvider } from "../context/UserDetailContext";
 import LandingPageLayout from "../layouts/LandingPageLayout";
+import LandingPageLayoutVerified from "../layouts/LandingPageLayoutVerified";
 import { cartRepository } from "../repository/cart";
 import { transactionRepository } from "../repository/transaction";
 import { store } from "../store/store";
@@ -139,5 +140,5 @@ const cart = () => {
 export default cart;
 
 cart.getLayout = (page) => (
-  <LandingPageLayout title="Encrease - My Cart" children={page} />
+  <LandingPageLayoutVerified title="Encrease - My Cart" children={page} />
 );

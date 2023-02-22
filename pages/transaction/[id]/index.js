@@ -6,6 +6,7 @@ import { userRepository } from "../../../repository/user";
 import { useRouter } from "next/router";
 import { transactionRepository } from "../../../repository/transaction";
 import { Button, Form, Image, Upload } from "antd";
+import LandingPageLayoutVerified from "../../../layouts/LandingPageLayoutVerified";
 
 const TransactionDetail = () => {
   // Next Router
@@ -109,5 +110,8 @@ const TransactionDetail = () => {
 export default TransactionDetail;
 
 TransactionDetail.getLayout = (page) => (
-  <LandingPageLayout title={"Encrease - Detail Transaction"} children={page} />
+  <LandingPageLayoutVerified
+    title={"Encrease - Detail Transaction"}
+    children={page}
+  />
 );
