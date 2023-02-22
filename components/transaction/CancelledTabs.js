@@ -1,52 +1,74 @@
+import { Image } from "antd";
 import React from "react";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import { transactionRepository } from "../../repository/transaction";
 import { store } from "../../store/store";
 
-const CancelledTabs = () => {
+const CancelledTab = () => {
+  // Data from User Store
   const user = store.UserStore.user;
+
+  // Fecthing data from transaction repository
   const { data } = transactionRepository.hooks.useTransaction();
+
+  // Filter Data which same with user id
   const transactionData = data?.data?.filter(
     (data) => data.user.id === user.id
   );
-  console.log(transactionData);
+  // Rupiah Formatter
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
   return (
-    <div className="h-[80vh] overflow-y-auto p-4">
+    <div className="p-4">
       {transactionData?.map((data, idx) => {
+        console.log(data, "asu");
         return (
           <div
-            className="flex w-full bg-softGray rounded-3xl max-w-screen-lg mx-auto my-4"
+            className="w-full bg-softGray rounded-lg max-w-screen-lg mx-auto my-4 font-poppins"
             key={idx}
           >
-            <div className="flex items-center w-full gap-4 p-6">
-              <div className="p-3 w-28 bg-softWhite">
-                {data?.id}
-                {/* <Image
-                  preview={false}
-                  src={`http://49.0.2.250:3002/file/${data?.product?.image}`}
-                  width={90}
-                  height={90}
-                  alt="Product Image"
-                /> */}
-              </div>
-              <div className="flex flex-col justify-between h-full w-[70%]">
-                <div className="space-y-2">
-                  <div className="text-xs font-semibold text-background lg:text-base">
-                    Payment Status : {data.paymentStatus.toString()}
+            {data?.products?.map((product, idx) => {
+              return (
+                <div
+                  className="flex items-center w-full gap-4 px-3 py-2"
+                  key={idx}
+                >
+                  <div className="p-3 w-20 bg-softWhite">
+                    <Image
+                      preview={false}
+                      src={`http://49.0.2.250:3002/file/${product?.image}`}
+                      width={50}
+                      height={50}
+                      alt="Product Image"
+                    />
                   </div>
-                  <div className="text-xs font-semibold text-background/70">
-                    {data?.id}
+                  <div className="flex flex-col justify-between h-full w-[70%] text-start">
+                    <div className="space-y-2">
+                      <div className="text-xs font-bold text-background lg:text-base">
+                        {product?.name}
+                      </div>
+                      <div className="text-xs font-semibold text-background/70 lg:text-sm">
+                        {rupiah(product?.price)}
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between"></div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <button
-                    className="p-4 text-sm text-background/70"
-                    // onClick={() => handleDeleteProduct(data?.id)}
-                  >
-                    {/* <FiTrash2 /> */}
-                  </button>
-                </div>
+              );
+            })}
+            <div className="w-full text-end p-4 flex justify-between items-center text-background">
+              <div className="font-bold text-xs lg:text-lg">
+                Total Price : {rupiah(data.total)}
               </div>
+              <button
+                className="bg-background py-2 px-8 text-sm text-white rounded-lg"
+                // onClick={() => handleDeleteProduct(data?.id)}
+              >
+                Pay Now
+              </button>
             </div>
           </div>
         );
@@ -55,4 +77,4 @@ const CancelledTabs = () => {
   );
 };
 
-export default CancelledTabs;
+export default CancelledTab;

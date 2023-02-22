@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { BiLogOut } from "react-icons/bi";
-import { RiAccountCircleLine, RiLockPasswordLine } from "react-icons/ri";
+import {
+  RiAccountCircleLine,
+  RiLockPasswordLine,
+  RiWallet2Line,
+} from "react-icons/ri";
 import { userRepository } from "../repository/user";
 import { store } from "../store/store";
 
@@ -74,6 +78,24 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
 
             <Menu.Item>
               {({ active }) => (
+                <Link href={`/transaction`}>
+                  <div
+                    className={classNames(
+                      active
+                        ? "bg-white text-background hover:bg-gray-100 hover:text-background"
+                        : "text-gray-700",
+                      "flex items-center gap-4 px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 hover:text-background"
+                    )}
+                  >
+                    <RiWallet2Line className="text-lg text-background/90" />
+                    Transaction
+                  </div>
+                </Link>
+              )}
+            </Menu.Item>
+
+            <Menu.Item>
+              {({ active }) => (
                 <Link href={"/profile/password"}>
                   <div
                     className={classNames(
@@ -89,6 +111,7 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
                 </Link>
               )}
             </Menu.Item>
+
             <Menu.Item>
               {({ active }) => (
                 <button
