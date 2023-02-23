@@ -1,20 +1,28 @@
 import { message } from "antd";
 import React, { useEffect, useState } from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import { mutate } from "swr";
 import CartComponent from "../components/CartComponent";
 import { UserProvider } from "../context/UserDetailContext";
-import LandingPageLayout from "../layouts/LandingPageLayout";
 import LandingPageLayoutVerified from "../layouts/LandingPageLayoutVerified";
 import { cartRepository } from "../repository/cart";
 import { transactionRepository } from "../repository/transaction";
+import { userRepository } from "../repository/user";
 import { store } from "../store/store";
 import { http } from "../utils/http";
 
 const cart = () => {
+  // Data Cart
   const [dataCart, setDataCart] = useState([]);
+
+  // user data from user store
   const user = store.UserStore.user;
+
+  // Total product price
   const totalPrice = [];
+
+  // Fetching data from user repository
+  const { data: dataUser } = userRepository.hooks.getDetailUser(user.id);
+  console.log(dataUser, "asu2");
 
   useEffect(() => {
     getDataCart();
@@ -26,6 +34,7 @@ const cart = () => {
       .reduce((acc, cur) => acc + cur, 0)
   );
 
+  // Fetching data cart
   const getDataCart = async () => {
     try {
       await http
@@ -88,23 +97,24 @@ const cart = () => {
       productId: filteredData.map((data) => data.product.id),
       qty: filteredData.map((data) => data.qty),
     });
-    if (dataForCheckout[0].productId.length > 0) {
-      try {
-        await transactionRepository.api.createTransaction(dataForCheckout);
-        message.loading("Making Invoice");
-        setTimeout(() => {
-          window.location.href = "/transaction";
-        }, 3000);
-      } catch (e) {
-        console.log(e.message);
+    if (dataUser?.data?.address) {
+      if (dataForCheckout[0].productId.length > 0) {
+        try {
+          await transactionRepository.api.createTransaction(dataForCheckout);
+          message.loading("Making Invoice");
+          setTimeout(() => {
+            window.location.href = "/transaction";
+          }, 3000);
+        } catch (e) {
+          console.log(e.message);
+        }
+      } else {
+        message.error("you Must have Product to checkout");
       }
     } else {
-      message.error("you Must have Product to checkout");
+      message.warning("You Should Fill The Address on Profile");
     }
   };
-
-  const { data: dataTrans } = transactionRepository.hooks.useTransaction();
-  console.log(dataTrans, "asu");
 
   return (
     <div className="w-full h-screen pt-[92px] md:pt-28">

@@ -1,4 +1,5 @@
 import { Image } from "antd";
+import { useRouter } from "next/router";
 import React from "react";
 import { transactionRepository } from "../../repository/transaction";
 import { store } from "../../store/store";
@@ -28,7 +29,7 @@ const CancelledTab = () => {
         console.log(data, "asu");
         return (
           <div
-            className="w-full bg-softGray rounded-lg max-w-screen-lg mx-auto my-4 font-poppins"
+            className="w-full max-w-screen-lg mx-auto my-4 rounded-lg bg-softGray font-poppins"
             key={idx}
           >
             {data?.products?.map((product, idx) => {
@@ -37,7 +38,7 @@ const CancelledTab = () => {
                   className="flex items-center w-full gap-4 px-3 py-2"
                   key={idx}
                 >
-                  <div className="p-3 w-20 bg-softWhite">
+                  <div className="w-20 p-3 bg-softWhite">
                     <Image
                       preview={false}
                       src={`http://49.0.2.250:3002/file/${product?.image}`}
@@ -60,16 +61,13 @@ const CancelledTab = () => {
                 </div>
               );
             })}
-            <div className="w-full text-end p-4 flex justify-between items-center text-background">
-              <div className="font-bold text-xs lg:text-lg">
+            <div className="flex items-center justify-between w-full p-4 text-end text-background">
+              <div className="text-xs font-bold lg:text-lg">
                 Total : {rupiah(data.total)}
               </div>
-              <button
-                className="bg-background py-2 px-4 md:px-8 text-sm text-white rounded-lg"
-                // onClick={() => handleDeleteProduct(data?.id)}
-              >
-                Detail
-              </button>
+              <div className="px-4 py-2 text-sm font-semibold text-red-600 rounded-lg bg-softWhite md:px-8">
+                Canceled
+              </div>
             </div>
           </div>
         );

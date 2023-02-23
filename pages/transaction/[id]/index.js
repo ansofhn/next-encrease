@@ -12,7 +12,6 @@ const TransactionDetail = () => {
   const [form] = Form.useForm();
   // Image State
   const [image, setImage] = useState();
-  console.log(image, "asu");
   // Next Router
   const router = useRouter();
   const { id } = router.query;
@@ -55,24 +54,33 @@ const TransactionDetail = () => {
       message.error("You Must Upload Payment Proof");
     }
   };
+
+  const handleCancelTransaction = async (id) => {
+    try {
+      await transactionRepository.api.cancelTransacion(id, " ");
+      message.success("Succes Cancel Transaction");
+    } catch (e) {
+      message.error(e.message);
+    }
+  };
   return (
     <div className="bg-softGray">
-      <div className="max-w-screen-lg w-full mx-auto py-32 font-poppins flex flex-col gap-5 p-4">
-        <div className="bg-white w-full flex flex-col items-start justify-between gap-5 p-4 rounded-lg shadow-lg md:flex-row md:items-center">
+      <div className="flex flex-col w-full max-w-screen-lg gap-5 p-4 py-32 mx-auto font-poppins">
+        <div className="flex flex-col items-start justify-between w-full gap-5 p-4 bg-white rounded-lg shadow-lg md:flex-row md:items-center">
           <div className="flex flex-col gap-2">
-            <div className="flex flex-row items-center gap-x-2 text-base">
+            <div className="flex flex-row items-center text-base gap-x-2">
               <IoLocationSharp /> Delivery Address
             </div>
-            <div className="font-semibold flex flex-row gap-2 text-sm lg:text-base">
-              <p className="border-r-2 pr-2">{userDetail?.data?.fullname}</p>
+            <div className="flex flex-row gap-2 text-sm font-semibold lg:text-base">
+              <p className="pr-2 border-r-2">{userDetail?.data?.fullname}</p>
               <p>{userDetail?.data?.phone}</p>
             </div>
           </div>
-          <div className="text-sm lg:text-base w-full md:w-2/3 md:text-end">
+          <div className="w-full text-sm lg:text-base md:w-2/3 md:text-end">
             <p>{userDetail?.data?.address}</p>
           </div>
         </div>
-        <div className="bg-white w-full p-4 rounded-lg shadow-lg">
+        <div className="w-full p-4 bg-white rounded-lg shadow-lg">
           <h1 className="text-base">Products Ordered</h1>
           {dataTransaction?.products?.map((data, idx) => {
             return (
@@ -80,7 +88,7 @@ const TransactionDetail = () => {
                 className="flex items-center w-full gap-4 px-3 py-2"
                 key={idx}
               >
-                <div className="p-3 w-20 bg-softWhite">
+                <div className="w-20 p-3 bg-softWhite">
                   <Image
                     preview={false}
                     src={`http://49.0.2.250:3002/file/${data?.image}`}
@@ -104,15 +112,15 @@ const TransactionDetail = () => {
             );
           })}
           <div className="w-full text-end text-background">
-            <div className="font-bold text-xs lg:text-lg">
+            <div className="text-xs font-bold lg:text-lg">
               Total Price : {rupiah(dataTransaction?.total)}
             </div>
           </div>
         </div>
-        <div className="bg-white w-full p-4 rounded-lg shadow-lg">
-          <h1 className="text-base pb-10">Payment Method</h1>
+        <div className="w-full p-4 bg-white rounded-lg shadow-lg">
+          <h1 className="pb-10 text-base">Payment Method</h1>
           {dataTransaction?.paymentStatus ? (
-            <div className="text-center font-bold">
+            <div className="font-bold text-center">
               {dataTransaction?.deliveryStatus}
             </div>
           ) : (
@@ -128,12 +136,18 @@ const TransactionDetail = () => {
                 <Form.Item>
                   <button
                     type="submit"
-                    className="bg-background text-softWhite w-full p-3 rounded-lg"
+                    className="w-full p-3 rounded-lg bg-background text-softWhite"
                   >
                     Submit
                   </button>
                 </Form.Item>
               </Form>
+              <button
+                onClick={() => handleCancelTransaction(id)}
+                className="w-full p-3 text-xs rounded-lg bg-softGray text-background"
+              >
+                Cancel Transaction
+              </button>
             </div>
           )}
         </div>

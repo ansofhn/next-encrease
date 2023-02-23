@@ -5,6 +5,7 @@ const url = {
   getTransaction: () => "/transactions?limit=10000",
   getTransactionDetail: (id) => `/transactions/${id}`,
   PostTransaction: () => "/transactions/add",
+  cancelTransaction: (id) => `/transactions/canclled/${id}`,
 };
 
 const hooks = {
@@ -22,6 +23,9 @@ const api = {
   },
   putTransactionDetail(id, data) {
     return http.put(url.getTransactionDetail(id), data);
+  },
+  cancelTransacion(id, data) {
+    return http.put(url.cancelTransaction(id), data);
   },
 };
 
