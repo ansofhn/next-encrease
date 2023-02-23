@@ -15,9 +15,9 @@ const ToPayTabs = () => {
   const { data } = transactionRepository.hooks.useTransaction();
 
   // Filter Data which same with user id
-  const transactionData = data?.data?.filter(
-    (data) => data.user.id === user.id
-  );
+  const transactionData = data?.data
+    ?.filter((data) => data.user.id === user.id)
+    ?.filter((data) => data.status === "I" || data.status === "IP");
   // Rupiah Formatter
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -65,17 +65,27 @@ const ToPayTabs = () => {
             })}
             <div className="w-full text-end p-4 flex justify-between items-center text-background">
               <div className="font-bold text-xs lg:text-lg">
-                Total Price : {rupiah(data.total)}
+                Total : {rupiah(data.total)}
               </div>
-              <button
-                className="bg-background py-2 px-8 text-sm text-white rounded-lg"
-                onClick={() => {
-                  console.log(data, "click");
-                  router.push(`/transaction/${data?.id}`);
-                }}
-              >
-                Pay Now
-              </button>
+              {data?.paymentStatus ? (
+                <button
+                  className="bg-background py-2 px-4 md:px-8 text-sm text-white rounded-lg"
+                  onClick={() => {
+                    router.push(`/transaction/${data?.id}`);
+                  }}
+                >
+                  Detail
+                </button>
+              ) : (
+                <button
+                  className="bg-background py-2 px-4 md:px-8 text-sm text-white rounded-lg"
+                  onClick={() => {
+                    router.push(`/transaction/${data?.id}`);
+                  }}
+                >
+                  Pay Now
+                </button>
+              )}
             </div>
           </div>
         );

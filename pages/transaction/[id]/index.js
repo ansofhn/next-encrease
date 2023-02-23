@@ -1,14 +1,18 @@
-import React from "react";
-import LandingPageLayout from "../../../layouts/LandingPageLayout";
+import React, { useState } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { store } from "../../../store/store";
 import { userRepository } from "../../../repository/user";
 import { useRouter } from "next/router";
 import { transactionRepository } from "../../../repository/transaction";
-import { Button, Form, Image, Upload } from "antd";
+import { Form, Image, message } from "antd";
 import LandingPageLayoutVerified from "../../../layouts/LandingPageLayoutVerified";
+import UploadImage from "../../../components/UploadImage";
 
 const TransactionDetail = () => {
+  const [form] = Form.useForm();
+  // Image State
+  const [image, setImage] = useState();
+  console.log(image, "asu");
   // Next Router
   const router = useRouter();
   const { id } = router.query;
@@ -22,6 +26,7 @@ const TransactionDetail = () => {
   //   Fetching data from transaction Repository
   const { data: dataTransaction } =
     transactionRepository.hooks.useTransactionDetail(id);
+  console.log(dataTransaction, "sau");
 
   // Rupiah Formatter
   const rupiah = (number) => {
@@ -29,6 +34,26 @@ const TransactionDetail = () => {
       style: "currency",
       currency: "IDR",
     }).format(number);
+  };
+
+  const handleFinishForm = async (value) => {
+    if (image) {
+      try {
+        const data = {
+          image: image,
+        };
+
+        await transactionRepository.api.putTransactionDetail(id, data);
+        message.success("Success Send Payment Proof");
+        setTimeout(() => {
+          router.push("/transaction");
+        }, 2500);
+      } catch (e) {
+        message.error(e.message);
+      }
+    } else {
+      message.error("You Must Upload Payment Proof");
+    }
   };
   return (
     <div className="bg-softGray">
@@ -86,21 +111,31 @@ const TransactionDetail = () => {
         </div>
         <div className="bg-white w-full p-4 rounded-lg shadow-lg">
           <h1 className="text-base pb-10">Payment Method</h1>
-          <div>
-            <Form className="text-center">
-              <Form.Item>
-                <Upload.Dragger>Upload Payment Proof Here</Upload.Dragger>
-              </Form.Item>
-              <Form.Item>
-                <button
-                  type="submit"
-                  className="bg-background text-softWhite w-full p-3 rounded-lg"
-                >
-                  Submit
-                </button>
-              </Form.Item>
-            </Form>
-          </div>
+          {dataTransaction?.paymentStatus ? (
+            <div className="text-center font-bold">
+              {dataTransaction?.deliveryStatus}
+            </div>
+          ) : (
+            <div>
+              <Form
+                className="text-center"
+                onFinish={handleFinishForm}
+                form={form}
+              >
+                <Form.Item name={"image"}>
+                  <UploadImage setImage={setImage} />
+                </Form.Item>
+                <Form.Item>
+                  <button
+                    type="submit"
+                    className="bg-background text-softWhite w-full p-3 rounded-lg"
+                  >
+                    Submit
+                  </button>
+                </Form.Item>
+              </Form>
+            </div>
+          )}
         </div>
       </div>
     </div>

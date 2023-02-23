@@ -17,8 +17,8 @@ const Transaction = () => {
     {
       key: "1",
       label: (
-        <div className="flex flex-row items-center gap-x-3">
-          <AiFillWallet /> To Pay
+        <div className="flex flex-row items-center gap-x-2">
+          <AiFillWallet /> On Progress
         </div>
       ),
       children: <ToPayTabs />,
@@ -26,7 +26,7 @@ const Transaction = () => {
     {
       key: "2",
       label: (
-        <div className="flex flex-row items-center gap-x-3">
+        <div className="flex flex-row items-center gap-x-2">
           <MdDomainVerification /> Success
         </div>
       ),
@@ -35,7 +35,7 @@ const Transaction = () => {
     {
       key: "3",
       label: (
-        <div className="flex flex-row items-center gap-x-3">
+        <div className="flex flex-row items-center gap-x-2">
           <MdOutlineCancelPresentation /> Cancelled
         </div>
       ),

@@ -20,6 +20,9 @@ const api = {
   createTransaction(data) {
     return http.post(url.PostTransaction(), data);
   },
+  putTransactionDetail(id, data) {
+    return http.put(url.getTransactionDetail(id), data);
+  },
 };
 
 export const transactionRepository = { url, hooks, api };
