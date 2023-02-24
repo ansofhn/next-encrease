@@ -137,7 +137,7 @@ const DetailProduct = () => {
                   >
                     <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
                       <Image
-                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image[1]}`}
                         preview={false}
                         className="w-full h-full"
                         alt="Product Image"
@@ -146,7 +146,7 @@ const DetailProduct = () => {
 
                     <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
                       <Image
-                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image[2]}`}
                         preview={false}
                         className="w-full h-full"
                         alt="Product Image"
@@ -155,7 +155,7 @@ const DetailProduct = () => {
 
                     <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
                       <Image
-                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image[3]}`}
                         preview={false}
                         className="w-full h-full"
                         alt="Product Image"
@@ -164,7 +164,7 @@ const DetailProduct = () => {
 
                     <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
                       <Image
-                        src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                        src={`http://49.0.2.250:3002/file/${detailProduct?.image[4]}`}
                         preview={false}
                         className="w-full h-full"
                         alt="Product Image"
@@ -174,7 +174,7 @@ const DetailProduct = () => {
                 </div>
                 <div className="w-full h-full">
                   <Image
-                    src={`http://49.0.2.250:3002/file/${detailProduct?.image}`}
+                    src={`http://49.0.2.250:3002/file/${detailProduct?.image[0]}`}
                     preview={false}
                     height={475}
                     className="w-full max-h-[475px]"

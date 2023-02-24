@@ -80,7 +80,7 @@ const ProductCard = ({ filter, selected }) => {
             >
               <div className="p-6 bg-softWhite">
                 <Image
-                  src={`http://49.0.2.250:3002/file/${data?.image}`}
+                  src={`http://49.0.2.250:3002/file/${data?.image[0]}`}
                   alt="Product Image"
                   // width={300}
                   // height={300}
