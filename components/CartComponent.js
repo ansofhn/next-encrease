@@ -18,14 +18,14 @@ const CartComponent = (props) => {
         .map((data, idx) => {
           return (
             <div
-              className="flex w-full bg-softWhite rounded-3xl max-w-lg mx-auto my-4"
+              className="flex w-full max-w-lg mx-auto my-4 bg-softWhite rounded-3xl"
               key={idx}
             >
               <div className="flex items-center w-full gap-4 p-6">
                 <div className="p-3 w-28 bg-softGray">
                   <Image
                     preview={false}
-                    src={`http://49.0.2.250:3002/file/${data?.product?.image}`}
+                    src={`http://49.0.2.250:3002/file/${data?.product?.image[0]}`}
                     width={90}
                     height={90}
                     alt="Product Image"

@@ -91,7 +91,7 @@ const TransactionDetail = () => {
                 <div className="w-20 p-3 bg-softWhite">
                   <Image
                     preview={false}
-                    src={`http://49.0.2.250:3002/file/${data?.image}`}
+                    src={`http://49.0.2.250:3002/file/${data?.image[0]}`}
                     width={50}
                     height={50}
                     alt="Product Image"
