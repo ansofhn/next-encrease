@@ -5,7 +5,7 @@ import React, { use, useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
-const ProductCard = ({ filter, selected }) => {
+const ProductCard = ({ filter, selected, search }) => {
   const router = useRouter();
 
   const [pagePagination, setPagePagination] = useState(1);
@@ -22,7 +22,8 @@ const ProductCard = ({ filter, selected }) => {
   const { data: dataProducts } = productsRepository.hooks.useProducts(
     pagePagination,
     filter,
-    selected.value
+    selected.value,
+    search
   );
   const products = dataProducts?.data;
 

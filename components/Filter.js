@@ -34,7 +34,7 @@ const Filter = ({ handleChange }) => {
           <div className="flex items-center my-2" key={data?.id}>
             <Checkbox
               className="text-sm font-medium text-gray-400 font-poppins"
-              value={data?.name}
+              value={data?.id}
               onChange={(e) => handleChange(e)}
             >
               {data?.name}

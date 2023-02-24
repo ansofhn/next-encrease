@@ -16,6 +16,7 @@ const product = () => {
 
   // FILTER
   const [filter, setFilter] = useState([]);
+  const [search, setSearch] = useState(null);
 
   const handleChange = (e) => {
     if (e.target.checked) {
@@ -24,6 +25,10 @@ const product = () => {
       const filtered = filter.filter((data) => data !== e.target.value);
       setFilter(filtered);
     }
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e);
   };
 
   return (
@@ -41,7 +46,7 @@ const product = () => {
             </div>
             <div className="flex flex-col items-center gap-4 lg:justify-between lg:flex-row">
               <div className="w-full lg:w-[24%] xl:w-[23%] 2xl:w-[25%]">
-                <SearchBar />
+                <SearchBar handleSearch={handleSearch} />
               </div>
               <div className="w-full lg:w-[23%]">
                 <SortBar
@@ -53,7 +58,11 @@ const product = () => {
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">
               <div className="lg:pl-4 lg:order-1">
-                <ProductCard filter={filter} selected={selected} />
+                <ProductCard
+                  filter={filter}
+                  selected={selected}
+                  search={search}
+                />
               </div>
               <div className="px-2 py-6 lg:py-0 lg:w-1/3 xl:w-1/4">
                 <Filter handleChange={handleChange} />
