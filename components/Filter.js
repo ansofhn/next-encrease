@@ -26,6 +26,10 @@ const Filter = ({ handleChange, handleChangeType }) => {
     },
   ];
 
+  const handleClearFilter = () =>{
+    window.location.reload()
+  }
+
   return (
     <div>
       <div className="my-6 font-bold uppercase text-background">Category</div>
@@ -58,7 +62,7 @@ const Filter = ({ handleChange, handleChangeType }) => {
           </div>
         );
       })}
-      <button className="w-full px-8 py-2 my-12 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background">
+      <button className="w-full px-8 py-2 my-12 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background" onClick={handleClearFilter}>
         clear all filters
       </button>
     </div>

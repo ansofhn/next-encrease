@@ -28,7 +28,6 @@ const ToPayTabs = () => {
   return (
     <div className="p-4">
       {transactionData?.map((data, idx) => {
-        console.log(data, "asu");
         return (
           <div
             className="w-full max-w-screen-lg mx-auto my-4 rounded-lg bg-softGray font-poppins"

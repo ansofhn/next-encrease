@@ -22,7 +22,6 @@ const cart = () => {
 
   // Fetching data from user repository
   const { data: dataUser } = userRepository.hooks.getDetailUser(user.id);
-  console.log(dataUser, "asu2");
 
   useEffect(() => {
     getDataCart();

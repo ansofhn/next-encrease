@@ -3,11 +3,7 @@ import { http } from "../utils/http";
 
 const url = {
   products: (page, filter, sorter, search, type) => {
-    console.log(
-      typeof type !== "object",
-      typeof type === undefined,
-      "asu tnena"
-    );
+  
     if (filter) {
       if (filter?.length > 0) {
         return `/products?page=${page}&limit=6&filter.category.id=$in:${filter}&sortBy=price:${sorter}&search=${

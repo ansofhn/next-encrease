@@ -25,7 +25,6 @@ const TransactionDetail = () => {
   //   Fetching data from transaction Repository
   const { data: dataTransaction } =
     transactionRepository.hooks.useTransactionDetail(id);
-  console.log(dataTransaction, "sau");
 
   // Rupiah Formatter
   const rupiah = (number) => {
