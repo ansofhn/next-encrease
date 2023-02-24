@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "../../components/Filter";
 import ProductCard from "../../components/ProductCard";
 import SearchBar from "../../components/SearchBar";
@@ -17,6 +17,7 @@ const product = () => {
   // FILTER
   const [filter, setFilter] = useState([]);
   const [search, setSearch] = useState(null);
+  const [type, setType] = useState([]);
 
   const handleChange = (e) => {
     if (e.target.checked) {
@@ -27,8 +28,21 @@ const product = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(type, "type");
+  }, [type]);
+
   const handleSearch = (e) => {
     setSearch(e);
+  };
+
+  const handleChangeType = (e) => {
+    if (e.target.checked) {
+      setType([...type, e.target.value]);
+    } else {
+      const filtered = type.filter((data) => data !== e.target.value);
+      setType(filtered);
+    }
   };
 
   return (
@@ -62,10 +76,14 @@ const product = () => {
                   filter={filter}
                   selected={selected}
                   search={search}
+                  type={type}
                 />
               </div>
               <div className="px-2 py-6 lg:py-0 lg:w-1/3 xl:w-1/4">
-                <Filter handleChange={handleChange} />
+                <Filter
+                  handleChange={handleChange}
+                  handleChangeType={handleChangeType}
+                />
               </div>
             </div>
           </div>

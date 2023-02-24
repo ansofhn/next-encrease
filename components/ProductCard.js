@@ -5,7 +5,7 @@ import React, { use, useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
-const ProductCard = ({ filter, selected, search }) => {
+const ProductCard = ({ filter, selected, search, type }) => {
   const router = useRouter();
 
   const [pagePagination, setPagePagination] = useState(1);
@@ -23,7 +23,8 @@ const ProductCard = ({ filter, selected, search }) => {
     pagePagination,
     filter,
     selected.value,
-    search
+    search,
+    type
   );
   const products = dataProducts?.data;
 
