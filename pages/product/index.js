@@ -47,7 +47,7 @@ const product = () => {
 
   return (
     <div>
-      <div className="pt-40">
+      <div className="pt-40 xl:mx-10">
         <div className="p-4 mx-auto lg:px-10 xl:px-0 xl:max-w-screen-xl 2xl:max-w-screen-2xl font-poppins">
           <div className="flex flex-col justify-center gap-y-12 md:p-2">
             <div className="pb-10 space-y-5 text-center">

@@ -62,7 +62,7 @@ const Filter = ({ handleChange, handleChangeType }) => {
           </div>
         );
       })}
-      <button className="w-full px-8 py-2 my-12 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer border-background bg-background hover:bg-softWhite hover:text-background" onClick={handleClearFilter}>
+      <button className="w-full px-8 py-2 my-12 text-sm font-semibold text-white uppercase transition duration-300 border-2 cursor-pointer lg:w-[216px] xl:w-[282px] 2xl:w-[370px] border-background bg-background hover:bg-softWhite hover:text-background" onClick={handleClearFilter}>
         clear all filters
       </button>
     </div>
