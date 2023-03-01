@@ -1,22 +1,14 @@
 import { Tabs, ConfigProvider, message, Image } from "antd";
 // import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Testimonials from "../../components/Testimonials";
 import LandingPageLayout from "../../layouts/LandingPageLayout";
 import { productsRepository } from "../../repository/products";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import {
-  BsChevronCompactUp,
-  BsChevronCompactDown,
-  BsChevronCompactRight,
-  BsChevronCompactLeft,
-} from "react-icons/bs";
 import SugestionProducts from "../../components/SugestionProducts";
-import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { cartRepository } from "../../repository/cart";
-import { mutate } from "swr";
 import { store } from "../../store/store";
 
 const DetailProduct = () => {
@@ -49,24 +41,6 @@ const DetailProduct = () => {
       style: "currency",
       currency: "IDR",
     }).format(number);
-  };
-
-  // Slider Function
-  const slideRight = () => {
-    let slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 120;
-  };
-  const slideLeft = () => {
-    let slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 120;
-  };
-  const slideUp = () => {
-    let slider = document.getElementById("slider");
-    slider.scrollTop = slider.scrollTop - 120;
-  };
-  const slideDown = () => {
-    let slider = document.getElementById("slider");
-    slider.scrollTop = slider.scrollTop + 120;
   };
 
   // Add To Cart Function
@@ -135,7 +109,7 @@ const DetailProduct = () => {
                     className="flex flex-row items-center gap-2 p-2 overflow-scroll max-w-screen max-h-[460px] md:flex-col bg-gray-100 scroll-smooth scrollbar-hide"
                     id="slider"
                   >
-                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                    <div className="w-[85px] h-[85px] md:w-[100px] md:h-[100px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px] overflow-hidden">
                       <Image
                         src={`http://49.0.2.250:3002/file/${detailProduct?.image[1]}`}
                         preview={false}
@@ -144,7 +118,7 @@ const DetailProduct = () => {
                       />
                     </div>
 
-                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                    <div className="w-[85px] h-[85px] md:w-[100px] md:h-[100px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px] overflow-hidden">
                       <Image
                         src={`http://49.0.2.250:3002/file/${detailProduct?.image[2]}`}
                         preview={false}
@@ -153,7 +127,7 @@ const DetailProduct = () => {
                       />
                     </div>
 
-                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                    <div className="w-[85px] h-[85px] md:w-[100px] md:h-[100px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px] overflow-hidden">
                       <Image
                         src={`http://49.0.2.250:3002/file/${detailProduct?.image[3]}`}
                         preview={false}
@@ -162,7 +136,7 @@ const DetailProduct = () => {
                       />
                     </div>
 
-                    <div className="md:w-[80px] md:h-[80px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px]">
+                    <div className="w-[85px] h-[85px] md:w-[100px] md:h-[100px] lg:w-[77px] lg:h-[77px] xl:w-[100px] xl:h-[100px] overflow-hidden">
                       <Image
                         src={`http://49.0.2.250:3002/file/${detailProduct?.image[4]}`}
                         preview={false}
@@ -172,12 +146,11 @@ const DetailProduct = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-full h-full">
+                <div className="w-full overflow-hidden">
                   <Image
                     src={`http://49.0.2.250:3002/file/${detailProduct?.image[0]}`}
                     preview={false}
-                    height={475}
-                    className="w-full max-h-[475px]"
+                    className="w-full h-full"
                     alt="Product Image"
                   />
                 </div>

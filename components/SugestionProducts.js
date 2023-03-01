@@ -4,7 +4,7 @@ import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
 const SugestionProducts = () => {
-  const { data: dataProducts } = productsRepository.hooks.useProducts(1, " ");
+  const { data: dataProducts } = productsRepository.hooks.useProducts(3);
   const Products = dataProducts?.data;
 
   const ProductList = () => {
@@ -19,9 +19,8 @@ const SugestionProducts = () => {
               className="pb-10 snap-center md:snap-start text-background w-[320px] md:w-[310px] lg:w-[270px] xl:w-[285px] 2xl:w-[278px]"
               key={i}
             >
-              <div className="overflow-hidden rounded-sm w-[320px] md:w-[310px] lg:w-[270px] xl:w-[285px] 2xl:w-[278px] h-[320px]">
+              <div className="overflow-hidden rounded-sm w-[320px] md:w-[300px] lg:w-[270px] xl:w-[285px] 2xl:w-[278px] h-[320px] md:h-[300px] lg:h-[270px] xl:h-[285px] 2xl:h-[278px]">
                 <img
-                  className="h-[320px]"
                   src={`http://49.0.2.250:3002/file/${data?.image[0]}`}
                 />
               </div>
