@@ -4,7 +4,7 @@ import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
 const SugestionProducts = () => {
-  const { data: dataProducts } = productsRepository.hooks.useProducts(3);
+  const { data: dataProducts } = productsRepository.hooks.useProducts(1);
   const Products = dataProducts?.data;
 
   const ProductList = () => {
