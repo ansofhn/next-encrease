@@ -4,6 +4,7 @@ import { http } from "../utils/http";
 const url = {
   user: () => "/users",
   detailUser: (id) => `/users/${id}`,
+  changePW: () => `/users/update-password`
 };
 
 const hooks = {
@@ -20,6 +21,9 @@ const api = {
   editProfile: (id, data) => {
     return http.put(url.detailUser(id), data);
   },
+  changePassword:(data) => {
+    return http.post(url.changePW(), data)
+  }
 };
 
 export const userRepository = { url, hooks, api };

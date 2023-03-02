@@ -1,8 +1,9 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { message } from "antd";
+import React, { useRef, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import SideBarProfile from "../../components/SideBarProfile";
 import SettingLayout from "../../layouts/SettingLayout";
+import { userRepository } from "../../repository/user";
 
 const password = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
@@ -14,6 +15,28 @@ const password = () => {
 
   const handleChangeTypeConfirm = () => {
     setVisibleConfirmPassword(!visibleConfirmPassword);
+  };
+
+  const passwdRef = useRef();
+  const confrmRef = useRef();
+
+  const onSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const data = {
+        password: passwdRef.current.value,
+        confirmPassword: confrmRef.current.value,
+      };
+      if (data?.password !== data?.confirmPassword) {
+        message.error("Password confirmation does not match");
+      } else {
+        await userRepository.api.changePassword(data);
+        message.success("Successfully change password");
+      }
+    } catch (e) {
+      message.error(e.message);
+      console.log(e.message);
+    }
   };
 
   return (
@@ -29,7 +52,7 @@ const password = () => {
             </p>
           </div>
           <div>
-            <form>
+            <form onSubmit={onSubmit}>
               <div className="flex flex-col gap-y-12">
                 <div className="flex flex-col gap-y-2 text-background">
                   <label className="font-semibold">
@@ -37,8 +60,12 @@ const password = () => {
                   </label>
                   <div className="relative flex items-center">
                     <input
+                      ref={passwdRef}
                       type={visiblePassword ? "text" : "password"}
                       className="user-profile-form without-ring"
+                      required
+                      minLength={6}
+                      maxLength={20}
                     />
                     <div
                       className="absolute right-0"
@@ -58,8 +85,12 @@ const password = () => {
                   </label>
                   <div className="relative flex items-center">
                     <input
+                      ref={confrmRef}
                       type={visibleConfirmPassword ? "text" : "password"}
                       className="user-profile-form without-ring"
+                      required
+                      minLength={6}
+                      maxLength={20}
                     />
                     <div
                       className="absolute right-0"
