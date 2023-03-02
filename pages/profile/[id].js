@@ -1,6 +1,6 @@
 import { Avatar, message } from "antd";
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { userRepository } from "../../repository/user";
 import { MdOutlineFileUpload } from "react-icons/md";
 import SettingLayout from "../../layouts/SettingLayout";
@@ -9,9 +9,11 @@ import { CgProfile } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { mutate } from "swr";
 import SideBarProfile from "../../components/SideBarProfile";
+import UploadProfilePicture from "../../components/UploadProfilePicture";
 
 const UserProfile = () => {
   const router = useRouter();
+  const [image, setImage] = useState()
 
   //Router Query for Detail Profile
   const { id } = router.query;
@@ -29,6 +31,7 @@ const UserProfile = () => {
     event.preventDefault();
     try {
       const data = {
+        image: image,
         fullname: nameRef.current.value,
         email: emailRef.current.value,
         phone: phoneRef.current.value,
@@ -49,16 +52,11 @@ const UserProfile = () => {
         <div className="flex flex-col px-4 mx-auto w-full md:w-[80%] lg:w-[55%] py-4 gap-y-12">
           <div className="flex items-end justify-center">
             <Avatar
-              src={
-                dataProfile?.image ||
-                "https://source.unsplash.com/random/900x900?male"
-              }
+              src={ image ? `http://49.0.2.250:3002/file/${image}` : `http://49.0.2.250:3002/file/${dataProfile?.image}` }
               size={120}
               alt="Profile Image"
             />
-            <button className="p-2 border-none rounded-lg shadow text-background hover:text-maroon focus:text-maroon ring-0">
-              <MdOutlineFileUpload className="text-lg" />
-            </button>
+            <UploadProfilePicture setImage={setImage} />
           </div>
           <div>
             <form onSubmit={onSubmit}>

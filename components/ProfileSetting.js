@@ -1,7 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
+import { Avatar } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { BiLogOut } from "react-icons/bi";
 import {
   RiAccountCircleLine,
@@ -16,10 +17,15 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
     return classes.filter(Boolean).join(" ");
   }
 
+  const [user, setUser] = useState();
+
   const { data: userDetail } = userRepository.hooks.getDetailUser(
     store?.UserStore?.user?.id
   );
-  const user = userDetail?.data;
+
+  useEffect(() => {
+    setUser(userDetail?.data);
+  }, [userDetail]);
 
   return (
     <Menu as={"div"} className="relative inline-block text-left md:pl-6">
@@ -31,10 +37,9 @@ const ProfileSetting = ({ setOpenCart, handleLogout }) => {
       >
         <div className="p-1 bg-gray-200 rounded-full">
           <div className="overflow-hidden bg-gray-200 rounded-full w-9 h-9">
-            <Image
-              src={"https://source.unsplash.com/random/40x40?people"}
-              width={40}
-              height={40}
+            <Avatar
+              src={`http://49.0.2.250:3002/file/${user?.image}`}
+              size={37}
               alt="Profile Image"
             />
           </div>
