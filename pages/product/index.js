@@ -14,6 +14,8 @@ const product = () => {
 
   const [selected, setSelected] = useState(price[0]);
 
+  const [pagePagination, setPagePagination] = useState(1);
+
   // FILTER
   const [filter, setFilter] = useState([]);
   const [search, setSearch] = useState(null);
@@ -22,9 +24,11 @@ const product = () => {
   const handleChange = (e) => {
     if (e.target.checked) {
       setFilter([...filter, e.target.value]);
+      setPagePagination(1)
     } else {
       const filtered = filter.filter((data) => data !== e.target.value);
       setFilter(filtered);
+      setPagePagination(1)
     }
   };
 
@@ -39,9 +43,11 @@ const product = () => {
   const handleChangeType = (e) => {
     if (e.target.checked) {
       setType([...type, e.target.value]);
+      setPagePagination(1)
     } else {
       const filtered = type.filter((data) => data !== e.target.value);
       setType(filtered);
+      setPagePagination(1)
     }
   };
 
@@ -77,6 +83,8 @@ const product = () => {
                   selected={selected}
                   search={search}
                   type={type}
+                  pagePagination={pagePagination}
+                  setPagePagination={setPagePagination}
                 />
               </div>
               <div className="px-2 py-6 lg:py-0 lg:w-1/3 xl:w-1/4">

@@ -5,10 +5,8 @@ import React, { use, useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { productsRepository } from "../repository/products";
 
-const ProductCard = ({ filter, selected, search, type }) => {
+const ProductCard = ({ filter, selected, search, type, pagePagination, setPagePagination }) => {
   const router = useRouter();
-
-  const [pagePagination, setPagePagination] = useState(1);
 
   //Detail Product Router
   const detailProduct = (id) => {
