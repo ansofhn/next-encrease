@@ -38,6 +38,7 @@ const product = () => {
 
   const handleSearch = (e) => {
     setSearch(e);
+    setPagePagination(1)
   };
 
   const handleChangeType = (e) => {
