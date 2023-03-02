@@ -263,7 +263,7 @@ const Navbar = () => {
                   setOpenCart(false);
                 }}
                 className={`inline-flex my-2 text-3xl font-bold ${
-                  currentRoute === "/product"
+                  currentRoute === "/product" || currentRoute === "/product/[id]"
                     ? "text-softWhite"
                     : "text-softGray/70"
                 } `}
@@ -290,7 +290,7 @@ const Navbar = () => {
                     setOpenCart(false);
                   }}
                   className={`inline-flex my-2 text-3xl font-bold ${
-                    currentRoute === "/cart"
+                    currentRoute === "/transaction" || currentRoute === "/transaction/[id]"
                       ? "text-softWhite"
                       : "text-softGray/70"
                   } `}

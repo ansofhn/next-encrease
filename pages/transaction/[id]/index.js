@@ -63,24 +63,24 @@ const TransactionDetail = () => {
     }
   };
   return (
-    <div className="bg-softGray">
+    <div className="bg-softGray md:p-4">
       <div className="flex flex-col w-full max-w-screen-lg gap-5 p-4 py-32 mx-auto font-poppins">
         <div className="flex flex-col items-start justify-between w-full gap-5 p-4 bg-white rounded-lg shadow-lg md:flex-row md:items-center">
           <div className="flex flex-col gap-2">
-            <div className="flex flex-row items-center text-base gap-x-2">
+            <div className="flex flex-row items-center pb-2 text-base font-bold lg:text-lg text-background gap-x-2">
               <IoLocationSharp /> Delivery Address
             </div>
-            <div className="flex flex-row gap-2 text-sm font-semibold lg:text-base">
+            <div className="flex flex-row items-start gap-2 pt-2 text-sm font-semibold lg:text-base">
               <p className="pr-2 border-r-2">{userDetail?.data?.fullname}</p>
               <p>{userDetail?.data?.phone}</p>
             </div>
           </div>
-          <div className="w-full text-sm lg:text-base md:w-2/3 md:text-end">
+          <div className="w-full text-xs lg:text-sm md:pt-6 md:w-2/3 md:text-end">
             <p>{userDetail?.data?.address}</p>
           </div>
         </div>
         <div className="w-full p-4 bg-white rounded-lg shadow-lg">
-          <h1 className="text-base">Products Ordered</h1>
+          <h1 className="pb-2 text-base font-bold lg:text-lg text-background">Products Ordered</h1>
           {dataTransaction?.products?.map((data, idx) => {
             return (
               <div
@@ -98,7 +98,7 @@ const TransactionDetail = () => {
                 </div>
                 <div className="flex flex-col justify-between h-full w-[70%] text-start">
                   <div className="space-y-2">
-                    <div className="text-xs font-bold text-background lg:text-base">
+                    <div className="text-sm font-semibold text-background lg:text-base">
                       {data?.name}
                     </div>
                     <div className="text-xs font-semibold text-background/70 lg:text-sm">
@@ -111,15 +111,15 @@ const TransactionDetail = () => {
             );
           })}
           <div className="w-full text-end text-background">
-            <div className="text-xs font-bold lg:text-lg">
+            <div className="py-4 text-sm font-bold md:text-base lg:text-lg">
               Total Price : {rupiah(dataTransaction?.total)}
             </div>
           </div>
         </div>
         <div className="w-full p-4 bg-white rounded-lg shadow-lg">
-          <h1 className="pb-10 text-base">Payment Method</h1>
+          <h1 className="pb-10 text-base font-bold lg:text-lg text-background">Payment Method</h1>
           {dataTransaction?.paymentStatus ? (
-            <div className="font-bold text-center">
+            <div className="py-4 text-sm font-bold text-center md:text-base lg:text-lg">
               {dataTransaction?.deliveryStatus}
             </div>
           ) : (

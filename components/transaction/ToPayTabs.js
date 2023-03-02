@@ -26,17 +26,17 @@ const ToPayTabs = () => {
     }).format(number);
   };
   return (
-    <div className="p-4">
+    <div className="min-h-[450px] p-4">
       {transactionData?.map((data, idx) => {
         return (
           <div
-            className="w-full max-w-screen-lg mx-auto my-4 rounded-lg bg-softGray font-poppins"
+            className="w-full max-w-screen-lg mx-auto my-4 rounded-lg bg-softGray/70 font-poppins"
             key={idx}
           >
             {data?.products?.map((product, idx) => {
               return (
                 <div
-                  className="flex items-center w-full gap-4 px-3 py-2"
+                  className="flex items-center w-full gap-4 p-4"
                   key={idx}
                 >
                   <div className="w-20 p-3 bg-softWhite">
@@ -50,10 +50,10 @@ const ToPayTabs = () => {
                   </div>
                   <div className="flex flex-col justify-between h-full w-[70%] text-start">
                     <div className="space-y-2">
-                      <div className="text-xs font-bold text-background lg:text-base">
+                      <div className="text-sm font-semibold md:text-base text-background lg:text-lg">
                         {product?.name}
                       </div>
-                      <div className="text-xs font-semibold text-background/70 lg:text-sm">
+                      <div className="text-xs font-semibold md:text-sm text-background/70">
                         {rupiah(product?.price)}
                       </div>
                     </div>
@@ -63,12 +63,12 @@ const ToPayTabs = () => {
               );
             })}
             <div className="flex items-center justify-between w-full p-4 text-end text-background">
-              <div className="text-xs font-bold lg:text-lg">
+              <div className="text-sm font-bold md:text-base lg:text-lg">
                 Total : {rupiah(data.total)}
               </div>
               {data?.paymentStatus ? (
                 <button
-                  className="px-4 py-2 text-sm text-white rounded-lg bg-background md:px-8"
+                  className="px-4 py-2 text-xs text-white rounded-lg md:text-sm bg-background md:px-8"
                   onClick={() => {
                     router.push(`/transaction/${data?.id}`);
                   }}
@@ -77,7 +77,7 @@ const ToPayTabs = () => {
                 </button>
               ) : (
                 <button
-                  className="px-4 py-2 text-sm text-white rounded-lg bg-background md:px-8"
+                  className="px-4 py-2 text-xs text-white rounded-lg md:text-sm bg-background md:px-8"
                   onClick={() => {
                     router.push(`/transaction/${data?.id}`);
                   }}

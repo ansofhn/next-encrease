@@ -17,7 +17,7 @@ const Transaction = () => {
     {
       key: "1",
       label: (
-        <div className="flex flex-row items-center gap-x-2">
+        <div className="flex flex-row items-center text-xs font-medium gap-x-2 md:text-sm font-poppins text-background/80">
           <AiFillWallet /> On Progress
         </div>
       ),
@@ -26,7 +26,7 @@ const Transaction = () => {
     {
       key: "2",
       label: (
-        <div className="flex flex-row items-center gap-x-2">
+        <div className="flex flex-row items-center text-xs font-medium gap-x-2 md:text-sm font-poppins text-background/80">
           <MdDomainVerification /> Success
         </div>
       ),
@@ -35,7 +35,7 @@ const Transaction = () => {
     {
       key: "3",
       label: (
-        <div className="flex flex-row items-center gap-x-2">
+        <div className="flex flex-row items-center text-xs font-medium gap-x-2 md:text-sm font-poppins text-background/80">
           <MdOutlineCancelPresentation /> Cancelled
         </div>
       ),
@@ -45,7 +45,7 @@ const Transaction = () => {
 
   return (
     <div className="py-32">
-      <div className="max-w-screen-lg mx-auto">
+      <div className="max-w-screen-xl mx-auto md:px-8 lg:px-10">
         <div className="w-full" id="transaction-tab">
           <Tabs
             animated={true}
