@@ -229,7 +229,7 @@ const DetailProduct = () => {
                     ),
                     key: "1",
                     children: (
-                      <p className="p-6">{detailProduct?.description}</p>
+                      <p className="p-6 font-poppins">{detailProduct?.description}</p>
                     ),
                   },
                   {
@@ -239,7 +239,7 @@ const DetailProduct = () => {
                       </p>
                     ),
                     key: "2",
-                    children: <Testimonials />,
+                    children: <Testimonials id={detailProduct?.id} />,
                   },
                 ]}
               />

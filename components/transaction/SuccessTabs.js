@@ -48,7 +48,6 @@ const SuccessTab = () => {
       };
       await reviewRepository.api.createReview(data);
       message.success("successfully rate product");
-      window.location.reload();
     } catch (error) {
       console.log(error.message);
     }

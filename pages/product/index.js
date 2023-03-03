@@ -78,7 +78,7 @@ const product = () => {
               </div>
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">
-              <div className="lg:pl-4 lg:order-1">
+              <div className="w-full lg:pl-4 lg:order-1">
                 <ProductCard
                   filter={filter}
                   selected={selected}
