@@ -22,6 +22,14 @@ const Testimonials = ({ id }) => {
     setTotalPage(dataReview?.meta?.totalItems);
   }, [dataReview]);
 
+  const calculateAverage = (data) => {
+    const result = []
+    data?.map((item)=>{
+      result.push(Number(item?.rate))
+    })
+    return (result.reduce((a, b) => a + b) / totalPage).toFixed(1)
+  }
+
   return (
     <div className="max-w-screen-xl mx-8 md:mx-0">
       {review?.length > 0 ? (
@@ -35,12 +43,12 @@ const Testimonials = ({ id }) => {
                 <AiFillStar style={{ color: "orange" }} />
               </div>
               <span className="text-6xl font-semibold text-background">
-                4.8
+                {calculateAverage(review)}
               </span>
               <span className="text-base text-background/80">/5.0</span>
             </div>
             <p className="mx-2 text-sm text-center text-background/80">
-              181 Rating - 24 Testimonials
+              {totalPage} Rating / Testimonials
             </p>
             <FilterReview />
           </div>
@@ -50,7 +58,7 @@ const Testimonials = ({ id }) => {
               return (
                 <div className="flex flex-col gap-5 md:flex-row" key={data}>
                   <div>
-                    <div className="p-1 overflow-hidden bg-gray-200 rounded-full">
+                    <div className="p-1 w-[88px] overflow-hidden bg-gray-200 rounded-full">
                       <Avatar
                         src={`http://49.0.2.250:3002/file/${data?.user?.image}`}
                         size={80}
@@ -66,7 +74,7 @@ const Testimonials = ({ id }) => {
                       {moment(data?.createdAt).format("DD MMM YYYY, HH:mm")}{" "}
                       &nbsp; &nbsp;
                       <span>
-                        <Rate disabled defaultValue={Number(data?.rate)} />
+                        <Rate disabled allowHalf className="text-yellow-400" defaultValue={Number(data?.rate)} />
                       </span>
                     </p>
                     <p>{data?.message}</p>
