@@ -68,7 +68,7 @@ const ToPayTabs = () => {
               </div>
               {data?.paymentStatus ? (
                 <button
-                  className="px-4 py-2 text-xs text-white rounded-lg md:text-sm bg-background md:px-8"
+                  className="px-4 py-2 text-xs font-medium text-white rounded-lg md:text-sm bg-background md:px-8"
                   onClick={() => {
                     router.push(`/transaction/${data?.id}`);
                   }}
@@ -77,7 +77,7 @@ const ToPayTabs = () => {
                 </button>
               ) : (
                 <button
-                  className="px-4 py-2 text-xs text-white rounded-lg md:text-sm bg-background md:px-8"
+                  className="px-3 py-2 text-xs font-medium text-white rounded-lg md:text-sm bg-background md:px-6"
                   onClick={() => {
                     router.push(`/transaction/${data?.id}`);
                   }}

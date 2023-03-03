@@ -33,7 +33,11 @@ const UploadImage = ({ setImage }) => {
   };
   return (
     <div>
-      <Upload.Dragger {...props}>Upload Payment Proof Here</Upload.Dragger>
+      <Upload.Dragger {...props}>
+        <div className="text-sm lg:text-base font-poppins">
+          Upload Payment Proof Here
+        </div>
+      </Upload.Dragger>
     </div>
   );
 };

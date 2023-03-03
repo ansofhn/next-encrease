@@ -6,6 +6,7 @@ const url = {
   getTransactionDetail: (id) => `/transactions/${id}`,
   PostTransaction: () => "/transactions/add",
   cancelTransaction: (id) => `/transactions/canclled/${id}`,
+  acceptTransaction: (id) => `/transactions/accepted/${id}`,
 };
 
 const hooks = {
@@ -27,6 +28,9 @@ const api = {
   cancelTransacion(id, data) {
     return http.put(url.cancelTransaction(id), data);
   },
+  acceptTransaction(id, data) {
+    return http.put(url.acceptTransaction(id), data)
+  }
 };
 
 export const transactionRepository = { url, hooks, api };

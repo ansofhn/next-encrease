@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IoLocationSharp } from "react-icons/io5";
+import { IoLocationSharp, IoChevronBack } from "react-icons/io5";
 import { store } from "../../../store/store";
 import { userRepository } from "../../../repository/user";
 import { useRouter } from "next/router";
@@ -58,13 +58,28 @@ const TransactionDetail = () => {
     try {
       await transactionRepository.api.cancelTransacion(id, " ");
       message.success("Succes Cancel Transaction");
+      router.push("/transaction");
     } catch (e) {
       message.error(e.message);
+    }
+  };
+
+  const handleAccept = async (id) => {
+    try {
+      await transactionRepository.api.acceptTransaction(id, " ");
+      message.success("successfully received the order");
+      router.push("/transaction");
+    } catch (error) {
+      message.error(error.message);
     }
   };
   return (
     <div className="bg-softGray md:p-4">
       <div className="flex flex-col w-full max-w-screen-lg gap-5 p-4 py-32 mx-auto font-poppins">
+        <div onClick={() => router.back()} className="flex items-center w-full gap-4 p-4 text-sm font-semibold bg-white rounded-lg shadow-lg cursor-pointer lg:text-base">
+          <IoChevronBack className="text-base"/>
+          <button>Back</button>
+        </div>
         <div className="flex flex-col items-start justify-between w-full gap-5 p-4 bg-white rounded-lg shadow-lg md:flex-row md:items-center">
           <div className="flex flex-col gap-2">
             <div className="flex flex-row items-center pb-2 text-base font-bold lg:text-lg text-background gap-x-2">
@@ -80,7 +95,9 @@ const TransactionDetail = () => {
           </div>
         </div>
         <div className="w-full p-4 bg-white rounded-lg shadow-lg">
-          <h1 className="pb-2 text-base font-bold lg:text-lg text-background">Products Ordered</h1>
+          <h1 className="pb-2 text-base font-bold lg:text-lg text-background">
+            Products Ordered
+          </h1>
           {dataTransaction?.products?.map((data, idx) => {
             return (
               <div
@@ -117,10 +134,27 @@ const TransactionDetail = () => {
           </div>
         </div>
         <div className="w-full p-4 bg-white rounded-lg shadow-lg">
-          <h1 className="pb-10 text-base font-bold lg:text-lg text-background">Payment Method</h1>
+          <h1 className="pb-10 text-base font-bold lg:text-lg text-background">
+            Payment Method
+          </h1>
           {dataTransaction?.paymentStatus ? (
-            <div className="py-4 text-sm font-bold text-center md:text-base lg:text-lg">
-              {dataTransaction?.deliveryStatus}
+            <div>
+              <div className="py-4 text-sm font-bold text-center md:text-base lg:text-lg">
+                {dataTransaction?.deliveryStatus}
+              </div>
+              {dataTransaction?.deliveryStatus ===
+              "Pesanan Sedang Dalam Pengiriman" ? (
+                <div className="pt-10">
+                  <button
+                    onClick={() => handleAccept(id)}
+                    className="w-full text-sm lg:text-base p-2.5 rounded-lg bg-background font-medium text-softWhite"
+                  >
+                    Order Received
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           ) : (
             <div>
@@ -135,7 +169,7 @@ const TransactionDetail = () => {
                 <Form.Item>
                   <button
                     type="submit"
-                    className="w-full p-3 rounded-lg bg-background text-softWhite"
+                    className="w-full p-3 text-sm font-medium rounded-lg font-poppins lg:text-base bg-background text-softWhite"
                   >
                     Submit
                   </button>
@@ -143,7 +177,7 @@ const TransactionDetail = () => {
               </Form>
               <button
                 onClick={() => handleCancelTransaction(id)}
-                className="w-full p-3 text-xs rounded-lg bg-softGray text-background"
+                className="w-full p-3 text-sm font-medium rounded-lg lg:text-base bg-softGray text-background"
               >
                 Cancel Transaction
               </button>

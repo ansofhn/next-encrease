@@ -35,10 +35,7 @@ const SuccessTab = () => {
           >
             {data?.products?.map((product, idx) => {
               return (
-                <div
-                  className="flex items-center w-full gap-4 p-4"
-                  key={idx}
-                >
+                <div className="flex items-center w-full gap-4 p-4" key={idx}>
                   <div className="w-20 p-3 bg-softWhite">
                     <Image
                       preview={false}
@@ -66,14 +63,19 @@ const SuccessTab = () => {
               <div className="text-sm font-bold md:text-base lg:text-lg">
                 Total : {rupiah(data.total)}
               </div>
-              <button
-                className="px-4 py-2 text-xs text-white rounded-lg md:text-sm bg-background md:px-8"
-                onClick={() => {
-                  router.push(`/transaction/${data?.id}`);
-                }}
-              >
-                Detail
-              </button>
+              <div className="flex items-center gap-4">
+                <button className="px-4 py-1.5 text-xs font-medium border-2 rounded-lg text-background md:text-sm bg-softWhite border-background md:px-8">
+                  Rate
+                </button>
+                <button
+                  className="px-4 py-2 text-xs font-medium text-white rounded-lg md:text-sm bg-background md:px-8"
+                  onClick={() => {
+                    router.push(`/transaction/${data?.id}`);
+                  }}
+                >
+                  Detail
+                </button>
+              </div>
             </div>
           </div>
         );

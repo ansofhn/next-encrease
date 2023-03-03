@@ -1,7 +1,5 @@
 import { Tabs } from "antd";
 import React from "react";
-import LandingPageLayout from "../../layouts/LandingPageLayout";
-import { transactionRepository } from "../../repository/transaction";
 import { AiFillWallet } from "react-icons/ai";
 import {
   MdDomainVerification,
