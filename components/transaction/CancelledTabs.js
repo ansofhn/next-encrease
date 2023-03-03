@@ -64,7 +64,7 @@ const CancelledTab = () => {
               <div className="text-sm font-bold md:text-base lg:text-lg">
                 Total : {rupiah(data.total)}
               </div>
-              <div className="px-4 py-1.5 text-xs font-medium border-2 rounded-lg text-background md:text-sm bg-softWhite border-background md:px-8">
+              <div className="px-4 py-1.5 text-xs font-medium border-2 rounded-lg text-red-600 md:text-sm bg-softWhite border-red-600 md:px-8">
                 Canceled
               </div>
             </div>

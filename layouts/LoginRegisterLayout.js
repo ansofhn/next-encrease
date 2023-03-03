@@ -7,7 +7,7 @@ const LoginRegisterLayout = ({ title, children }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="flex items-center justify-center h-screen md:p-4">
+      <div className="flex items-center justify-center h-screen">
         {children}
       </div>
     </div>
