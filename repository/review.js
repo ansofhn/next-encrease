@@ -3,7 +3,7 @@ import { http } from "../utils/http";
 
 const url = {
   review: () => "/review",
-  detailReview: (id, page) => `/review/${id}?page=${page}`,
+  detailReview: (id, page,filter) => `/review/${id}?page=${page}${filter?.length > 0 && `&filter.rate=$in:${filter}`}`,
   createReview: () => `/review/create`,
 };
 
@@ -11,8 +11,8 @@ const hooks = {
   getReview() {
     return useSwr(url.review(), http.get);
   },
-  getDetailReview(id, page) {
-    return useSwr(url.detailReview(id, page), http.get);
+  getDetailReview(id, page,filter) {
+    return useSwr(url.detailReview(id, page,filter), http.get);
   },
 };
 

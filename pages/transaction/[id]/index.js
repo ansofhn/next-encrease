@@ -73,6 +73,25 @@ const TransactionDetail = () => {
       message.error(error.message);
     }
   };
+
+  const deliveryStatus = (statusArgs)=>{
+    switch(statusArgs){
+      case "Menunggu Konfirmasi Admin":
+        return "Waiting For Approval"
+      break;
+      case "Penjual Sedang Menyiapkan Barang/Jasa":
+        return "The seller is preparing the goods/services"
+      break;
+      case "Pesanan Sedang Dalam Pengiriman":
+        return "Your order is in Delivery"
+        break;
+      case "Pesanan Sudah Diterima dan Success":
+        return "Order Received and Success"
+        break;
+      default:
+        return statusArgs
+    }
+  }
   return (
     <div className="bg-softGray md:p-4">
       <div className="flex flex-col w-full max-w-screen-lg gap-5 p-4 py-32 mx-auto font-poppins">
@@ -140,7 +159,7 @@ const TransactionDetail = () => {
           {dataTransaction?.paymentStatus ? (
             <div>
               <div className="py-4 text-sm font-bold text-center md:text-base lg:text-lg">
-                {dataTransaction?.deliveryStatus}
+                {deliveryStatus(dataTransaction?.deliveryStatus)}
               </div>
               {dataTransaction?.deliveryStatus ===
               "Pesanan Sedang Dalam Pengiriman" ? (
