@@ -13,8 +13,7 @@ const Service = () => {
               Our Services
             </h1>
             <h2 className="text-sm font-light lg:text-base">
-              Empowering Student with Innovative Entrepreneurship
-              Services
+              Empowering Student with Innovative Entrepreneurship Services
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-4 mx-10 md:mx-12 lg:mx-0 xl:mx-10 md:grid-cols-2 lg:grid-cols-4">
@@ -52,7 +51,7 @@ const Service = () => {
                 Corperative Identity
               </div>
               <div className="px-10 text-background/80">
-                Quisque with placerat Porttitor nisi felis Congue in & Tempus
+                Corporate Identity its Importance in Business Success
               </div>
             </div>
             <div className="row-start-4 space-y-5 text-center md:row-start-2 lg:row-start-2">
@@ -60,7 +59,7 @@ const Service = () => {
                 Competitive Pricing
               </div>
               <div className="px-10 text-background/80">
-                Quisque with placerat Porttitor nisi felis Congue in & Tempus
+                Competitive Pricing and Maximizing Profitability in a Marketplace
               </div>
             </div>
             <div className="row-start-6 space-y-5 text-center md:row-start-4 lg:row-start-2">
@@ -68,7 +67,7 @@ const Service = () => {
                 Report and Analytics
               </div>
               <div className="px-10 text-background/80">
-                Quisque with placerat Porttitor nisi felis Congue in & Tempus
+                Reporting and Analytics to Drive Growth and Improve Performance
               </div>
             </div>
             <div className="space-y-5 text-center">
@@ -76,7 +75,7 @@ const Service = () => {
                 Social Collaboration
               </div>
               <div className="px-10 text-background/80">
-                Quisque with placerat Porttitor nisi felis Congue in & Tempus
+                Social Collaboration to Drive Innovation, and Productivity
               </div>
             </div>
           </div>

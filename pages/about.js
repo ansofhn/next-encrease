@@ -25,6 +25,7 @@ const about = () => {
                   </span>
                 </div>
                 <div className="flex items-end text-gray-500 lg:pl-10 2xl:pl-20">
+                  ENCREASE (Entrepreneurial Creator School) <br/><br/>
                   To build software that gives customer-facing teams at small-
                   and medium sized businesses the ability to create fruitful and
                   enduring relationships with customers.
