@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import FilterReview from "./FilterReview";
 import { reviewRepository } from "../repository/review";
 import moment from "moment/moment";
+import { productsRepository } from "../repository/products";
 
 const Testimonials = ({ id }) => {
   const [pagePagination, setPagePagination] = useState(1);
@@ -18,17 +19,13 @@ const Testimonials = ({ id }) => {
   );
   const review = dataReview?.data;
 
+  const { data: dataDetailProduct } =
+    productsRepository.hooks.useDetailProduct(id);
+  const detailProduct = dataDetailProduct?.data;
+
   useEffect(() => {
     setTotalPage(dataReview?.meta?.totalItems);
   }, [dataReview]);
-
-  const calculateAverage = (data) => {
-    const result = [];
-    data?.map((item) => {
-      result.push(Number(item?.rate));
-    });
-    return (result.reduce((a, b) => a + b) / totalPage).toFixed(1);
-  };
 
   const handleChange = (e) => {
     if (e.target.checked) {
@@ -51,7 +48,7 @@ const Testimonials = ({ id }) => {
               <AiFillStar style={{ color: "orange" }} />
             </div>
             <span className="text-6xl font-semibold text-background">
-              {review?.length > 0 ? calculateAverage(review) : "0"}
+              {detailProduct ? ((detailProduct?.rate * 100) / 100).toFixed(1) : "0"}
             </span>
             <span className="text-base text-background/80">/5.0</span>
           </div>
