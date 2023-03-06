@@ -107,7 +107,7 @@ const ProductCard = ({
                     <p className="font-light">{rupiah(data?.price)}</p>
                     <span className="flex items-center gap-2 font-bold text-background">
                       <BsStarFill color="orange" />
-                      4.7
+                      {data?.rate}
                     </span>
                   </div>
                 </div>
