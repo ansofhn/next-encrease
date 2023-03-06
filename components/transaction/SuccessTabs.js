@@ -111,85 +111,85 @@ const SuccessTab = () => {
                 </button>
               </div>
             </div>
-            <Modal
-              open={open}
-              centered={true}
-              onCancel={() => {
-                setOpen(false);
-              }}
-              footer={[
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                  }}
-                  className="px-5 py-2 mb-5 text-sm font-medium bg-gray-200 rounded-md text-background"
-                >
-                  Cancel
-                </button>,
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    handleSubmit();
-                  }}
-                  className="px-6 py-2 mb-5 ml-3 mr-6 text-sm font-medium rounded-md bg-background text-softWhite"
-                >
-                  Submit
-                </button>,
-              ]}
-            >
-              <div className="px-6 pt-8 pb-2.5 space-y-6 font-poppins">
-                <div className="text-base font-semibold text-center text-background">
-                  Add Review
-                </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 p-2 overflow-hidden bg-gray-200 rounded-md md:w-24 md:h-24">
-                    <Image
-                      preview={false}
-                      src={`http://49.0.2.250:3002/file/${detail?.products[0]?.image[0]}`}
-                      className="scale-110 rounded-md"
-                      alt="Product Image"
-                    />
-                  </div>
-                  <div className="w-[65%] md:w-[60%]">
-                    <div className="text-sm font-semibold md:text-base text-background">
-                      {detail?.products[0]?.name}
-                    </div>
-                    <div className="text-xs font-semibold md:text-sm text-background/70">
-                      {rupiah(detail?.products[0]?.price)}
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div className="font-medium text-background/70">
-                    Your overall rating of this product
-                  </div>
-                  <div>
-                    <Rate
-                      onChange={(value) => setRate(value)}
-                      allowHalf
-                      className="text-yellow-400"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="font-semibold tex-sm text-background">
-                    Your Review
-                  </div>
-                  <div className="w-full px-4 py-3 bg-gray-100 rounded-md mb-14">
-                    <textarea
-                      ref={reviewRef}
-                      type="text"
-                      required
-                      className="w-full h-20 text-xs bg-transparent text-background/80 focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <hr className="border-gray-200" />
-              </div>
-            </Modal>
           </div>
         );
       })}
+      <Modal
+        open={open}
+        centered={true}
+        onCancel={() => {
+          setOpen(false);
+        }}
+        footer={[
+          <button
+            onClick={() => {
+              setOpen(false);
+            }}
+            className="px-5 py-2 mb-5 text-sm font-medium bg-gray-200 rounded-md text-background"
+          >
+            Cancel
+          </button>,
+          <button
+            onClick={() => {
+              setOpen(false);
+              handleSubmit();
+            }}
+            className="px-6 py-2 mb-5 ml-3 mr-6 text-sm font-medium rounded-md bg-background text-softWhite"
+          >
+            Submit
+          </button>,
+        ]}
+      >
+        <div className="px-6 pt-8 pb-2.5 space-y-6 font-poppins">
+          <div className="text-base font-semibold text-center text-background">
+            Add Review
+          </div>
+          <div className="flex items-center gap-6">
+            <div className="w-16 h-16 p-2 overflow-hidden bg-gray-200 rounded-md md:w-24 md:h-24">
+              <Image
+                preview={false}
+                src={`http://49.0.2.250:3002/file/${detail?.products[0]?.image[0]}`}
+                className="scale-110 rounded-md"
+                alt="Product Image"
+              />
+            </div>
+            <div className="w-[65%] md:w-[60%]">
+              <div className="text-sm font-semibold md:text-base text-background">
+                {detail?.products[0]?.name}
+              </div>
+              <div className="text-xs font-semibold md:text-sm text-background/70">
+                {rupiah(detail?.products[0]?.price)}
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="font-medium text-background/70">
+              Your overall rating of this product
+            </div>
+            <div>
+              <Rate
+                onChange={(value) => setRate(value)}
+                allowHalf
+                className="text-yellow-400"
+              />
+            </div>
+          </div>
+          <div className="space-y-3">
+            <div className="font-semibold tex-sm text-background">
+              Your Review
+            </div>
+            <div className="w-full px-4 py-3 bg-gray-100 rounded-md mb-14">
+              <textarea
+                ref={reviewRef}
+                type="text"
+                required
+                className="w-full h-20 text-xs bg-transparent text-background/80 focus:outline-none"
+              />
+            </div>
+          </div>
+          <hr className="border-gray-200" />
+        </div>
+      </Modal>
     </div>
   );
 };
