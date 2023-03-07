@@ -8,6 +8,7 @@ import jwtDecode from "jwt-decode";
 import { authentication } from "../../utils/authentication";
 import { InfoContact } from "../../components/InfoContact";
 import LandingPageLayout from "../../layouts/LandingPageLayout";
+import moment from "moment";
 
 
 const SuperAgent = require("superagent");
