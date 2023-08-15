@@ -33,7 +33,7 @@ const Footer = () => {
                 Contact us
               </h2>
               <div className="text-xs text-gray-400">
-                <div>tel. +62 856 9275 1958</div>
+                <div>tel. +62 899 9999 9999</div>
                 <div>encrease@gmail.com</div>
               </div>
             </div>
@@ -51,7 +51,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"https://discord.gg/dDjSMbSX"} target="_blank">
+                  <Link href={"https://discord.com/"} target="_blank">
                     <div className="hover:underline">Discord</div>
                   </Link>
                 </li>
